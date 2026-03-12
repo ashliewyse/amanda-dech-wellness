@@ -3,96 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amanda Dech, FNP-C | Aesthetics & Wellness</title>
+    <title>Amanda Dech, FNP-C | Wellness & Aesthetics</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
-        
-        :root {
-            --sage: #929C92;
-            --champagne: #F7F3F0;
-            --gold-accent: #C5A059;
-        }
-
+        :root { --sage: #929C92; --champagne: #F7F3F0; --gold: #C5A059; }
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
         .bg-sage { background-color: var(--sage); }
         .text-sage { color: var(--sage); }
         .bg-champagne { background-color: var(--champagne); }
-        .text-gold { color: var(--gold-accent); }
-        .border-gold { border-color: var(--gold-accent); }
     </style>
 </head>
-<body class="bg-champagne font-sans pb-24">
+<body class="bg-white font-sans pb-24">
 
-    <nav class="p-6 bg-white/80 backdrop-blur-md sticky top-0 z-50 flex justify-between items-center border-b border-gray-100">
-        <h1 class="text-xl font-serif font-bold tracking-wide text-gray-800 uppercase">Amanda Dech <span class="text-xs font-sans font-normal block md:inline md:ml-2">FNP-C</span></h1>
-        <a href="tel:2197286562" class="bg-sage text-white px-6 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition shadow-sm">Book Consultation</a>
+    <nav class="p-6 bg-white flex justify-between items-center sticky top-0 z-50 shadow-sm">
+        <h1 class="text-xl font-serif font-bold tracking-wide text-gray-800 uppercase">Amanda Dech <span class="text-xs font-sans font-normal text-gray-400">FNP-C</span></h1>
+        <a href="tel:2197286562" class="bg-sage text-white px-6 py-2 rounded-full text-sm font-bold shadow-sm">Call Now</a>
     </nav>
 
-    <section class="relative overflow-hidden bg-white py-16 md:py-24">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="text-gold font-semibold tracking-widest uppercase text-xs">The Spa Day Experience</span>
-                <h2 class="text-5xl md:text-7xl font-serif mt-4 mb-6 text-gray-900 leading-tight">Refresh. <br>Restore. <br><span class="text-sage italic">Radiate.</span></h2>
-                <p class="text-gray-600 text-lg mb-8 leading-relaxed">Expertly delivered aesthetics by a Board-Certified Nurse Practitioner. We specialize in natural results that make you look like you, only more rested.</p>
-                <div class="flex gap-4">
-                    <a href="#aesthetics" class="bg-sage text-white px-8 py-4 rounded-full font-bold shadow-lg hover:-translate-y-1 transition-all">View Treatments</a>
-                    <a href="sms:2197286562" class="border border-gray-200 px-8 py-4 rounded-full font-bold hover:bg-gray-50 transition-all text-gray-700">Text to Inquire</a>
-                </div>
-            </div>
-            <div class="h-[400px] md:h-[600px] bg-gray-100 rounded-[2rem] overflow-hidden shadow-2xl relative">
-                <div class="absolute inset-0 flex items-center justify-center text-gray-400 italic">
-                    [Place Professional Aesthetic Photo Here]
-                </div>
+    <div class="flex flex-col md:flex-row min-h-[85vh]">
+        
+        <div class="flex-1 bg-champagne flex flex-col justify-center items-center p-12 text-center border-b md:border-b-0 md:border-r border-gray-100 group transition-all duration-500 hover:flex-[1.2]">
+            <span class="text-xs font-bold tracking-widest text-[#C5A059] uppercase mb-2">The Glow Path</span>
+            <h2 class="text-5xl md:text-7xl font-serif mb-6 text-gray-800">Spa Day</h2>
+            <p class="text-gray-600 mb-8 max-w-xs leading-relaxed">Refresh your confidence with [Botox, Fillers](https://agelessindy.com/treatments/injectables/), and medical-grade skincare.</p>
+            <a href="#aesthetics" class="border-2 border-gray-800 text-gray-800 px-10 py-4 rounded-full font-bold hover:bg-gray-800 hover:text-white transition-all uppercase text-xs tracking-widest">Explore Aesthetics</a>
+        </div>
+
+        <div class="flex-1 bg-sage flex flex-col justify-center items-center p-12 text-center text-white group transition-all duration-500 hover:flex-[1.2]">
+            <span class="text-xs font-bold tracking-widest text-white/70 uppercase mb-2">The Care Path</span>
+            <h2 class="text-5xl md:text-7xl font-serif mb-6">Sick Day</h2>
+            <p class="text-white/80 mb-8 max-w-xs leading-relaxed">Medical [Primary Care](https://www.elitefnp.org/) and [Weight Loss](https://www.elitefnp.org/blank-2) visits to get you back to your best.</p>
+            <a href="#medical" class="bg-white text-sage px-10 py-4 rounded-full font-bold hover:shadow-2xl transition-all uppercase text-xs tracking-widest">See Medical Care</a>
+        </div>
+
+    </div>
+
+    <section id="aesthetics" class="py-20 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl font-serif mb-4">Aesthetic Services</h3>
+            <p class="text-gray-500 mb-10 italic text-sm">Targeted treatments for natural radiance.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <div class="p-4 border border-gray-100 rounded-lg">Botox</div>
+                <div class="p-4 border border-gray-100 rounded-lg">Fillers</div>
+                <div class="p-4 border border-gray-100 rounded-lg">Kybella</div>
+                <div class="p-4 border border-gray-100 rounded-lg">B12 Shots</div>
             </div>
         </div>
     </section>
 
-    <section id="aesthetics" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h3 class="text-3xl font-serif text-center mb-16">Aesthetic Offerings</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="flex gap-6 items-start">
-                    <span class="text-gold font-serif text-2xl">01</span>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2">Injectables & Fillers</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed">Precision Botox and dermal fillers to soften lines and restore facial volume with a focus on natural symmetry.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
-                    <span class="text-gold font-serif text-2xl">02</span>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2">Kybella Therapy</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed">Targeted permanent fat reduction under the chin for a more contoured, youthful jawline profile.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
-                    <span class="text-gold font-serif text-2xl">03</span>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2">Vitamin B12 Injections</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed">Boost your natural energy levels and metabolic health with medical-grade vitamin therapy.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 items-start">
-                    <span class="text-gold font-serif text-2xl">04</span>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2">IV Immunity Infusions</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed">Custom blended IV hydration and nutrients to recover faster and glow from the inside out.</p>
-                    </div>
-                </div>
+    <section id="medical" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl font-serif mb-4">Medical & Wellness</h3>
+            <p class="text-gray-500 mb-10 italic text-sm">Professional care for your long-term health.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <div class="p-4 border border-gray-200 rounded-lg">Sick Visits</div>
+                <div class="p-4 border border-gray-200 rounded-lg">Weight Loss</div>
+                <div class="p-4 border border-gray-200 rounded-lg">Lab Work</div>
+                <div class="p-4 border border-gray-200 rounded-lg">Telehealth</div>
             </div>
         </div>
     </section>
 
-    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] md:w-auto bg-white/90 backdrop-blur-xl border border-white/20 shadow-2xl rounded-full p-2 flex gap-2 z-50">
-        <a href="tel:2197286562" class="bg-sage text-white px-6 py-3 rounded-full flex items-center gap-2 font-bold text-sm uppercase tracking-tighter">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C10.12 18 2 9.88 2 2V3z"></path></svg>
-            Call
-        </a>
-        <a href="sms:2197286562" class="bg-gray-800 text-white px-6 py-3 rounded-full flex items-center gap-2 font-bold text-sm uppercase tracking-tighter">
-            Text
-        </a>
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] md:hidden bg-white/90 backdrop-blur-md shadow-2xl rounded-full p-2 flex gap-2 z-50 border border-gray-100">
+        <a href="tel:2197286562" class="flex-1 bg-sage text-white py-4 rounded-full text-center font-bold text-xs uppercase tracking-widest">Call</a>
+        <a href="sms:2197286562" class="flex-1 bg-gray-800 text-white py-4 rounded-full text-center font-bold text-xs uppercase tracking-widest">Text</a>
     </div>
 
 </body>
