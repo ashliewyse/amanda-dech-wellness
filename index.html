@@ -9,6 +9,20 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
+        
+        /* Video Intro Overlay */
+        #video-intro {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: white;
+            transition: opacity 1s ease-out, visibility 1s;
+        }
+        .intro-fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -19,6 +33,12 @@
     </style>
 </head>
 <body class="bg-white font-sans text-gray-800 antialiased overflow-hidden">
+
+    <div id="video-intro">
+        <video id="opening-video" autoplay muted playsinline class="w-full h-full object-cover">
+            <source src="intro.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <nav class="p-4 bg-white/90 backdrop-blur-md flex justify-between items-center sticky top-0 z-50 border-b border-gray-100">
         <div class="flex items-center gap-3">
@@ -34,8 +54,9 @@
                 <p class="text-[10px] font-sans font-bold tracking-[0.2em] text-gray-400 uppercase mt-1">Elite Family Nurse Practitioners</p>
             </div>
         </div>
-        <div class="flex items-center gap-2">
-            <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md">Call Now</a>
+        <div class="flex flex-col items-end">
+            <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md mb-1">Call Now</a>
+            <span class="text-[8px] text-gray-400 font-bold uppercase tracking-tighter text-right">1531 S Calumet Rd, Chesterton</span>
         </div>
     </nav>
 
@@ -81,5 +102,19 @@
         </div>
     </div>
 
+    <script>
+        const video = document.getElementById('opening-video');
+        const intro = document.getElementById('video-intro');
+
+        // Fades out the intro after the video finishes playing
+        video.onended = function() {
+            intro.classList.add('intro-fade-out');
+        };
+
+        // If the video doesn't play or is longer than 5 seconds, it fades anyway
+        setTimeout(() => {
+            intro.classList.add('intro-fade-out');
+        }, 5000);
+    </script>
 </body>
 </html>
