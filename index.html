@@ -8,55 +8,81 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
         
-        /* Updated to her Purple Palette */
         :root { 
-            --deep-purple: #6B4E71; /* A rich, professional plum */
-            --light-purple: #F3EAF4; /* A soft lavender tint for the background */
+            --purple: #6B4E71; 
             --sage: #929C92; 
+            --lavender: #F3EAF4;
         }
 
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
-        .bg-purple-main { background-color: var(--deep-purple); }
-        .text-purple-main { color: var(--deep-purple); }
-        .bg-lavender { background-color: var(--light-purple); }
+        
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Animated Background Blobs */
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(107, 78, 113, 0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(60px);
+        }
     </style>
 </head>
-<body class="bg-white font-sans pb-24">
+<body class="bg-white font-sans overflow-x-hidden">
 
-    <nav class="p-4 bg-white flex justify-between items-center sticky top-0 z-50 shadow-sm">
+    <div class="blob top-0 -left-20 animate-pulse"></div>
+    <div class="blob bottom-0 -right-20" style="background: radial-gradient(circle, rgba(146, 156, 146, 0.1) 0%, rgba(255,255,255,0) 70%);"></div>
+
+    <nav class="p-4 bg-white/80 backdrop-blur-md flex justify-between items-center sticky top-0 z-50 border-b border-gray-100">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-purple-main rounded-full flex items-center justify-center text-white font-bold text-xs shadow-md">
-                AD
+            <div class="text-[#6B4E71]">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    <circle cx="18" cy="11" r="3" />
+                    <path d="M18 14v4" />
+                </svg>
             </div>
-            <h1 class="text-xl font-serif font-bold tracking-wide text-gray-800 uppercase">
-                Amanda Dech <span class="text-xs font-sans font-normal text-gray-400 block md:inline">FNP-C</span>
-            </h1>
+            <h1 class="text-xl font-serif font-bold tracking-tight text-gray-800 uppercase">Amanda Dech <span class="text-xs font-sans font-normal text-gray-400">FNP-C</span></h1>
         </div>
-        <a href="tel:2197286562" class="bg-purple-main text-white px-6 py-2 rounded-full text-sm font-bold shadow-sm hover:opacity-90 transition">Call Now</a>
+        <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg hover:scale-105 transition-all">Call Now</a>
     </nav>
 
-    <div class="flex flex-col md:flex-row min-h-[85vh]">
+    <div class="relative flex flex-col md:flex-row min-h-[90vh]">
         
-        <div class="flex-1 bg-lavender flex flex-col justify-center items-center p-12 text-center border-b md:border-b-0 md:border-r border-gray-100 group transition-all duration-500 hover:flex-[1.2]">
-            <span class="text-xs font-bold tracking-widest text-purple-main uppercase mb-2">The Glow Path</span>
-            <h2 class="text-5xl md:text-7xl font-serif mb-6 text-gray-800">Spa Day</h2>
-            <p class="text-gray-600 mb-8 max-w-xs leading-relaxed">
-                Refresh your confidence with [Botox & Fillers](https://agelessindy.com/) and medical-grade aesthetics.
-            </p>
-            <a href="#aesthetics" class="bg-purple-main text-white px-10 py-4 rounded-full font-bold hover:shadow-2xl transition-all uppercase text-xs tracking-widest">Explore Aesthetics</a>
+        <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-32 h-32 glass-card rounded-full items-center justify-center shadow-2xl border-white/50">
+             <div class="text-[#6B4E71] animate-bounce">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+             </div>
         </div>
 
-        <div class="flex-1 bg-[#929C92] flex flex-col justify-center items-center p-12 text-center text-white group transition-all duration-500 hover:flex-[1.2]">
-            <span class="text-xs font-bold tracking-widest text-white/70 uppercase mb-2">The Care Path</span>
-            <h2 class="text-5xl md:text-7xl font-serif mb-6">Sick Day</h2>
-            <p class="text-white/80 mb-8 max-w-xs leading-relaxed">
-                Medical [Primary Care](https://www.elitefnp.org/) and [Weight Loss](https://www.elitefnp.org/blank-2) for your long-term health.
-            </p>
-            <a href="#medical" class="bg-white text-[#929C92] px-10 py-4 rounded-full font-bold hover:shadow-2xl transition-all uppercase text-xs tracking-widest">See Medical Care</a>
+        <div class="flex-1 bg-[#F3EAF4]/40 flex flex-col justify-center items-center p-12 text-center group">
+            <h2 class="text-6xl font-serif mb-6 text-gray-800 group-hover:scale-110 transition-transform">Spa Day</h2>
+            <p class="text-gray-600 mb-8 max-w-xs leading-relaxed">Luxury [Botox & Fillers](https://agelessindy.com/) and restorative medical aesthetics.</p>
+            <button class="glass-card text-[#6B4E71] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-[#6B4E71] hover:text-white transition-all shadow-xl">Explore Aesthetics</button>
         </div>
 
+        <div class="flex-1 bg-[#929C92]/10 flex flex-col justify-center items-center p-12 text-center group">
+            <h2 class="text-6xl font-serif mb-6 text-gray-800 group-hover:scale-110 transition-transform">Sick Day</h2>
+            <p class="text-gray-600 mb-8 max-w-xs leading-relaxed">Compassionate [Primary Care](https://www.elitefnp.org/) and expert [Weight Loss](https://www.elitefnp.org/blank-2) management.</p>
+            <button class="glass-card text-[#929C92] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-[#929C92] hover:text-white transition-all shadow-xl">See Medical Care</button>
+        </div>
     </div>
 
-    </body>
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[90%] md:w-auto glass-card rounded-full p-2 flex gap-3 z-50 shadow-2xl">
+        <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow-md">Call</a>
+        <a href="sms:2197286562" class="bg-gray-800 text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow-md">Text</a>
+    </div>
+
+</body>
 </html>
