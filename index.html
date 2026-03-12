@@ -7,69 +7,56 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
-        :root { --sage: #929C92; --champagne: #F7F3F0; --gold: #C5A059; }
+        
+        /* Updated to her Purple Palette */
+        :root { 
+            --deep-purple: #6B4E71; /* A rich, professional plum */
+            --light-purple: #F3EAF4; /* A soft lavender tint for the background */
+            --sage: #929C92; 
+        }
+
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
-        .bg-sage { background-color: var(--sage); }
-        .text-sage { color: var(--sage); }
-        .bg-champagne { background-color: var(--champagne); }
+        .bg-purple-main { background-color: var(--deep-purple); }
+        .text-purple-main { color: var(--deep-purple); }
+        .bg-lavender { background-color: var(--light-purple); }
     </style>
 </head>
 <body class="bg-white font-sans pb-24">
 
-    <nav class="p-6 bg-white flex justify-between items-center sticky top-0 z-50 shadow-sm">
-        <h1 class="text-xl font-serif font-bold tracking-wide text-gray-800 uppercase">Amanda Dech <span class="text-xs font-sans font-normal text-gray-400">FNP-C</span></h1>
-        <a href="tel:2197286562" class="bg-sage text-white px-6 py-2 rounded-full text-sm font-bold shadow-sm">Call Now</a>
+    <nav class="p-4 bg-white flex justify-between items-center sticky top-0 z-50 shadow-sm">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-purple-main rounded-full flex items-center justify-center text-white font-bold text-xs shadow-md">
+                AD
+            </div>
+            <h1 class="text-xl font-serif font-bold tracking-wide text-gray-800 uppercase">
+                Amanda Dech <span class="text-xs font-sans font-normal text-gray-400 block md:inline">FNP-C</span>
+            </h1>
+        </div>
+        <a href="tel:2197286562" class="bg-purple-main text-white px-6 py-2 rounded-full text-sm font-bold shadow-sm hover:opacity-90 transition">Call Now</a>
     </nav>
 
     <div class="flex flex-col md:flex-row min-h-[85vh]">
         
-        <div class="flex-1 bg-champagne flex flex-col justify-center items-center p-12 text-center border-b md:border-b-0 md:border-r border-gray-100 group transition-all duration-500 hover:flex-[1.2]">
-            <span class="text-xs font-bold tracking-widest text-[#C5A059] uppercase mb-2">The Glow Path</span>
+        <div class="flex-1 bg-lavender flex flex-col justify-center items-center p-12 text-center border-b md:border-b-0 md:border-r border-gray-100 group transition-all duration-500 hover:flex-[1.2]">
+            <span class="text-xs font-bold tracking-widest text-purple-main uppercase mb-2">The Glow Path</span>
             <h2 class="text-5xl md:text-7xl font-serif mb-6 text-gray-800">Spa Day</h2>
-            <p class="text-gray-600 mb-8 max-w-xs leading-relaxed">Refresh your confidence with [Botox, Fillers](https://agelessindy.com/treatments/injectables/), and medical-grade skincare.</p>
-            <a href="#aesthetics" class="border-2 border-gray-800 text-gray-800 px-10 py-4 rounded-full font-bold hover:bg-gray-800 hover:text-white transition-all uppercase text-xs tracking-widest">Explore Aesthetics</a>
+            <p class="text-gray-600 mb-8 max-w-xs leading-relaxed">
+                Refresh your confidence with [Botox & Fillers](https://agelessindy.com/) and medical-grade aesthetics.
+            </p>
+            <a href="#aesthetics" class="bg-purple-main text-white px-10 py-4 rounded-full font-bold hover:shadow-2xl transition-all uppercase text-xs tracking-widest">Explore Aesthetics</a>
         </div>
 
-        <div class="flex-1 bg-sage flex flex-col justify-center items-center p-12 text-center text-white group transition-all duration-500 hover:flex-[1.2]">
+        <div class="flex-1 bg-[#929C92] flex flex-col justify-center items-center p-12 text-center text-white group transition-all duration-500 hover:flex-[1.2]">
             <span class="text-xs font-bold tracking-widest text-white/70 uppercase mb-2">The Care Path</span>
             <h2 class="text-5xl md:text-7xl font-serif mb-6">Sick Day</h2>
-            <p class="text-white/80 mb-8 max-w-xs leading-relaxed">Medical [Primary Care](https://www.elitefnp.org/) and [Weight Loss](https://www.elitefnp.org/blank-2) visits to get you back to your best.</p>
-            <a href="#medical" class="bg-white text-sage px-10 py-4 rounded-full font-bold hover:shadow-2xl transition-all uppercase text-xs tracking-widest">See Medical Care</a>
+            <p class="text-white/80 mb-8 max-w-xs leading-relaxed">
+                Medical [Primary Care](https://www.elitefnp.org/) and [Weight Loss](https://www.elitefnp.org/blank-2) for your long-term health.
+            </p>
+            <a href="#medical" class="bg-white text-[#929C92] px-10 py-4 rounded-full font-bold hover:shadow-2xl transition-all uppercase text-xs tracking-widest">See Medical Care</a>
         </div>
 
     </div>
 
-    <section id="aesthetics" class="py-20 px-6 bg-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-3xl font-serif mb-4">Aesthetic Services</h3>
-            <p class="text-gray-500 mb-10 italic text-sm">Targeted treatments for natural radiance.</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-bold uppercase tracking-widest text-gray-400">
-                <div class="p-4 border border-gray-100 rounded-lg">Botox</div>
-                <div class="p-4 border border-gray-100 rounded-lg">Fillers</div>
-                <div class="p-4 border border-gray-100 rounded-lg">Kybella</div>
-                <div class="p-4 border border-gray-100 rounded-lg">B12 Shots</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="medical" class="py-20 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-3xl font-serif mb-4">Medical & Wellness</h3>
-            <p class="text-gray-500 mb-10 italic text-sm">Professional care for your long-term health.</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-bold uppercase tracking-widest text-gray-400">
-                <div class="p-4 border border-gray-200 rounded-lg">Sick Visits</div>
-                <div class="p-4 border border-gray-200 rounded-lg">Weight Loss</div>
-                <div class="p-4 border border-gray-200 rounded-lg">Lab Work</div>
-                <div class="p-4 border border-gray-200 rounded-lg">Telehealth</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] md:hidden bg-white/90 backdrop-blur-md shadow-2xl rounded-full p-2 flex gap-2 z-50 border border-gray-100">
-        <a href="tel:2197286562" class="flex-1 bg-sage text-white py-4 rounded-full text-center font-bold text-xs uppercase tracking-widest">Call</a>
-        <a href="sms:2197286562" class="flex-1 bg-gray-800 text-white py-4 rounded-full text-center font-bold text-xs uppercase tracking-widest">Text</a>
-    </div>
-
-</body>
+    </body>
 </html>
