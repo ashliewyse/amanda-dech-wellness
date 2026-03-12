@@ -106,4 +106,13 @@
         const intro = document.getElementById('video-intro');
 
         video.onended = function() {
-            intro.classList.
+            intro.classList.add('intro-fade-out');
+        };
+
+        // Safety timeout in case video loading is slow
+        setTimeout(() => {
+            intro.classList.add('intro-fade-out');
+        }, 6000);
+    </script>
+</body>
+</html>
