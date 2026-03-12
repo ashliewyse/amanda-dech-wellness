@@ -7,21 +7,37 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
-        :root { --purple: #6B4E71; --sage: #929C92; --lavender: #F3EAF4; }
+        
+        :root {
+            --purple: #6B4E71;
+            --sage: #929C92;
+            --lavender: #F3EAF4;
+        }
+
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
-        .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.4); }
-        .bg-layer { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; overflow: hidden; }
-        .glow-blob { position: absolute; width: 600px; height: 600px; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: pulse 10s infinite alternate; }
-        @keyframes pulse { from { transform: translate(0, 0) scale(1); } to { transform: translate(10%, 10%) scale(1.1); } }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .animate-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        .animate-scroll:hover { animation-play-state: paused; }
     </style>
 </head>
-<body class="bg-[#FAF9F6] font-sans text-gray-800 antialiased pb-24">
-
-    <div class="bg-layer">
-        <div class="glow-blob top-[-10%] left-[-10%] bg-[#6B4E71]"></div>
-        <div class="glow-blob bottom-[-10%] right-[-10%] bg-[#929C92]" style="animation-delay: 3s;"></div>
-    </div>
+<body class="bg-[#FAF9F6] font-sans text-gray-800 antialiased overflow-hidden">
 
     <nav class="p-4 bg-white/80 backdrop-blur-md flex justify-between items-center sticky top-0 z-50 border-b border-gray-100">
         <div class="flex items-center gap-3">
@@ -32,7 +48,8 @@
                 </svg>
             </div>
             <h1 class="text-lg font-serif font-bold tracking-tight uppercase leading-none text-[#6B4E71]">
-                Amanda Dech <br><span class="text-[9px] font-sans font-normal text-gray-400 tracking-widest uppercase">Wellness & Aesthetics</span>
+                Amanda Dech <br>
+                <span class="text-[9px] font-sans font-normal text-gray-400 tracking-widest uppercase">Wellness & Aesthetics</span>
             </h1>
         </div>
         <div class="flex items-center gap-2">
@@ -41,15 +58,12 @@
         </div>
     </nav>
 
-<main class="relative flex flex-col md:flex-row h-[calc(100vh-73px)] overflow-hidden">
+    <main class="relative flex flex-col md:flex-row h-[calc(100vh-73px)]">
         
-        <div class="flex-1 flex flex-col justify-center items-center p-6 text-center group relative border-b md:border-b-0">
-          <main class="relative flex flex-col md:flex-row h-[calc(100vh-73px)] overflow-hidden">
-        
-        <div class="flex-1 flex flex-col justify-center items-center p-6 text-center group relative border-b md:border-b-0">
+        <div class="flex-1 flex flex-col justify-center items-center p-6 text-center group relative border-b md:border-b-0 overflow-hidden">
             <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" 
                  style="background-image: url('https://images.unsplash.com/photo-1544161515-436cefb65794?auto=format&fit=crop&q=80&w=1000');"></div>
-            <div class="absolute inset-0 bg-[#F3EAF4]/20 z-10"></div>
+            <div class="absolute inset-0 bg-[#F3EAF4]/30 z-10"></div>
             
             <div class="relative z-20">
                 <span class="text-[10px] font-bold tracking-[0.3em] text-[#6B4E71] uppercase mb-2 block drop-shadow-md">The Glow Path</span>
@@ -59,51 +73,6 @@
             </div>
         </div>
 
-        <div class="flex-1 flex flex-col justify-center items-center p-6 text-center group relative md:border-l border-white/50">
+        <div class="flex-1 flex flex-col justify-center items-center p-6 text-center group relative md:border-l border-white/50 overflow-hidden">
             <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" 
-                 style="background-image: url('https://static.wixstatic.com/media/893c83_2969968846c243888362489115b7447d~mv2.jpg/v1/fill/w_1342,h_1384,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/893c83_2969968846c243888362489115b7447d~mv2.jpg');"></div>
-            <div class="absolute inset-0 bg-black/30 z-10"></div>
-
-            <div class="relative z-20">
-                <span class="text-[10px] font-extrabold tracking-[0.3em] text-white uppercase mb-2 block drop-shadow-2xl">The Care Path</span>
-                <h2 class="text-5xl md:text-8xl font-serif mb-4 tracking-tighter text-white drop-shadow-2xl">Sick Day</h2>
-                <p class="text-white mb-6 max-w-xs text-sm md:text-base leading-relaxed font-bold drop-shadow-lg">Primary care and medical weight loss.</p>
-                <a href="tel:2197286562" class="glass-card px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] text-white hover:bg-[#929C92] transition-all shadow-xl border-white/40">Book Medical Care</a>
-            </div>
-        </div>
-    </main>
-
-    <div class="fixed bottom-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl border-t border-gray-100 shadow-2xl overflow-hidden">
-        <div class="flex py-3 gap-6 animate-scroll whitespace-nowrap items-center">
-            <div class="flex gap-6 items-center">
-                <div class="min-w-[300px] bg-white/40 p-3 rounded-2xl border border-white/30 shadow-sm text-[12px] text-gray-800 italic">
-                    "Amanda is incredible! Fillers were made easy and natural." <span class="not-italic font-bold ml-2 text-[#6B4E71]"> — Sarah M.</span>
-                </div>
-                <div class="min-w-[300px] bg-white/40 p-3 rounded-2xl border border-white/30 shadow-sm text-[12px] text-gray-800 italic">
-                    "Finally a practitioner who listens. Weight loss actually works!" <span class="not-italic font-bold ml-2 text-[#6B4E71]"> — Jason R.</span>
-                </div>
-                <div class="min-w-[300px] bg-white/40 p-3 rounded-2xl border border-white/30 shadow-sm text-[12px] text-gray-800 italic">
-                    "Elite FNP is the only place I'll go for my family." <span class="not-italic font-bold ml-2 text-[#6B4E71]"> — Maria L.</span>
-                </div>
-            </div>
-            <div class="flex gap-6 items-center">
-                <div class="min-w-[300px] bg-white/40 p-3 rounded-2xl border border-white/30 shadow-sm text-[12px] text-gray-800 italic">
-                    "Amanda is incredible! Fillers were made easy and natural." <span class="not-italic font-bold ml-2 text-[#6B4E71]"> — Sarah M.</span>
-                </div>
-                <div class="min-w-[300px] bg-white/40 p-3 rounded-2xl border border-white/30 shadow-sm text-[12px] text-gray-800 italic">
-                    "Finally a practitioner who listens. Weight loss actually works!" <span class="not-italic font-bold ml-2 text-[#6B4E71]"> — Jason R.</span>
-                </div>
-                <div class="min-w-[300px] bg-white/40 p-3 rounded-2xl border border-white/30 shadow-sm text-[12px] text-gray-800 italic">
-                    "Elite FNP is the only place I'll go for my family." <span class="not-italic font-bold ml-2 text-[#6B4E71]"> — Maria L.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .animate-scroll { display: flex; width: max-content; animation: scroll 40s linear infinite; }
-        .animate-scroll:hover { animation-play-state: paused; }
-    </style>
-</body>
-</html>
+                 style="background-image: url('
