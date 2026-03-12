@@ -19,69 +19,110 @@
         
         /* Glassmorphism Effect */
         .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
-        /* Animated Background Blobs */
-        .blob {
+        /* Animated Background Glows */
+        .glow-blob {
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(107, 78, 113, 0.1) 0%, rgba(255,255,255,0) 70%);
+            width: 600px;
+            height: 600px;
             border-radius: 50%;
             z-index: -1;
-            filter: blur(60px);
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: pulse 8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1) translate(0, 0); }
+            to { transform: scale(1.2) translate(5%, 5%); }
         }
     </style>
 </head>
-<body class="bg-white font-sans overflow-x-hidden">
+<body class="bg-[#FAF9F6] font-sans overflow-x-hidden">
 
-    <div class="blob top-0 -left-20 animate-pulse"></div>
-    <div class="blob bottom-0 -right-20" style="background: radial-gradient(circle, rgba(146, 156, 146, 0.1) 0%, rgba(255,255,255,0) 70%);"></div>
+    <div class="glow-blob top-[-10%] left-[-10%] bg-[#6B4E71]"></div>
+    <div class="glow-blob bottom-[-10%] right-[-10%] bg-[#929C92]" style="animation-delay: 2s;"></div>
 
-    <nav class="p-4 bg-white/80 backdrop-blur-md flex justify-between items-center sticky top-0 z-50 border-b border-gray-100">
+    <nav class="p-4 bg-white/70 backdrop-blur-md flex justify-between items-center sticky top-0 z-50 border-b border-white/20">
         <div class="flex items-center gap-3">
-            <div class="text-[#6B4E71]">
+             <div class="text-[#6B4E71]">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                     <circle cx="18" cy="11" r="3" />
                     <path d="M18 14v4" />
                 </svg>
             </div>
-            <h1 class="text-xl font-serif font-bold tracking-tight text-gray-800 uppercase">Amanda Dech <span class="text-xs font-sans font-normal text-gray-400">FNP-C</span></h1>
+            <h1 class="text-xl font-serif font-bold tracking-tight text-gray-800 uppercase leading-none">
+                Amanda Dech <br><span class="text-[10px] font-sans font-normal text-gray-400 tracking-widest">Wellness & Aesthetics</span>
+            </h1>
         </div>
-        <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg hover:scale-105 transition-all">Call Now</a>
+        <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg hover:bg-gray-800 transition-all">Call Now</a>
     </nav>
 
-    <div class="relative flex flex-col md:flex-row min-h-[90vh]">
+    <div class="relative flex flex-col md:flex-row min-h-[85vh] items-stretch">
         
-        <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-32 h-32 glass-card rounded-full items-center justify-center shadow-2xl border-white/50">
-             <div class="text-[#6B4E71] animate-bounce">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                </svg>
-             </div>
+        <div class="flex-1 flex flex-col justify-center items-center p-12 text-center group relative overflow-hidden">
+            <div class="absolute inset-0 bg-white/20 group-hover:bg-white/0 transition-all duration-500"></div>
+            <div class="relative z-10">
+                <span class="text-xs font-bold tracking-[0.2em] text-[#6B4E71] uppercase mb-4 block">The Glow Path</span>
+                <h2 class="text-6xl md:text-8xl font-serif mb-6 text-gray-800 tracking-tight">Spa Day</h2>
+                <p class="text-gray-600 mb-10 max-w-xs mx-auto text-lg leading-relaxed">Refresh your confidence with premium Botox, Fillers, and customized medical aesthetics.</p>
+                <a href="#aesthetics" class="glass-card inline-block px-12 py-5 rounded-full font-bold uppercase tracking-widest text-[10px] text-gray-800 hover:bg-[#6B4E71] hover:text-white transition-all shadow-xl">Explore Aesthetics</a>
+            </div>
         </div>
 
-        <div class="flex-1 bg-[#F3EAF4]/40 flex flex-col justify-center items-center p-12 text-center group">
-            <h2 class="text-6xl font-serif mb-6 text-gray-800 group-hover:scale-110 transition-transform">Spa Day</h2>
-            <p class="text-gray-600 mb-8 max-w-xs leading-relaxed">Luxury [Botox & Fillers](https://agelessindy.com/) and restorative medical aesthetics.</p>
-            <button class="glass-card text-[#6B4E71] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-[#6B4E71] hover:text-white transition-all shadow-xl">Explore Aesthetics</button>
-        </div>
-
-        <div class="flex-1 bg-[#929C92]/10 flex flex-col justify-center items-center p-12 text-center group">
-            <h2 class="text-6xl font-serif mb-6 text-gray-800 group-hover:scale-110 transition-transform">Sick Day</h2>
-            <p class="text-gray-600 mb-8 max-w-xs leading-relaxed">Compassionate [Primary Care](https://www.elitefnp.org/) and expert [Weight Loss](https://www.elitefnp.org/blank-2) management.</p>
-            <button class="glass-card text-[#929C92] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-[#929C92] hover:text-white transition-all shadow-xl">See Medical Care</button>
+        <div class="flex-1 flex flex-col justify-center items-center p-12 text-center group relative border-t md:border-t-0 md:border-l border-white/30">
+            <div class="absolute inset-0 bg-[#929C92]/5 group-hover:bg-[#929C92]/10 transition-all duration-500"></div>
+            <div class="relative z-10">
+                <span class="text-xs font-bold tracking-[0.2em] text-[#929C92] uppercase mb-4 block">The Care Path</span>
+                <h2 class="text-6xl md:text-8xl font-serif mb-6 text-gray-800 tracking-tight">Sick Day</h2>
+                <p class="text-gray-600 mb-10 max-w-xs mx-auto text-lg leading-relaxed">Compassionate [Primary Care](https://www.elitefnp.org/) and [Weight Loss](https://www.elitefnp.org/blank-2) tailored to your health journey.</p>
+                <a href="#medical" class="glass-card inline-block px-12 py-5 rounded-full font-bold uppercase tracking-widest text-[10px] text-gray-800 hover:bg-[#929C92] hover:text-white transition-all shadow-xl">See Medical Care</a>
+            </div>
         </div>
     </div>
 
-    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[90%] md:w-auto glass-card rounded-full p-2 flex gap-3 z-50 shadow-2xl">
-        <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow-md">Call</a>
-        <a href="sms:2197286562" class="bg-gray-800 text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow-md">Text</a>
+    <section class="py-24 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-10 rounded-[2.5rem] text-center">
+                <div class="w-12 h-12 bg-[#F3EAF4] text-[#6B4E71] rounded-2xl flex items-center justify-center mx-auto mb-6">✨</div>
+                <h3 class="font-serif text-2xl mb-4">Aesthetics</h3>
+                <ul class="text-sm text-gray-500 space-y-3">
+                    <li>Botox & Dermal Fillers</li>
+                    <li>Kybella Jawline Contouring</li>
+                    <li>Medical Grade Facials</li>
+                </ul>
+            </div>
+            <div class="glass-card p-10 rounded-[2.5rem] text-center border-t-4 border-[#6B4E71]/20">
+                <div class="w-12 h-12 bg-[#F3EAF4] text-[#6B4E71] rounded-2xl flex items-center justify-center mx-auto mb-6">🩺</div>
+                <h3 class="font-serif text-2xl mb-4">Wellness</h3>
+                <ul class="text-sm text-gray-500 space-y-3">
+                    <li>Medical Weight Loss (GLP-1)</li>
+                    <li>IV Vitamin Therapy</li>
+                    <li>HRT Management</li>
+                </ul>
+            </div>
+            <div class="glass-card p-10 rounded-[2.5rem] text-center">
+                <div class="w-12 h-12 bg-[#F3EAF4] text-[#6B4E71] rounded-2xl flex items-center justify-center mx-auto mb-6">🩹</div>
+                <h3 class="font-serif text-2xl mb-4">Primary Care</h3>
+                <ul class="text-sm text-gray-500 space-y-3">
+                    <li>Sick & Well Visits</li>
+                    <li>Women's Health/PAPs</li>
+                    <li>Rapid Testing (Flu/COVID)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[92%] md:w-auto glass-card rounded-full p-2 flex gap-2 z-50 shadow-2xl border-white/50">
+        <a href="tel:2197286562" class="flex-1 bg-[#6B4E71] text-white py-4 px-8 rounded-full text-center font-bold text-[10px] uppercase tracking-widest hover:scale-105 transition-transform">Call Now</a>
+        <a href="sms:2197286562" class="flex-1 bg-gray-800 text-white py-4 px-8 rounded-full text-center font-bold text-[10px] uppercase tracking-widest hover:scale-105 transition-transform">Text Us</a>
     </div>
 
 </body>
