@@ -29,4 +29,4 @@ This project demonstrates my ability to:
 3. Build a responsive, production-ready site from scratch.
 
 ---
-*Created by [Your Name]*.
+*Created by Ashlie Wyse*.
