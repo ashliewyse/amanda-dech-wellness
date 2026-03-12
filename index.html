@@ -10,7 +10,6 @@
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
         
-        /* Video Intro Overlay */
         #video-intro {
             position: fixed;
             inset: 0;
@@ -36,7 +35,7 @@
 
     <div id="video-intro">
         <video id="opening-video" autoplay muted playsinline class="w-full h-full object-cover">
-            <source src="intro.mp4" type="video/mp4">
+            <source src="vid.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -106,15 +105,5 @@
         const video = document.getElementById('opening-video');
         const intro = document.getElementById('video-intro');
 
-        // Fades out the intro after the video finishes playing
         video.onended = function() {
-            intro.classList.add('intro-fade-out');
-        };
-
-        // If the video doesn't play or is longer than 5 seconds, it fades anyway
-        setTimeout(() => {
-            intro.classList.add('intro-fade-out');
-        }, 5000);
-    </script>
-</body>
-</html>
+            intro.classList.
