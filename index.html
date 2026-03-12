@@ -14,8 +14,12 @@
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: white;
+            /* Changed background to black so the "bars" on the side of the video look professional */
+            background: #000; 
             transition: opacity 1s ease-out, visibility 1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .intro-fade-out {
             opacity: 0;
@@ -34,7 +38,7 @@
 <body class="bg-white font-sans text-gray-800 antialiased overflow-hidden">
 
     <div id="video-intro">
-        <video id="opening-video" autoplay muted playsinline class="w-full h-full object-cover">
+        <video id="opening-video" autoplay muted playsinline class="w-full h-full object-contain">
             <source src="vid.mp4" type="video/mp4">
         </video>
     </div>
@@ -91,12 +95,12 @@
     <div class="fixed bottom-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl border-t border-gray-100 shadow-2xl overflow-hidden">
         <div class="animate-scroll py-4">
             <div class="flex gap-12 items-center px-4 text-[12px] text-gray-800 italic font-medium">
-                <span>"Amanda is incredible! Fillers were made easy and natural." <b class="text-[#6B4E71]">— Sarah M.</b></span>
-                <span>"Finally a practitioner who listens. Weight loss actually works!" <b class="text-[#6B4E71]">— Jason R.</b></span>
-                <span>"Elite FNP is the only place I'll go for my family." <b class="text-[#6B4E71]">— Maria L.</b></span>
-                <span>"Amanda is incredible! Fillers were made easy and natural." <b class="text-[#6B4E71]">— Sarah M.</b></span>
-                <span>"Finally a practitioner who listens. Weight loss actually works!" <b class="text-[#6B4E71]">— Jason R.</b></span>
-                <span>"Elite FNP is the only place I'll go for my family." <b class="text-[#6B4E71]">— Maria L.</b></span>
+                <span>"Amanda is incredible! Fillers were made easy and natural." <b class="text-[#6B4E71]">— SARAH M.</b></span>
+                <span>"Finally a practitioner who listens. Weight loss actually works!" <b class="text-[#6B4E71]">— JASON R.</b></span>
+                <span>"Elite FNP is the only place I'll go for my family." <b class="text-[#6B4E71]">— MARIA L.</b></span>
+                <span>"Amanda is incredible! Fillers were made easy and natural." <b class="text-[#6B4E71]">— SARAH M.</b></span>
+                <span>"Finally a practitioner who listens. Weight loss actually works!" <b class="text-[#6B4E71]">— JASON R.</b></span>
+                <span>"Elite FNP is the only place I'll go for my family." <b class="text-[#6B4E71]">— MARIA L.</b></span>
             </div>
         </div>
     </div>
@@ -109,10 +113,10 @@
             intro.classList.add('intro-fade-out');
         };
 
-        // Safety timeout in case video loading is slow
+        // Safety timeout shortened to 5 seconds to keep the experience snappy
         setTimeout(() => {
             intro.classList.add('intro-fade-out');
-        }, 6000);
+        }, 5000);
     </script>
 </body>
 </html>
