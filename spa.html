@@ -35,7 +35,7 @@
     <main class="max-w-5xl mx-auto px-4 py-16">
         <h3 class="text-2xl font-serif text-center mb-12 text-[#6B4E71]">Select a Treatment</h3>
         
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all">
                 <div>
                     <h4 class="text-xl font-serif font-bold text-gray-900 mb-2">Botox &amp; Neurotoxins</h4>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="flex justify-between items-center pt-4 border-t border-gray-50">
                     <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">30 Mins</span>
-                    <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</a>
+                    <button onclick="openBooking('Botox & Neurotoxins')" class="bg-[#6B4E71] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                 </div>
                 <div class="flex justify-between items-center pt-4 border-t border-gray-50">
                     <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">45 Mins</span>
-                    <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</a>
+                    <button onclick="openBooking('Dermal Fillers')" class="bg-[#6B4E71] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
                 </div>
             </div>
 
@@ -65,7 +65,7 @@
                 </div>
                 <div class="flex justify-between items-center pt-4 border-t border-gray-50">
                     <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">60 Mins</span>
-                    <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</a>
+                    <button onclick="openBooking('The Ultimate Glow Facial')" class="bg-[#6B4E71] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
                 </div>
             </div>
 
@@ -76,17 +76,65 @@
                 </div>
                 <div class="flex justify-between items-center pt-4 border-t border-gray-50">
                     <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">30 Mins</span>
-                    <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</a>
+                    <button onclick="openBooking('Aesthetic Consultation')" class="bg-[#6B4E71] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
                 </div>
             </div>
         </div>
 
-        <div class="text-center mt-16">
+        <div id="booking-section" class="hidden max-w-2xl mx-auto bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-gray-100 scroll-mt-24">
+            <div class="text-center mb-8">
+                <span class="text-[10px] font-bold tracking-[0.2em] text-[#6B4E71] uppercase block mb-1">Secure Your Appointment</span>
+                <h3 class="text-2xl font-serif text-gray-900">Request: <span id="selected-service-title" class="text-[#6B4E71]">Treatment</span></h3>
+            </div>
+
+            <form class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Full Name</label>
+                        <input type="text" required class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#6B4E71]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Phone Number</label>
+                        <input type="tel" required class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#6B4E71]">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Preferred Date &amp; Time</label>
+                    <input type="datetime-local" required class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#6B4E71]">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Notes or Skin Concerns (Optional)</label>
+                    <textarea rows="3" class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#6B4E71]" placeholder="Tell Amanda about your skin goals..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-[#6B4E71] text-white py-4 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-opacity-95 transition-all shadow-md">
+                    Submit Booking Request
+                </button>
+            </form>
+        </div>
+
+        <div class="text-center mt-20">
             <a href="index.html" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-[#6B4E71] transition-all">
                 Need medical care instead? Switch to The Care Path &rarr;
             </a>
         </div>
     </main>
+
+    <script>
+        function openBooking(serviceName) {
+            const section = document.getElementById('booking-section');
+            const title = document.getElementById('selected-service-title');
+            
+            // Set the dynamic title
+            title.innerText = serviceName;
+            
+            // Reveal the section smoothly
+            section.classList.remove('hidden');
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
