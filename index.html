@@ -5,20 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amanda Dech | Elite Family Nurse Practitioners</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .font-sans { font-family: 'Inter', sans-serif; }
+
+        .font-serif { 
+            font-family: 'Playfair Display', serif; 
+        }
+
+        .font-sans { 
+            font-family: 'Inter', sans-serif; 
+        }
         
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .animate-scroll { display: flex; width: max-content; animation: scroll 40s linear infinite; }
+
+        @keyframes scroll { 
+            0% { 
+                transform: translateX(0); 
+            } 
+            100% { 
+                transform: translateX(-50%); 
+            } 
+        }
+
+        .animate-scroll { 
+            display: flex; 
+            width: max-content; 
+            animation: scroll 40s linear infinite; 
+        }
     </style>
 </head>
+
 <body class="bg-white font-sans text-gray-800 antialiased overflow-hidden">
 
     <nav class="p-4 bg-white/90 backdrop-blur-md flex justify-between items-center sticky top-0 z-50 border-b border-gray-100">
@@ -30,39 +51,85 @@
                     <circle cx="14" cy="14" r="1.5" />
                 </svg>
             </div>
+
             <div>
-                <h1 class="text-2xl font-serif font-bold tracking-tight uppercase text-[#6B4E71] leading-none">Amanda Dech</h1>
-                <p class="text-[10px] font-sans font-bold tracking-[0.2em] text-gray-400 uppercase mt-1">Elite Family Nurse Practitioners</p>
+                <h1 class="text-2xl font-serif font-bold tracking-tight uppercase text-[#6B4E71] leading-none">
+                    Amanda Dech
+                </h1>
+                <p class="text-[10px] font-sans font-bold tracking-[0.2em] text-gray-400 uppercase mt-1">
+                    Elite Family Nurse Practitioners
+                </p>
             </div>
         </div>
+
         <div class="flex flex-col items-end">
-            <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md mb-1">Call Now</a>
-            <span class="text-[8px] text-gray-400 font-bold uppercase tracking-tighter text-right">1531 S Calumet Rd, Chesterton</span>
+            <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md mb-1">
+                Call Now
+            </a>
+            <span class="text-[8px] text-gray-400 font-bold uppercase tracking-tighter text-right">
+                1531 S Calumet Rd, Chesterton
+            </span>
         </div>
     </nav>
 
     <main class="relative flex flex-col md:flex-row h-[calc(100vh-73px)] overflow-hidden">
-        <section onclick="window.location.href='./spa.html'" role="link" tabindex="0" onkeydown="if(event.key === 'Enter'){ window.location.href='./spa.html'; }" aria-label="Open Spa Day services" class="flex-1 flex flex-col justify-center items-center p-8 text-center group relative border-b md:border-b-0 overflow-hidden cursor-pointer">
-            <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1200');"></div>
-            <div class="absolute inset-0 bg-black/30 z-10"></div>
-            <div class="relative z-20 pointer-events-none">
-                <span class="text-[10px] font-bold tracking-[0.3em] text-white uppercase mb-2 block drop-shadow-md">The Glow Path</span>
-                <h2 class="text-6xl md:text-8xl font-serif mb-4 tracking-tighter text-white drop-shadow-2xl">Spa Day</h2>
-                <p class="text-white mb-8 max-w-xs text-sm md:text-base font-bold uppercase tracking-widest drop-shadow-lg">Botox, Filler & Glow</p>
-                <span class="glass-card inline-block px-10 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] text-gray-900 shadow-xl group-hover:bg-[#6B4E71] group-hover:text-white transition-all">Book Spa Day</span>
-            </div>
-        </section>
 
-        <div class="flex-1 flex flex-col justify-center items-center p-8 text-center group relative md:border-l border-white/20 overflow-hidden">
-            <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200');"></div>
-            <div class="absolute inset-0 bg-white/40 z-10"></div>
+        <!-- SPA DAY SIDE - GOES TO spa.html -->
+        <a href="./spa.html" class="flex-1 flex flex-col justify-center items-center p-8 text-center group relative border-b md:border-b-0 overflow-hidden cursor-pointer">
+
+            <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" 
+                 style="background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1200');">
+            </div>
+
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+
             <div class="relative z-20">
-                <span class="text-[10px] font-extrabold tracking-[0.3em] text-gray-900 uppercase mb-2 block drop-shadow-sm">The Care Path</span>
-                <h2 class="text-6xl md:text-8xl font-serif mb-4 tracking-tighter text-gray-900 drop-shadow-sm">Sick Day</h2>
-                <p class="text-gray-800 mb-8 max-w-xs text-sm md:text-base font-bold uppercase tracking-widest drop-shadow-sm">Primary Care & Weight Loss</p>
-                <a href="tel:2197286562" class="bg-gray-900 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] shadow-xl hover:bg-[#6B4E71] transition-all">Book Medical Care</a>
+                <span class="text-[10px] font-bold tracking-[0.3em] text-white uppercase mb-2 block drop-shadow-md">
+                    The Glow Path
+                </span>
+
+                <h2 class="text-6xl md:text-8xl font-serif mb-4 tracking-tighter text-white drop-shadow-2xl">
+                    Spa Day
+                </h2>
+
+                <p class="text-white mb-8 max-w-xs text-sm md:text-base font-bold uppercase tracking-widest drop-shadow-lg">
+                    Botox, Filler & Glow
+                </p>
+
+                <span class="glass-card inline-block px-10 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] text-gray-900 shadow-xl group-hover:bg-[#6B4E71] group-hover:text-white transition-all">
+                    Book Spa Day
+                </span>
+            </div>
+        </a>
+
+        <!-- SICK DAY SIDE - CALLS PHONE NUMBER -->
+        <div class="flex-1 flex flex-col justify-center items-center p-8 text-center group relative md:border-l border-white/20 overflow-hidden">
+
+            <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" 
+                 style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200');">
+            </div>
+
+            <div class="absolute inset-0 bg-white/40 z-10"></div>
+
+            <div class="relative z-20">
+                <span class="text-[10px] font-extrabold tracking-[0.3em] text-gray-900 uppercase mb-2 block drop-shadow-sm">
+                    The Care Path
+                </span>
+
+                <h2 class="text-6xl md:text-8xl font-serif mb-4 tracking-tighter text-gray-900 drop-shadow-sm">
+                    Sick Day
+                </h2>
+
+                <p class="text-gray-800 mb-8 max-w-xs text-sm md:text-base font-bold uppercase tracking-widest drop-shadow-sm">
+                    Primary Care & Weight Loss
+                </p>
+
+                <a href="tel:2197286562" class="bg-gray-900 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] shadow-xl hover:bg-[#6B4E71] transition-all">
+                    Book Medical Care
+                </a>
             </div>
         </div>
+
     </main>
 
     <footer class="bg-white border-t border-gray-100 py-4 overflow-hidden sticky bottom-0 z-50">
