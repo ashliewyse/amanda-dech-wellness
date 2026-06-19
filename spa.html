@@ -6,7 +6,7 @@
     <title>The Glow Path | Amanda Dech Spa Day</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght=300;400;600&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
     </style>
@@ -33,8 +33,8 @@
     </header>
 
     <main class="max-w-5xl mx-auto px-4 py-16">
-        <h3 class="text-2xl font-serif text-center mb-12 text-[#6B4E71]">Select a Treatment</h3>
         
+        <h3 class="text-2xl font-serif text-center mb-12 text-[#6B4E71]">Select a Treatment</h3>
         <div class="grid md:grid-cols-2 gap-8 mb-16">
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all">
                 <div>
@@ -81,12 +81,96 @@
             </div>
         </div>
 
+        <div class="max-w-4xl mx-auto mb-20 bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
+            <div class="text-center mb-10">
+                <span class="text-[10px] font-bold tracking-[0.2em] text-[#6B4E71] uppercase block mb-1">Menu of Services</span>
+                <h3 class="text-3xl font-serif text-gray-900">Aesthetic & Wellness Pricing</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-[#6B4E71] border-b border-gray-100 pb-2 mb-4">Injectables & Contouring</h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between items-baseline border-b border-dashed border-gray-100 pb-1">
+                                <span class="text-sm text-gray-700">Botox</span>
+                                <span class="font-semibold text-[#6B4E71] text-sm">$10 <span class="text-xs font-normal text-gray-400">/ unit</span></span>
+                            </li>
+                            <li class="flex justify-between items-baseline border-b border-dashed border-gray-100 pb-1">
+                                <span class="text-sm text-gray-700">Dermal Fillers</span>
+                                <span class="font-semibold text-[#6B4E71] text-sm">Starts at $325 <span class="text-xs font-normal text-gray-400">(1/2 syringe)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-[#6B4E71] border-b border-gray-100 pb-2 mb-4">Skin & Radiance</h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between items-baseline border-b border-dashed border-gray-100 pb-1">
+                                <span class="text-sm text-gray-700">Teeth Whitening</span>
+                                <span class="font-semibold text-[#6B4E71] text-sm">$90</span>
+                            </li>
+                            <li class="flex justify-between items-baseline border-b border-dashed border-gray-100 pb-1">
+                                <span class="text-sm text-gray-700">IV Infusions</span>
+                                <span class="font-semibold text-[#6B4E71] text-sm">Varies <span class="text-xs font-normal text-gray-400">(Inquire)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-[#FAF9F6] p-5 rounded-2xl border border-gray-100">
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-[#6B4E71] mb-3">Weight Loss / GLP-1s</h4>
+                        <ul class="space-y-2 text-xs">
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">1 Month (4 injections)</span>
+                                <span class="font-semibold text-gray-900">$350</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">2 Months (8 injections)</span>
+                                <span class="font-semibold text-gray-900">$650</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">3 Months (12 injections)</span>
+                                <span class="font-semibold text-gray-900">$950</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">4 Months (16 injections)</span>
+                                <span class="font-semibold text-gray-900">$1,250</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-[#FAF9F6] p-5 rounded-2xl border border-gray-100">
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-[#6B4E71] mb-3">Hormone Replacement (HRT)</h4>
+                        <ul class="space-y-2 text-xs">
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">1 Month</span>
+                                <span class="font-semibold text-gray-900">$225</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">2 Months</span>
+                                <span class="font-semibold text-gray-900">$425</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">3 Months</span>
+                                <span class="font-semibold text-gray-900">$625</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 text-center text-[11px] tracking-wide text-gray-400 uppercase">
+                <strong>Appointment Policies:</strong> No-Call, No-Show: $50 &nbsp;|&nbsp; Declined Payment Fee: $35 &nbsp;|&nbsp; After Hours / Emergency: $150
+            </div>
+        </div>
+
         <div id="booking-section" class="hidden max-w-2xl mx-auto bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-gray-100 scroll-mt-24">
             <div class="text-center mb-8">
                 <span class="text-[10px] font-bold tracking-[0.2em] text-[#6B4E71] uppercase block mb-1">Secure Your Appointment</span>
                 <h3 class="text-2xl font-serif text-gray-900">Request: <span id="selected-service-title" class="text-[#6B4E71]">Treatment</span></h3>
             </div>
-
             <form class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
@@ -98,17 +182,14 @@
                         <input type="tel" required class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#6B4E71]">
                     </div>
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Preferred Date &amp; Time</label>
                     <input type="datetime-local" required class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#6B4E71]">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Notes or Skin Concerns (Optional)</label>
                     <textarea rows="3" class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#6B4E71]" placeholder="Tell Amanda about your skin goals..."></textarea>
                 </div>
-
                 <button type="submit" class="w-full bg-[#6B4E71] text-white py-4 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-opacity-95 transition-all shadow-md">
                     Submit Booking Request
                 </button>
@@ -126,15 +207,10 @@
         function openBooking(serviceName) {
             const section = document.getElementById('booking-section');
             const title = document.getElementById('selected-service-title');
-            
-            // Set the dynamic title
             title.innerText = serviceName;
-            
-            // Reveal the section smoothly
             section.classList.remove('hidden');
             section.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-
 </body>
 </html>
