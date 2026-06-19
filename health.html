@@ -1,1 +1,216 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Care Path | Amanda Dech Wellness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#FAF9F6] font-sans text-gray-800 antialiased">
+
+    <nav class="p-4 bg-white/90 backdrop-blur-md flex justify-between items-center sticky top-0 z-50 border-b border-gray-100">
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="text-[#1A2B3C] hover:opacity-80 transition-all">
+                <div class="flex items-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    <h1 class="text-xl font-serif font-bold tracking-tight uppercase leading-none">Amanda Dech</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <span class="text-[10px] font-bold tracking-[0.3em] text-[#1A2B3C] uppercase">The Care Path</span>
+        </div>
+    </nav>
+
+    <header class="relative py-20 bg-cover bg-center text-center text-white" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=1200');">
+        <h2 class="text-4xl md:text-6xl font-serif mb-3 tracking-tight">Comprehensive Family & Primary Care</h2>
+        <p class="text-sm md:text-base font-light tracking-widest max-w-xl mx-auto uppercase px-4 opacity-90">Professional, attentive, and accessible medical care tailored to support your family's baseline health.</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-16">
+        
+        <div class="text-center mb-12">
+            <span class="text-[10px] font-bold tracking-[0.2em] text-[#1A2B3C] uppercase block mb-1">Medical Menu & Booking</span>
+            <h3 class="text-3xl font-serif text-gray-900">Select a Service</h3>
+            <p class="text-sm text-gray-500 mt-2">Click "Select" on any health service below to open the care request form.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all">
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-xl font-serif font-bold text-gray-900">New Patient / Establish Care</h4>
+                        <span class="font-semibold text-[#1A2B3C] text-base">$100</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Welcome to the practice. Establish a dedicated relationship with Amanda for long-term health monitoring, background reviews, and preventive goals.</p>
+                </div>
+                <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Comprehensive</span>
+                    <button onclick="openBooking('New Patient / Establish Care ($100)')" class="bg-[#1A2B3C] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all">
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-xl font-serif font-bold text-gray-900">Standard Office Visit</h4>
+                        <span class="font-semibold text-[#1A2B3C] text-base">$75</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">An in-person consultation addressing specific non-emergency symptoms, acute illnesses, prescription refills, or standard medical updates.</p>
+                </div>
+                <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">In-Office</span>
+                    <button onclick="openBooking('Standard Office Visit ($75)')" class="bg-[#1A2B3C] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all">
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-xl font-serif font-bold text-gray-900">Telehealth Visit</h4>
+                        <span class="font-semibold text-[#1A2B3C] text-base">$50</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Consult with Amanda comfortably from anywhere via a secure video or audio link. Ideal for follow-ups, minor concerns, or continuous therapy syncs.</p>
+                </div>
+                <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Virtual Care</span>
+                    <button onclick="openBooking('Telehealth Visit ($50)')" class="bg-[#1A2B3C] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all">
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-xl font-serif font-bold text-gray-900">Sports Physicals</h4>
+                        <span class="font-semibold text-[#1A2B3C] text-base">$40</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Thorough physical evaluation required for school, community leagues, and athletic compliance to ensure safe participation.</p>
+                </div>
+                <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Compliance</span>
+                    <button onclick="openBooking('Sports Physical ($40)')" class="bg-[#1A2B3C] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all">
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-xl font-serif font-bold text-gray-900">MAT-Suboxone Intake</h4>
+                        <span class="font-semibold text-[#1A2B3C] text-base">$140</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Initial evaluation and structured medical intake appointment for Medication-Assisted Treatment (MAT) recovery pathways.</p>
+                </div>
+                <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Initial Intake</span>
+                    <button onclick="openBooking('MAT-Suboxone Initial Intake ($140)')" class="bg-[#1A2B3C] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all">
+                <div>
+                    <h4 class="text-xl font-serif font-bold text-gray-900 mb-2">Injections &amp; Vaccines</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">Quick therapeutic administration to manage symptoms or protect immune health.</p>
+                    <div class="space-y-2 bg-[#FAF9F6] p-4 rounded-xl border border-gray-100 text-xs">
+                        <div class="flex justify-between"><span>Pepcid or Allergy Relief</span> <span class="font-bold text-gray-700">$30 ea</span></div>
+                        <div class="flex justify-between"><span>Influenza Vaccine</span> <span class="font-bold text-gray-700">$30</span></div>
+                        <div class="flex justify-between"><span>Zofran Injection</span> <span class="font-bold text-gray-700">$25</span></div>
+                        <div class="flex justify-between"><span>Toradol or Vitamin B Injection</span> <span class="font-bold text-gray-700">$20 ea</span></div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Quick Appt</span>
+                    <button onclick="openBooking('Therapeutic Injection / Vaccine')" class="bg-[#1A2B3C] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select</button>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all md:col-span-2">
+                <div>
+                    <h4 class="text-xl font-serif font-bold text-[#1A2B3C] mb-2">Lab Work &amp; In-Office Diagnostics</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Fast, precise laboratory diagnostics and comprehensive testing options handled right inside our clinical office.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-2">
+                        <div class="bg-[#FAF9F6] p-5 rounded-xl border border-gray-100">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h5 class="text-sm font-bold text-gray-800 uppercase">Blood Draw Panel</h5>
+                                <span class="text-base font-bold text-[#1A2B3C]">$50</span>
+                            </div>
+                            <p class="text-xs text-gray-500 leading-relaxed">Includes standard lab evaluation: **CBC, CMP, Lipid Panel, Hgb A1C, TSH, and T4**. Additional specialty labs can be drawn for an added fee.</p>
+                        </div>
+                        <div class="bg-[#FAF9F6] p-5 rounded-xl border border-gray-100 flex flex-col justify-between">
+                            <h5 class="text-sm font-bold text-gray-800 uppercase mb-3">Rapid Point-of-Care Testing</h5>
+                            <div class="space-y-1.5 text-xs text-gray-600">
+                                <div class="flex justify-between"><span>Rapid RSV Testing</span> <span class="font-bold text-gray-800">$40</span></div>
+                                <div class="flex justify-between"><span>Rapid Influenza Testing</span> <span class="font-bold text-gray-800">$35</span></div>
+                                <div class="flex justify-between"><span>Rapid Strep Testing or Drug Screen</span> <span class="font-bold text-gray-800">$25</span></div>
+                                <div class="flex justify-between"><span>Urinalysis</span> <span class="font-bold text-gray-800">$20</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Diagnostics</span>
+                    <button onclick="openBooking('Lab Work / Diagnostics')" class="bg-[#1A2B3C] text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-sm">Select Labs</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-4xl mx-auto mb-16 bg-gray-50 border border-gray-100 rounded-2xl p-5 text-center text-[11px] tracking-wide text-gray-400 uppercase">
+            <strong>Practice Policies:</strong> After Hours / Emergency Calls: $150 &nbsp;|&nbsp; No-Call, No-Show: $50 &nbsp;|&nbsp; Declined Payment Fee: $35
+        </div>
+
+        <div id="booking-section" class="hidden max-w-2xl mx-auto bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-gray-100 scroll-mt-24">
+            <div class="text-center mb-8">
+                <span class="text-[10px] font-bold tracking-[0.2em] text-[#1A2B3C] uppercase block mb-1">Schedule Care</span>
+                <h3 class="text-2xl font-serif text-gray-900">Request: <span id="selected-service-title" class="text-[#1A2B3C]">Appointment</span></h3>
+            </div>
+            <form class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Full Name</label>
+                        <input type="text" required class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#1A2B3C]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Phone Number</label>
+                        <input type="tel" required class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#1A2B3C]">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Preferred Date &amp; Time</label>
+                    <input type="datetime-local" required class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#1A2B3C]">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Reason for Visit or Symptoms (Optional)</label>
+                    <textarea rows="3" class="w-full bg-[#FAF9F6] border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#1A2B3C]" placeholder="Provide details regarding your medical appointment goals..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-[#1A2B3C] text-white py-4 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-opacity-95 transition-all shadow-md">
+                    Submit Care Request
+                </button>
+            </form>
+        </div>
+
+        <div class="text-center mt-20">
+            <a href="spa.html" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-[#1A2B3C] transition-all">
+                Looking for wellness &amp; beauty instead? Switch to The Glow Path &rarr;
+            </a>
+        </div>
+    </main>
+
+    <script>
+        function openBooking(serviceName) {
+            const section = document.getElementById('booking-section');
+            const title = document.getElementById('selected-service-title');
+            title.innerText = serviceName;
+            section.classList.remove('hidden');
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
