@@ -4,208 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meet the Staff | Amanda Dech Wellness</title>
-  <!-- Imports the Playfair Display & Inter fonts to match your index page -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS Engine -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body style="margin: 0; background-color: #FAF9F6;">
+<body class="bg-[#FAF9F6] min-h-screen flex flex-col font-sans">
 
-  <!-- Navigation Bar -->
-  <header style="width: 100%; padding: 24px 48px; background-color: #FAF9F6; display: flex; flex-direction: row; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(107, 78, 113, 0.1); box-sizing: border-box;">
-    <div style="text-align: left;">
-      <a href="index.html" style="text-decoration: none; display: block;">
-        <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 300; letter-spacing: 0.25em; text-transform: uppercase; color: #2C2C2C; margin: 0; line-height: 1.2;">Amanda Dech</h1>
-        <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #6B4E71; margin: 2px 0 0 0; line-height: 1.2;">Elite Family Nurse Practitioners</p>
+  <!-- Top Navigation Bar -->
+  <header class="w-full py-6 px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between border-b border-[#6B4E71]/10 gap-4 bg-[#FAF9F6]">
+    <div class="text-center sm:text-left">
+      <a href="index.html" class="block no-underline group">
+        <h1 class="text-xl font-light tracking-[0.25em] text-[#2C2C2C] uppercase transition-colors group-hover:text-[#6B4E71]">Amanda Dech</h1>
+        <p class="text-[9px] font-bold tracking-[0.3em] text-[#6B4E71] uppercase mt-0.5">Elite Family Nurse Practitioners</p>
       </a>
     </div>
-    <div></div>
+    <div class="flex items-center gap-4">
+      <div></div>
+    </div>
   </header>
 
-  <!-- Meet the Staff Section -->
-  <section class="meet-the-staff">
-    <div class="section-header">
-      <span class="sub-heading">OUR TEAM</span>
-      <h2>Meet The Staff</h2>
-      <hr class="heading-divider">
+  <!-- Meet the Staff Grid Content -->
+  <main class="flex-1 py-16 px-4 text-center">
+    <div class="mb-12">
+      <span class="text-[10px] font-bold tracking-[0.3em] text-[#6B4E71] uppercase block mb-2">Our Team</span>
+      <h2 class="text-3xl font-light tracking-wide text-[#2C2C2C]">Meet The Staff</h2>
+      <div class="w-12 h-[1px] bg-[#6B4E71]/40 mx-auto mt-4"></div>
     </div>
 
-    <div class="staff-grid">
+    <!-- Staff Cards Container -->
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-10 px-4">
+      
       <!-- Staff Member 1: Amanda -->
-      <div class="staff-card">
-        <div class="image-container">
-          <img src="amanda.jpg" alt="Amanda Dech">
+      <div class="bg-white border border-[#6B4E71]/10 rounded-sm overflow-hidden w-full max-w-[340px] shadow-sm hover:shadow-md transition-all duration-300 group">
+        <div class="w-full h-[380px] overflow-hidden bg-slate-100">
+          <img src="amanda.jpg" alt="Amanda Dech" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
         </div>
-        <div class="staff-info">
-          <h3>Amanda Dech</h3>
-          <p class="title">Family Nurse Practitioner (FNP)</p>
-          <p class="bio">Specializing in natural-looking fillers, restorative injectables, and comprehensive primary family care.</p>
-          <a href="health.html" class="btn-book-staff">Book With Amanda</a>
+        <div class="p-6 text-left">
+          <h3 class="text-xl font-light tracking-wide text-[#2C2C2C] mb-1">Amanda Dech</h3>
+          <p class="text-[10px] font-bold tracking-wider text-[#6B4E71] uppercase mb-4">Family Nurse Practitioner (FNP)</p>
+          <p class="text-xs leading-relaxed text-slate-600 mb-6 h-16 overflow-hidden">
+            Specializing in natural-looking fillers, restorative injectables, and comprehensive primary family care.
+          </p>
+          <a href="health.html" class="block w-full text-center py-3 bg-[#6B4E71] text-white text-[10px] font-bold uppercase tracking-widest rounded-full shadow-md hover:bg-[#533c58] transition-all duration-300">
+            Book With Amanda
+          </a>
         </div>
       </div>
 
       <!-- Staff Member 2: Placeholder -->
-      <div class="staff-card">
-        <div class="image-container">
-          <img src="team-member2.jpg" alt="Staff Member">
+      <div class="bg-white border border-[#6B4E71]/10 rounded-sm overflow-hidden w-full max-w-[340px] shadow-sm hover:shadow-md transition-all duration-300 group">
+        <div class="w-full h-[380px] overflow-hidden bg-slate-100">
+          <img src="team-member2.jpg" alt="Staff Member" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
         </div>
-        <div class="staff-info">
-          <h3>Team Member Name</h3>
-          <p class="title">Aesthetician / Specialist</p>
-          <p class="bio">Expert in advanced skin rejuvenation, glow therapies, and customized medical spa treatments.</p>
-          <a href="spa.html" class="btn-book-staff">Book Appointment</a>
+        <div class="p-6 text-left">
+          <h3 class="text-xl font-light tracking-wide text-[#2C2C2C] mb-1">Team Member Name</h3>
+          <p class="text-[10px] font-bold tracking-wider text-[#6B4E71] uppercase mb-4">Aesthetician / Specialist</p>
+          <p class="text-xs leading-relaxed text-slate-600 mb-6 h-16 overflow-hidden">
+            Expert in advanced skin rejuvenation, glow therapies, and customized medical spa treatments.
+          </p>
+          <a href="spa.html" class="block w-full text-center py-3 bg-[#6B4E71] text-white text-[10px] font-bold uppercase tracking-widest rounded-full shadow-md hover:bg-[#533c58] transition-all duration-300">
+            Book Appointment
+          </a>
         </div>
       </div>
+
     </div>
-  </section>
-
-  <!-- CSS Styling Block -->
-  <style>
-    /* Section Base Styling */
-    .meet-the-staff {
-      padding: 60px 20px;
-      background-color: #fcfbfa; /* Soft, clean off-white */
-      font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      text-align: center;
-    }
-
-    .section-header {
-      margin-bottom: 50px;
-    }
-
-    .section-header .sub-heading {
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #8a8a8a;
-    }
-
-    .section-header h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.5rem;
-      color: #1a1a1a;
-      margin: 10px 0;
-      font-weight: 400;
-    }
-
-    .heading-divider {
-      width: 50px;
-      border: 0;
-      border-top: 1px solid #1a1a1a;
-      margin: 0 auto;
-    }
-
-    /* Grid Layout */
-    .staff-grid {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
-
-    /* Individual Staff Cards */
-    .staff-card {
-      background: #ffffff;
-      border: 1px solid #eaeaea;
-      border-radius: 4px;
-      overflow: hidden;
-      width: 350px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .staff-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    }
-
-    /* Image Container (Ensures uniform headshot sizes) */
-    .staff-card .image-container {
-      width: 100%;
-      height: 380px;
-      overflow: hidden;
-      background-color: #f0f0f0;
-    }
-
-    .staff-card .image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .staff-card:hover .image-container img {
-      transform: scale(1.03);
-    }
-
-    /* Text Content Area */
-    .staff-info {
-      padding: 25px;
-      text-align: left;
-    }
-
-    .staff-info h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.4rem;
-      margin: 0 0 5px 0;
-      color: #1a1a1a;
-      font-weight: 500;
-    }
-
-    .staff-info .title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #707070;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .staff-info .bio {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #555555;
-      margin-bottom: 25px;
-      height: 75px; /* Keeps text boxes uniform */
-      overflow: hidden;
-    }
-
-    /* Action Button */
-    .btn-book-staff {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      padding: 12px 0;
-      background-color: #6B4E71; /* Matches your brand color */
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-radius: 4px;
-      font-weight: 500;
-      transition: background-color 0.2s ease;
-    }
-
-    .btn-book-staff:hover {
-      background-color: #533c58;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .staff-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .staff-card {
-        width: 100%;
-        max-width: 400px;
-      }
-    }
-  </style>
+  </main>
 
 </body>
 </html>
