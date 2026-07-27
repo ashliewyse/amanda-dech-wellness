@@ -14,9 +14,10 @@
         .animate-scroll { display: flex; width: max-content; animation: scroll 40s linear infinite; }
     </style>
 </head>
-<body class="bg-white font-sans text-gray-800 antialiased overflow-hidden">
+<!-- FIX 1: Removed overflow-hidden from body so mobile can scroll when needed -->
+<body class="bg-white font-sans text-gray-800 antialiased min-h-screen flex flex-col">
 
- <nav class="p-4 bg-white/90 backdrop-blur-md flex justify-between items-center sticky top-0 z-50 border-b border-gray-100">
+    <nav class="p-4 bg-white/90 backdrop-blur-md flex justify-between items-center sticky top-0 z-50 border-b border-gray-100">
         <div class="flex items-center gap-3">
             <div class="text-[#6B4E71]">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -31,45 +32,47 @@
             </div>
         </div>
 
-        <div class="hidden sm:block">
-            <a href="meet-the-staff.html" class="border border-[#6B4E71] text-[#6B4E71] px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm hover:bg-[#6B4E71] hover:text-white transition-all inline-block">
-                Meet the Staff
+        <!-- FIX 2: Removed hidden class so Meet the Staff button displays on mobile -->
+        <div class="flex items-center">
+            <a href="meet-the-staff.html" class="border border-[#6B4E71] text-[#6B4E71] px-3 py-1.5 sm:px-5 sm:py-2 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-widest shadow-sm hover:bg-[#6B4E71] hover:text-white transition-all inline-block">
+                Meet Staff
             </a>
         </div>
 
-       <div class="flex flex-col items-end">
-            <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md mb-1 hover:bg-opacity-90 transition-all"> Call Now </a>
-            <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest text-right mt-1"> 1531 S Calumet Rd, Chesterton </span>
+        <div class="flex flex-col items-end">
+            <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-4 py-1.5 sm:px-6 sm:py-2 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-widest shadow-md mb-1 hover:bg-opacity-90 transition-all"> Call Now </a>
+            <span class="text-[8px] sm:text-[10px] text-gray-500 font-bold uppercase tracking-widest text-right"> 1531 S Calumet Rd, Chesterton </span>
         </div>
     </nav>
 
-    <main class="relative flex flex-col md:flex-row h-[calc(100vh-73px)] overflow-hidden">
+    <!-- FIX 3: Changed fixed calc height to min-h-screen/flex layout for mobile responsiveness -->
+    <main class="relative flex-1 flex flex-col md:flex-row">
         
-        <section class="flex-1 flex flex-col justify-center items-center p-8 text-center group relative border-b md:border-b-0 overflow-hidden">
+        <section class="flex-1 min-h-[380px] md:min-h-0 flex flex-col justify-center items-center p-6 text-center group relative border-b md:border-b-0 overflow-hidden">
             <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1200');"> </div>
             <div class="absolute inset-0 bg-black/30 z-10"></div>
             <div class="relative z-20">
                 <span class="text-[10px] font-bold tracking-[0.3em] text-white uppercase mb-2 block drop-shadow-md"> The Glow Path </span>
-                <h2 class="text-6xl md:text-8xl font-serif mb-4 tracking-tighter text-white drop-shadow-2xl"> Spa Day </h2>
-                <p class="text-white mb-8 max-w-xs text-sm md:text-base font-bold uppercase tracking-widest drop-shadow-lg"> Botox, Filler & Glow </p>
-                <a href="spa.html" class="glass-card inline-block px-10 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] text-gray-900 shadow-xl hover:bg-[#6B4E71] transition-all"> Book Spa Day </a>
+                <h2 class="text-5xl md:text-8xl font-serif mb-3 tracking-tighter text-white drop-shadow-2xl"> Spa Day </h2>
+                <p class="text-white mb-6 max-w-xs text-xs md:text-base font-bold uppercase tracking-widest drop-shadow-lg"> Botox, Filler & Glow </p>
+                <a href="spa.html" class="glass-card inline-block px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] text-gray-900 shadow-xl hover:bg-[#6B4E71] hover:text-white transition-all"> Book Spa Day </a>
             </div>
         </section>
 
-        <section class="flex-1 flex flex-col justify-center items-center p-8 text-center group relative md:border-l border-white/20 overflow-hidden">
+        <section class="flex-1 min-h-[380px] md:min-h-0 flex flex-col justify-center items-center p-6 text-center group relative md:border-l border-white/20 overflow-hidden">
             <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200');"> </div>
             <div class="absolute inset-0 bg-white/40 z-10"></div>
             <div class="relative z-20">
                 <span class="text-[10px] font-extrabold tracking-[0.3em] text-gray-900 uppercase mb-2 block drop-shadow-sm"> The Care Path </span>
-                <h2 class="text-6xl md:text-8xl font-serif mb-4 tracking-tighter text-gray-900 drop-shadow-sm"> Sick Day </h2>
-                <p class="text-gray-800 mb-8 max-w-xs text-sm md:text-base font-bold uppercase tracking-widest drop-shadow-sm"> Primary Care & Weight Loss </p>
-                <a href="health.html" class="bg-gray-900 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] shadow-xl hover:bg-[#1A2B3C] transition-all inline-block"> Book Medical Care </a>
+                <h2 class="text-5xl md:text-8xl font-serif mb-3 tracking-tighter text-gray-900 drop-shadow-sm"> Sick Day </h2>
+                <p class="text-gray-800 mb-6 max-w-xs text-xs md:text-base font-bold uppercase tracking-widest drop-shadow-sm"> Primary Care & Weight Loss </p>
+                <a href="health.html" class="bg-gray-900 text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] shadow-xl hover:bg-[#1A2B3C] transition-all inline-block"> Book Medical Care </a>
             </div>
         </section>
         
     </main>
 
-    <footer class="bg-white border-t border-gray-100 py-4 overflow-hidden sticky bottom-0 z-50">
+    <footer class="bg-white border-t border-gray-100 py-3 overflow-hidden sticky bottom-0 z-50">
         <div class="animate-scroll whitespace-nowrap gap-16 text-xs font-medium tracking-wide text-gray-500 uppercase">
             <span>"Amanda is incredible! Fillers were made easy and natural." — Sarah M.</span>
             <span>"Finally a practitioner who listens. Weight loss actually works!" — Jason R.</span>
