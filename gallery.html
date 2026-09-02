@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View permission-approved before-and-after results from Amanda Dech, FNP-C. Individual results vary.">
+    <meta name="theme-color" content="#6B4E71">
+    <title>Before &amp; After Gallery | Amanda Dech, FNP-C</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="upgrade.css">
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body class="ad-gallery-body">
+    <nav class="ad-header px-2 py-3 sm:p-4 bg-white/95 backdrop-blur-md flex justify-between items-center sticky top-0 z-40 border-b border-gray-100" aria-label="Main navigation">
+        <a class="ad-brand-wrap flex items-center gap-1.5 sm:gap-3" href="index.html">
+            <span class="ad-logo-mark" role="img" aria-label="Elite Family heart and stethoscope logo"></span>
+            <span>
+                <strong class="ad-gallery-brand-name">Amanda Dech</strong>
+                <small class="ad-gallery-brand-subtitle">Family Nurse Practitioner · FNP-C</small>
+            </span>
+        </a>
+        <div class="ad-header-links">
+            <a href="health.html">Medical Care</a>
+            <a href="spa.html">Aesthetics &amp; Wellness</a>
+            <a href="gallery.html" aria-current="page">Gallery</a>
+            <a href="meet-the-staff.html">Meet the Staff</a>
+            <a href="visit.html">Visit</a>
+        </div>
+        <a href="tel:2197286562" class="ad-call-button bg-[#6B4E71] text-white px-2.5 py-1 sm:px-6 sm:py-2 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-tight sm:tracking-widest shadow-md whitespace-nowrap">Call Now</a>
+    </nav>
+
+    <header class="ad-gallery-hero">
+        <div class="ad-shell ad-gallery-hero-grid">
+            <div>
+                <span class="ad-kicker">Thoughtfully shared</span>
+                <h1>Real results, presented with care.</h1>
+                <p>Explore permission-approved before-and-after results. Every gallery title is automatically numbered to keep patient names and identifying details off the public website.</p>
+            </div>
+            <aside class="ad-gallery-promise">
+                <span>Our gallery promise</span>
+                <strong>No patient names.</strong>
+                <p>Only results Amanda has confirmed are authorized for public website use appear here.</p>
+            </aside>
+        </div>
+    </header>
+
+    <main class="ad-gallery-main">
+        <div class="ad-shell">
+            <div class="ad-gallery-toolbar">
+                <div>
+                    <span class="ad-kicker">Before &amp; after</span>
+                    <h2>Browse treatment results</h2>
+                </div>
+                <div class="ad-gallery-filters" id="gallery-filters" aria-label="Filter gallery by treatment">
+                    <button class="is-active" type="button" data-gallery-filter="all">All results</button>
+                </div>
+            </div>
+
+            <div class="ad-gallery-grid" id="gallery-grid" aria-live="polite" aria-busy="true"></div>
+            <div class="ad-gallery-empty" id="gallery-empty" hidden>
+                <span class="ad-gallery-empty-mark" aria-hidden="true">AD</span>
+                <h2>The gallery is being prepared.</h2>
+                <p>Amanda will add permission-approved treatment results here. Please check back soon.</p>
+                <a class="ad-primary-button" href="spa.html">Explore spa services</a>
+            </div>
+
+            <div class="ad-gallery-disclaimer">
+                <strong>Individual results vary.</strong>
+                <span>Photos are examples only and do not guarantee a specific outcome. A consultation is required to determine whether a service is appropriate for you.</span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="ad-footer">
+        <div class="ad-footer-grid">
+            <div><a class="ad-footer-brand" href="index.html">Amanda Dech, FNP-C</a><p>Medical, wellness, and aesthetic care delivered with warmth and clarity.</p></div>
+            <div><h2>Explore</h2><a href="health.html">Medical care</a><a href="spa.html">Aesthetics &amp; wellness</a><a href="gallery.html">Before &amp; after gallery</a><a href="meet-the-staff.html">Meet the staff</a></div>
+            <div><h2>Connect</h2><a href="tel:2197286562" data-site-phone>(219) 728-6562</a><span data-site-address>1531 S Calumet Rd</span><a href="visit.html">Visit &amp; directions</a></div>
+            <div><h2>Patient information</h2><a href="patient-resources.html">Patient information</a><a href="privacy.html">Website privacy &amp; accessibility</a><span>For emergencies, call 911.</span></div>
+        </div>
+        <div class="ad-footer-admin"><a href="admin.html">Staff Login</a></div>
+    </footer>
+
+    <nav class="ad-mobile-actions" aria-label="Quick actions">
+        <a href="tel:2197286562">Call</a><a class="primary" href="spa.html">Services</a><a href="visit.html">Visit</a>
+    </nav>
+
+    <script src="supabase-config.js"></script>
+    <script src="site-data.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>

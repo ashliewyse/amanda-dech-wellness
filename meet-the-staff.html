@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meet the Staff | Amanda Dech Wellness</title>
+  <meta name="description" content="Meet Amanda Dech, FNP-C, and learn about her welcoming approach to medical, wellness, and aesthetic care.">
+  <title>Meet Amanda Dech, FNP-C | Amanda Dech Wellness</title>
   <!-- Tailwind CSS Engine -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="upgrade.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
     .font-serif { font-family: 'Playfair Display', serif; }
@@ -19,59 +21,63 @@
     <div class="flex items-center gap-3">
       <a href="index.html" class="text-[#6B4E71] hover:opacity-80 transition-all">
         <div class="flex items-center gap-2">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-          <h1 class="text-xl font-serif font-bold tracking-tight uppercase leading-none">Amanda Dech</h1>
+          <span class="ad-logo-mark" role="img" aria-label="Elite Family heart and stethoscope logo"></span>
+          <strong class="text-xl font-serif font-bold tracking-tight uppercase leading-none">Amanda Dech</strong>
         </div>
       </a>
     </div>
-    <div>
+    <div class="flex items-center gap-4">
+      <a href="gallery.html" class="hidden sm:inline text-[10px] font-bold tracking-widest text-gray-500 uppercase hover:text-[#6B4E71]">Gallery</a>
+      <a href="visit.html" class="hidden sm:inline text-[10px] font-bold tracking-widest text-gray-500 uppercase hover:text-[#6B4E71]">Visit</a>
       <span class="text-[10px] font-bold tracking-[0.3em] text-[#6B4E71] uppercase">Meet the Staff</span>
     </div>
   </nav>
 
   <!-- Meet the Staff Header Banner -->
-  <header class="relative py-20 bg-cover bg-center text-center text-white" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1200');">
-    <h2 class="text-4xl md:text-6xl font-serif mb-3 tracking-tight">Our Dedicated Team & Facility</h2>
-    <p class="text-sm md:text-base font-light tracking-widest max-w-xl mx-auto uppercase px-4 opacity-90">Combining clinical medical authority with boutique aesthetic excellence.</p>
+  <header class="relative py-20 bg-cover bg-center text-center text-white" data-site-background="images.staff_banner" data-site-overlay="dark" style="background-image: linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)), url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1200');">
+    <h1 class="text-4xl md:text-6xl font-serif mb-3 tracking-tight">Meet the Care Team</h1>
+    <p class="text-sm md:text-base font-light tracking-widest max-w-xl mx-auto uppercase px-4 opacity-90">Warm, personal care begins with knowing who is here to help.</p>
   </header>
 
   <!-- Meet the Staff Grid Content -->
   <main class="max-w-5xl mx-auto px-4 py-16 text-center">
     <div class="mb-12">
       <span class="text-[10px] font-bold tracking-[0.2em] text-[#6B4E71] uppercase block mb-1">Our Team & Space</span>
-      <h3 class="text-3xl font-serif text-gray-900">Meet The Staff</h3>
-      <p class="text-sm text-gray-500 mt-2">Get to know the experts and look inside the spaces dedicated to your clinical family care and custom glow blueprints.</p>
+      <h2 class="text-3xl font-serif text-gray-900">Meet The Staff</h2>
+      <p class="text-sm text-gray-500 mt-2">Learn more about the people behind Amanda's medical, wellness, and aesthetic care.</p>
     </div>
 
     <!-- Staff Cards Container -->
-    <div class="flex flex-wrap justify-center gap-8">
+    <div class="ad-team-grid">
       
       <!-- Staff Member 1: Amanda -->
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col max-w-[340px] hover:shadow-md transition-all group">
-        <div class="w-full h-[360px] overflow-hidden rounded-xl bg-slate-100 mb-6">
-          <img src="amanda.jpg" alt="Amanda Dech" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
+      <article class="ad-team-card">
+        <div class="ad-team-photo" data-site-background="images.staff_primary">
+          <div class="ad-photo-placeholder" data-photo-placeholder role="img" aria-label="Amanda Dech portrait placeholder">Amanda's portrait<br>will go here</div>
         </div>
-        <h4 class="text-xl font-serif font-bold text-gray-900 text-left mb-1">Amanda Dech</h4>
-        <p class="text-[10px] font-bold tracking-wider text-[#6B4E71] uppercase text-left mb-4">Family Nurse Practitioner (FNP)</p>
-        <p class="text-gray-500 text-sm text-left leading-relaxed">
-          Specializing in natural-looking fillers, restorative injectables, and comprehensive primary family care.
-        </p>
-      </div>
+        <h3 data-site-text="staff.primary_name">Amanda Dech, FNP-C</h3>
+        <span data-site-text="staff.primary_role">Family Nurse Practitioner</span>
+        <p data-site-text="staff.primary_bio">Amanda combines attentive medical care, wellness support, and aesthetic services with a warm, practical approach.</p>
+      </article>
 
-      <!-- Facility / Staff Member 2: Placeholder -->
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col max-w-[340px] hover:shadow-md transition-all group">
-        <div class="w-full h-[360px] overflow-hidden rounded-xl bg-slate-100 mb-6">
-          <img src="team-member2.jpg" alt="Staff Member" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
+      <!-- Additional team details -->
+      <article class="ad-team-card" data-site-toggle="staff.secondary_visible" hidden>
+        <div class="ad-team-photo" data-site-background="images.staff_secondary">
+          <div class="ad-photo-placeholder secondary" data-photo-placeholder role="img" aria-label="Additional team photo placeholder">Team member photo<br>will go here</div>
         </div>
-        <h4 class="text-xl font-serif font-bold text-gray-900 text-left mb-1">Team Member Name</h4>
-        <p class="text-[10px] font-bold tracking-wider text-[#6B4E71] uppercase text-left mb-4">Aesthetician / Specialist</p>
-        <p class="text-gray-500 text-sm text-left leading-relaxed">
-          Expert in advanced skin rejuvenation, glow therapies, and customized medical spa treatments.
-        </p>
-      </div>
+        <h3 data-site-text="staff.secondary_name">Additional team member</h3>
+        <span data-site-text="staff.secondary_role">Care team</span>
+        <p data-site-text="staff.secondary_bio">Additional team information will appear after Amanda approves it.</p>
+      </article>
 
     </div>
   </main>
+
+  <div class="ad-emergency-note max-w-5xl">For emergencies, call 911. Do not send private medical information through this website.</div>
+  <footer class="ad-footer mt-16"><div class="ad-footer-grid"><div><a class="ad-footer-brand" href="index.html">Amanda Dech, FNP-C</a><p>Medical, wellness, and aesthetic care delivered with warmth and clarity.</p></div><div><h2>Explore</h2><a href="health.html">Medical care</a><a href="spa.html">Aesthetics &amp; wellness</a><a href="gallery.html">Before &amp; after gallery</a></div><div><h2>Connect</h2><a href="tel:2197286562" data-site-phone>(219) 728-6562</a><span data-site-address>1531 S Calumet Rd</span><a href="visit.html">Visit &amp; directions</a></div><div><h2>Patient information</h2><a href="patient-resources.html">Patient information</a><a href="privacy.html">Website privacy &amp; accessibility</a><span>For emergencies, call 911.</span></div></div><div class="ad-footer-admin"><a href="admin.html">Staff Login</a></div></footer>
+  <nav class="ad-mobile-actions" aria-label="Quick actions"><a href="tel:2197286562">Call</a><a class="primary" href="health.html">Book</a><a data-site-directions href="https://www.google.com/maps/search/?api=1&amp;query=1531%20S%20Calumet%20Rd" target="_blank" rel="noreferrer">Directions</a></nav>
+  <script src="supabase-config.js"></script>
+  <script src="site-data.js"></script>
 
 </body>
 </html>

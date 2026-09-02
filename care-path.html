@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choose medical care or aesthetics and wellness with Amanda Dech, FNP-C.">
+    <meta name="theme-color" content="#6B4E71">
+    <title>Choose Your Care Path | Amanda Dech, FNP-C</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="upgrade.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+    </style>
+</head>
+<body class="ad-care-page bg-white font-sans text-gray-800 antialiased">
+    <nav class="ad-header ad-care-header bg-white/95 backdrop-blur-md flex justify-between items-center z-40 border-b border-gray-100" aria-label="Care path navigation">
+        <a class="ad-brand-wrap flex items-center gap-1.5 sm:gap-3 no-underline" href="index.html" aria-label="Return to Amanda Dech welcome page">
+            <span class="ad-logo-mark" role="img" aria-label="Elite Family heart and stethoscope logo"></span>
+            <span>
+                <strong class="block text-base sm:text-2xl font-serif tracking-tight uppercase text-[#6B4E71] leading-none">Amanda Dech</strong>
+                <span class="ad-brand-subtitle block text-[7px] sm:text-[10px] font-bold tracking-[0.1em] sm:tracking-[0.2em] text-gray-400 uppercase mt-0.5">Choose Your Care Path</span>
+            </span>
+        </a>
+        <div class="ad-care-header-actions">
+            <a class="ad-care-back" href="index.html"><span aria-hidden="true">←</span> Welcome</a>
+            <a href="tel:2197286562" class="ad-call-button bg-[#6B4E71] text-white px-4 sm:px-6 py-2 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-widest shadow-md hover:bg-opacity-90 transition-all whitespace-nowrap">Call Now</a>
+        </div>
+    </nav>
+
+    <main class="ad-duo ad-care-duo flex flex-col md:flex-row" aria-label="Choose between two care paths">
+        <section class="ad-path ad-path-glow flex-1 flex flex-col justify-center items-center p-8 text-center group relative border-b md:border-b-0 overflow-hidden">
+            <div class="ad-path-photo absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" data-site-background="images.spa_path" style="background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1400');"></div>
+            <div class="ad-path-content relative z-20">
+                <span class="text-[10px] font-bold tracking-[0.3em] text-white uppercase mb-2 block drop-shadow-md" data-site-text="care_paths.spa_label">The Glow Path</span>
+                <h1 class="text-5xl md:text-8xl font-serif mb-4 tracking-tighter text-white drop-shadow-2xl" data-site-text="care_paths.spa_title">Spa Day</h1>
+                <p class="text-white mb-6 max-w-xs text-xs md:text-base font-bold uppercase tracking-widest drop-shadow-lg" data-site-text="care_paths.spa_subtitle">Aesthetics, Wellness &amp; Glow</p>
+                <a href="spa.html" class="ad-path-button glass-card inline-block px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] text-gray-900 shadow-xl hover:bg-[#6B4E71] hover:text-white transition-all">Explore Spa Day</a>
+                <span class="ad-path-note text-white drop-shadow-md" data-site-text="care_paths.spa_note">Botox · Fillers · IV therapy</span>
+            </div>
+        </section>
+
+        <section class="ad-path ad-path-care flex-1 flex flex-col justify-center items-center p-8 text-center group relative md:border-l border-white/20 overflow-hidden">
+            <div class="ad-path-photo absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" data-site-background="images.medical_path" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1400');"></div>
+            <div class="ad-path-content relative z-20">
+                <span class="text-[10px] font-extrabold tracking-[0.3em] text-gray-900 uppercase mb-2 block drop-shadow-sm" data-site-text="care_paths.medical_label">The Care Path</span>
+                <h1 class="text-5xl md:text-8xl font-serif mb-4 tracking-tighter text-gray-900 drop-shadow-sm" data-site-text="care_paths.medical_title">Sick Day</h1>
+                <p class="text-gray-800 mb-6 max-w-xs text-xs md:text-base font-bold uppercase tracking-widest drop-shadow-sm" data-site-text="care_paths.medical_subtitle">Primary Care, Wellness &amp; Medical Support</p>
+                <a href="health.html" class="ad-path-button bg-gray-900 text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] shadow-xl hover:bg-[#1A2B3C] transition-all inline-block">Explore Medical Care</a>
+                <span class="ad-path-note text-gray-900" data-site-text="care_paths.medical_note">Primary care · Labs · Follow-ups</span>
+            </div>
+        </section>
+
+        <div class="ad-center-seal" aria-hidden="true">
+            <span>One trusted provider</span>
+            <strong>Two paths to feeling well</strong>
+        </div>
+
+        <div class="ad-ticker" aria-label="Patient testimonials from Amanda's previous website">
+            <div class="ad-ticker-track">
+                <span>“Amanda is incredible! Fillers were made easy and natural.” — Sarah M.</span>
+                <span>“Finally a practitioner who listens. Weight loss actually works!” — Jason R.</span>
+                <span>“Elite FNP is the only place I'll go for my family.” — Maria L.</span>
+                <span aria-hidden="true">“Amanda is incredible! Fillers were made easy and natural.” — Sarah M.</span>
+                <span aria-hidden="true">“Finally a practitioner who listens. Weight loss actually works!” — Jason R.</span>
+                <span aria-hidden="true">“Elite FNP is the only place I'll go for my family.” — Maria L.</span>
+            </div>
+        </div>
+    </main>
+    <script src="supabase-config.js"></script>
+    <script src="site-data.js"></script>
+</body>
+</html>

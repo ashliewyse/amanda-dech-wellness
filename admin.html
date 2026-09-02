@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#6B4E71">
+    <title>Website Manager | Amanda Dech</title>
+    <link rel="stylesheet" href="upgrade.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="ad-admin-body">
+    <main id="admin-app">
+        <section class="admin-login" id="login-view" aria-labelledby="login-title">
+            <div class="admin-login-card">
+                <div class="admin-login-brand">
+                    <span class="ad-logo-mark" role="img" aria-label="Elite Family heart and stethoscope logo"></span>
+                    <div><strong>Amanda Dech</strong><span>Website Manager</span></div>
+                </div>
+                <span class="admin-eyebrow">Private marketing editor</span>
+                <h1 id="login-title">Welcome back, Amanda.</h1>
+                <p>Sign in to update the public website without touching any code.</p>
+                <form id="login-form" class="admin-form-stack">
+                    <label>Email<input id="login-email" name="email" type="email" autocomplete="username" required></label>
+                    <label>Password<input id="login-password" name="password" type="password" autocomplete="current-password" required></label>
+                    <button class="admin-primary" type="submit">Sign in to Website Manager</button>
+                </form>
+                <button class="admin-secondary admin-demo-button" id="demo-button" type="button" hidden>Open temporary builder mode</button>
+                <p class="admin-login-message" id="login-message" role="status"></p>
+                <div class="admin-safety-note"><strong>Marketing content only.</strong> Never enter patient names, symptoms, appointment details, billing information, or medical records here.</div>
+                <a class="admin-back-link" href="index.html">← Return to the website</a>
+            </div>
+        </section>
+
+        <section class="admin-shell" id="dashboard-view" hidden>
+            <aside class="admin-sidebar">
+                <a class="admin-sidebar-brand" href="index.html">
+                    <span class="ad-logo-mark" role="img" aria-label="Elite Family heart and stethoscope logo"></span>
+                    <span><strong>Amanda Dech</strong><small>Website Manager</small></span>
+                </a>
+                <nav class="admin-nav" aria-label="Website manager sections">
+                    <button class="is-active" type="button" data-panel-target="overview-panel">Overview</button>
+                    <button type="button" data-panel-target="homepage-panel">Homepage</button>
+                    <button type="button" data-panel-target="staff-panel">Staff</button>
+                    <button type="button" data-panel-target="photos-panel">Photos</button>
+                    <button type="button" data-panel-target="gallery-panel">Gallery</button>
+                    <button type="button" data-panel-target="testimonials-panel">Testimonials</button>
+                    <button type="button" data-panel-target="contact-panel">Contact &amp; booking</button>
+                    <button type="button" data-panel-target="launch-panel">Launch review</button>
+                </nav>
+                <div class="admin-sidebar-note"><strong>Keep it public.</strong><span>This manager is only for words and images that belong on the public website.</span></div>
+            </aside>
+
+            <div class="admin-workspace">
+                <header class="admin-toolbar">
+                    <div><span class="admin-preview-pill" id="mode-pill">Connected</span><span id="admin-identity">Amanda's website</span></div>
+                    <div class="admin-toolbar-actions">
+                        <a class="admin-secondary" href="index.html" target="_blank" rel="noreferrer">Open website</a>
+                        <button class="admin-text-button" id="signout-button" type="button">Sign out</button>
+                    </div>
+                </header>
+
+                <div class="admin-content">
+                    <section class="admin-panel is-active" id="overview-panel">
+                        <div class="admin-heading-row">
+                            <div><span class="admin-eyebrow">At a glance</span><h1>Website overview</h1><p>Choose what you want to update. Changes appear on the public website after you save.</p></div>
+                        </div>
+                        <div class="admin-stat-grid">
+                            <button class="admin-stat-card" type="button" data-panel-jump="photos-panel"><span class="admin-stat" id="photo-count">0 of 7</span><strong>Managed photos</strong><small>Replace welcome, care-path, office, and staff images</small></button>
+                            <button class="admin-stat-card" type="button" data-panel-jump="gallery-panel"><span class="admin-stat" id="gallery-count">0</span><strong>Gallery results</strong><small>Manage numbered before-and-after sets</small></button>
+                            <button class="admin-stat-card" type="button" data-panel-jump="testimonials-panel"><span class="admin-stat" id="testimonial-count">0</span><strong>Published testimonials</strong><small>Add only permission-approved quotes</small></button>
+                            <button class="admin-stat-card" type="button" data-panel-jump="contact-panel"><span class="admin-stat" id="booking-status">Not linked</span><strong>Square booking</strong><small>Add the booking link when it is ready</small></button>
+                            <button class="admin-stat-card" type="button" data-panel-jump="launch-panel"><span class="admin-stat" id="launch-status">0 of 6</span><strong>Launch review</strong><small>Confirm public details before going live</small></button>
+                        </div>
+                        <div class="admin-callout">
+                            <div><span class="admin-eyebrow">Safe boundary</span><h2>What belongs in this dashboard?</h2></div>
+                            <div class="admin-do-dont"><div><strong>Yes</strong><span>Public photos, website wording, service information, hours, links, approved testimonials.</span></div><div><strong>No</strong><span>Patient information, appointment details, symptoms, intake answers, bills, or medical records.</span></div></div>
+                        </div>
+                    </section>
+
+                    <section class="admin-panel" id="homepage-panel" hidden>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Homepage</span><h1>Edit the welcome message</h1><p>These words appear on the first page visitors see.</p></div><button class="admin-primary" type="submit" form="homepage-form">Save homepage</button></div>
+                        <form id="homepage-form" class="admin-editor-card">
+                            <div class="admin-field-grid">
+                                <label class="admin-span-2">Small heading<input name="kicker" maxlength="80"></label>
+                                <label class="admin-span-2">Main welcome headline<textarea name="headline" rows="2" maxlength="140"></textarea></label>
+                                <label class="admin-span-2">Welcome paragraph<textarea name="intro" rows="4" maxlength="600"></textarea></label>
+                                <label>Start-here label<input name="start_label" maxlength="40"></label>
+                                <label>Start-here question<input name="start_heading" maxlength="100"></label>
+                                <label class="admin-span-2">Explanation under the question<input name="start_note" maxlength="180"></label>
+                            </div>
+                            <hr>
+                            <h2>Amanda's introduction</h2>
+                            <div class="admin-field-grid">
+                                <label>Name and credentials<input name="provider_name" maxlength="100"></label>
+                                <label>Professional title<input name="provider_title" maxlength="100"></label>
+                                <label class="admin-span-2">Short description<textarea name="provider_blurb" rows="3" maxlength="350"></textarea></label>
+                            </div>
+                        </form>
+                    </section>
+
+                    <section class="admin-panel" id="staff-panel" hidden>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Meet the staff</span><h1>Update the care team</h1><p>Edit the names, credentials, and short public biographies shown on the staff page.</p></div><button class="admin-primary" type="submit" form="staff-form">Save staff details</button></div>
+                        <form id="staff-form" class="admin-editor-card">
+                            <h2>Amanda's profile</h2>
+                            <div class="admin-field-grid">
+                                <label>Name and credentials<input name="primary_name" maxlength="100" required></label>
+                                <label>Professional role<input name="primary_role" maxlength="100" required></label>
+                                <label class="admin-span-2">Short public biography<textarea name="primary_bio" rows="4" maxlength="500" required></textarea></label>
+                            </div>
+                            <hr>
+                            <h2>Additional team member</h2>
+                            <p class="admin-form-note">Leave this person hidden until Amanda has confirmed the name, credentials, biography, and photo.</p>
+                            <div class="admin-field-grid">
+                                <label>Name and credentials<input name="secondary_name" maxlength="100"></label>
+                                <label>Professional role<input name="secondary_role" maxlength="100"></label>
+                                <label class="admin-span-2">Short public biography<textarea name="secondary_bio" rows="4" maxlength="500"></textarea></label>
+                            </div>
+                            <label class="admin-check"><input name="secondary_visible" type="checkbox"><span>Show this additional team member on the public staff page</span></label>
+                            <div class="admin-safety-note"><strong>Public information only:</strong> Confirm professional titles and credentials with each staff member. Do not enter private employee records, license documents, or personal contact information here.</div>
+                        </form>
+                    </section>
+
+                    <section class="admin-panel" id="photos-panel" hidden>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Photos</span><h1>Replace website photos</h1><p>Choose a clear JPG, PNG, or WebP image under 5 MB. The current filler stays visible until you save a replacement.</p></div></div>
+                        <div class="admin-photo-grid">
+                            <article class="admin-photo-card" data-photo-card="provider"><div class="admin-photo-preview" data-photo-preview="provider"><span>Amanda's portrait</span></div><div><h2>Amanda welcome photo</h2><p>A vertical or square portrait works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="provider"></label></div></article>
+                            <article class="admin-photo-card" data-photo-card="spa_path"><div class="admin-photo-preview" data-photo-preview="spa_path"><span>Spa Day image</span></div><div><h2>Spa Day path</h2><p>A wide image with room for white text works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="spa_path"></label></div></article>
+                            <article class="admin-photo-card" data-photo-card="medical_path"><div class="admin-photo-preview" data-photo-preview="medical_path"><span>Sick Day image</span></div><div><h2>Sick Day path</h2><p>A wide, welcoming medical image works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="medical_path"></label></div></article>
+                            <article class="admin-photo-card" data-photo-card="office"><div class="admin-photo-preview" data-photo-preview="office"><span>Office image</span></div><div><h2>Visit page photo</h2><p>A welcoming photo of the building, entrance, lobby, or treatment space works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="office"></label></div></article>
+                            <article class="admin-photo-card" data-photo-card="staff_banner"><div class="admin-photo-preview" data-photo-preview="staff_banner"><span>Staff page banner</span></div><div><h2>Staff page banner</h2><p>A wide team or office image with room for heading text works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="staff_banner"></label></div></article>
+                            <article class="admin-photo-card" data-photo-card="staff_primary"><div class="admin-photo-preview" data-photo-preview="staff_primary"><span>Amanda staff photo</span></div><div><h2>Amanda staff portrait</h2><p>A clear vertical portrait works best on the staff card.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="staff_primary"></label></div></article>
+                            <article class="admin-photo-card" data-photo-card="staff_secondary"><div class="admin-photo-preview" data-photo-preview="staff_secondary"><span>Team member photo</span></div><div><h2>Additional team portrait</h2><p>Upload this before making the additional team member visible.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="staff_secondary"></label></div></article>
+                        </div>
+                        <div class="admin-safety-note"><strong>Photo reminder:</strong> Use staff, office, or general marketing photos here. Add permission-approved treatment-result photos through the separate Gallery section.</div>
+                    </section>
+
+                    <section class="admin-panel" id="gallery-panel" hidden>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Before &amp; after</span><h1>Manage the results gallery</h1><p>Add one before-and-after pair at a time. Titles are numbered automatically, so there is no patient-name field.</p></div><button class="admin-primary" type="button" id="show-gallery-form">Add result</button></div>
+
+                        <div class="admin-gallery-rule">
+                            <strong>Names and medical details stay out.</strong>
+                            <span>Never type a patient name, initials, birth date, appointment date, phone number, email, chart number, diagnosis, or release information into this dashboard.</span>
+                        </div>
+
+                        <form class="admin-editor-card admin-gallery-form" id="gallery-form" hidden>
+                            <div class="admin-heading-row admin-form-heading"><div><span class="admin-eyebrow">New gallery result</span><h2>Before-and-after pair</h2><p>The website will create a title such as “Dermal Fillers · Result 001.”</p></div></div>
+                            <label>Treatment category
+                                <select name="service" required>
+                                    <option value="">Choose a treatment</option>
+                                    <option>Botox &amp; Neurotoxins</option>
+                                    <option>Dermal Fillers</option>
+                                    <option>Skin Treatments</option>
+                                    <option>Wellness Progress</option>
+                                    <option>Other Treatment</option>
+                                </select>
+                            </label>
+                            <div class="admin-gallery-upload-grid">
+                                <label class="admin-gallery-upload">
+                                    <span class="admin-gallery-file-preview" id="gallery-before-preview"><strong>Before</strong><small>Choose the original photo</small></span>
+                                    <span class="admin-secondary">Choose before photo</span>
+                                    <input name="before_photo" type="file" accept="image/jpeg,image/png,image/webp" required>
+                                </label>
+                                <label class="admin-gallery-upload">
+                                    <span class="admin-gallery-file-preview" id="gallery-after-preview"><strong>After</strong><small>Choose the result photo</small></span>
+                                    <span class="admin-secondary">Choose after photo</span>
+                                    <input name="after_photo" type="file" accept="image/jpeg,image/png,image/webp" required>
+                                </label>
+                            </div>
+                            <div class="admin-gallery-confirmations">
+                                <strong>Required before saving</strong>
+                                <label class="admin-check"><input name="authorization_confirmed" type="checkbox" required><span>I verified that Amanda has a valid signed authorization covering these exact photos and their public website/marketing use, and that it has not expired or been revoked.</span></label>
+                                <label class="admin-check"><input name="privacy_checked" type="checkbox" required><span>I reviewed both photos and confirmed there are no patient names, documents, labels, location clues, or unrelated identifying details visible.</span></label>
+                                <label class="admin-check"><input name="published" type="checkbox" checked><span>Publish this result to the public gallery after saving</span></label>
+                            </div>
+                            <div class="admin-safety-note"><strong>Keep the signed form elsewhere.</strong> Do not upload the authorization or enter a patient name here. Amanda keeps the original authorization in her secure medical-record system.</div>
+                            <div class="admin-form-actions"><button class="admin-primary" type="submit">Save gallery result</button><button class="admin-secondary" id="cancel-gallery" type="button">Cancel</button></div>
+                        </form>
+
+                        <div class="admin-empty" id="gallery-empty"><strong>No managed gallery results yet.</strong><span>Use Add result to create the first automatically numbered before-and-after pair.</span></div>
+                        <div class="admin-gallery-list" id="gallery-list"></div>
+                    </section>
+
+                    <section class="admin-panel" id="testimonials-panel" hidden>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Testimonials</span><h1>Manage the scrolling quotes</h1><p>Only permission-approved testimonials can be published to the care-path ticker.</p></div><button class="admin-primary" type="button" id="show-testimonial-form">Add testimonial</button></div>
+                        <form class="admin-editor-card admin-testimonial-form" id="testimonial-form" hidden>
+                            <div class="admin-field-grid">
+                                <label class="admin-span-2">Testimonial<textarea name="quote" rows="4" maxlength="500" required></textarea></label>
+                                <label>Display name or initials<input name="display_name" maxlength="80" placeholder="Example: Sarah M." required></label>
+                                <label>Source<select name="source"><option>Google review</option><option>Square feedback</option><option>Previous website</option><option>Written testimonial</option></select></label>
+                            </div>
+                            <label class="admin-check"><input name="permission_confirmed" type="checkbox" required><span>I confirm Amanda has written permission to publish this exact testimonial and it does not include private medical details.</span></label>
+                            <label class="admin-check"><input name="published" type="checkbox" checked><span>Publish this testimonial after saving</span></label>
+                            <div class="admin-form-actions"><button class="admin-primary" type="submit">Save testimonial</button><button class="admin-secondary" type="button" id="cancel-testimonial">Cancel</button></div>
+                        </form>
+                        <div class="admin-empty" id="testimonial-empty"><strong>No managed testimonials yet.</strong><span>The three quotes already on the preview will remain until Amanda confirms permission and adds them here.</span></div>
+                        <div class="admin-testimonial-list" id="testimonial-list"></div>
+                    </section>
+
+                    <section class="admin-panel" id="contact-panel" hidden>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Contact &amp; booking</span><h1>Update how visitors reach Amanda</h1><p>Changes update calls, directions, and the future Square booking button.</p></div><button class="admin-primary" type="submit" form="contact-form">Save contact details</button></div>
+                        <form id="contact-form" class="admin-editor-card">
+                            <div class="admin-field-grid">
+                                <label>Phone number shown on the site<input name="phone_display" maxlength="30"></label>
+                                <label>Phone link<input name="phone_href" maxlength="40" placeholder="tel:2197286562"></label>
+                                <label class="admin-span-2">Office address<input name="address" maxlength="180"></label>
+                                <label class="admin-span-2">Hours or availability note<textarea name="hours_summary" rows="3" maxlength="240" placeholder="Example: Appointments are scheduled directly with the office."></textarea></label>
+                                <label class="admin-span-2">Directions link<input name="directions_url" type="url"></label>
+                                <label class="admin-span-2">Public Square booking link<input name="square_url" type="url" inputmode="url" autocomplete="off" placeholder="Paste Amanda's customer-facing booking link"></label>
+                            </div>
+                            <button class="admin-link-button" id="square-link-help" type="button">Which Square link should I use?</button>
+                            <div class="admin-safety-note"><strong>Before launch:</strong> Include the complete street address, city, state, and ZIP. Square appointments, payments, and patient information remain in Amanda's Square account—not in this website manager.</div>
+                        </form>
+                    </section>
+
+                    <section class="admin-panel" id="launch-panel" hidden>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Before going live</span><h1>Final launch review</h1><p>Amanda should personally compare these items with her current practice information before the website is published.</p></div><button class="admin-primary" type="submit" form="launch-form">Save review</button></div>
+                        <form id="launch-form" class="admin-editor-card admin-launch-form">
+                            <div class="admin-launch-list">
+                                <label class="admin-launch-check"><input name="services_prices" type="checkbox"><span><strong>Services and prices</strong><small>I confirmed every public service, description, and price on the Medical Care and Spa &amp; Wellness pages.</small><a href="spa.html" target="_blank" rel="noreferrer">Review spa services</a><a href="health.html" target="_blank" rel="noreferrer">Review medical services</a></span></label>
+                                <label class="admin-launch-check"><input name="office_policies" type="checkbox"><span><strong>Office policies</strong><small>I confirmed the current no-show, payment, and after-hours policy wording.</small></span></label>
+                                <label class="admin-launch-check"><input name="contact_details" type="checkbox"><span><strong>Contact and booking details</strong><small>I confirmed the phone number, complete address, availability note, directions link, and public Square link.</small><a href="visit.html" target="_blank" rel="noreferrer">Review visit page</a></span></label>
+                                <label class="admin-launch-check"><input name="staff_details" type="checkbox"><span><strong>Staff information</strong><small>I confirmed every public name, professional credential, biography, and staff photo.</small><a href="meet-the-staff.html" target="_blank" rel="noreferrer">Review staff page</a></span></label>
+                                <label class="admin-launch-check"><input name="photo_permissions" type="checkbox"><span><strong>Photo and testimonial permissions</strong><small>I confirmed the practice has permission for every public photo, before-and-after result, and testimonial.</small><a href="gallery.html" target="_blank" rel="noreferrer">Review gallery</a></span></label>
+                                <label class="admin-launch-check"><input name="privacy_notice" type="checkbox"><span><strong>Website privacy and accessibility notice</strong><small>I reviewed the website notice and confirmed the listed contact method.</small><a href="privacy.html" target="_blank" rel="noreferrer">Review notice</a></span></label>
+                            </div>
+                            <p class="admin-launch-status" id="launch-reviewed-at">Complete every confirmation before the website launches.</p>
+                            <div class="admin-safety-note"><strong>This is a publishing checklist, not legal certification.</strong> The Website Manager remains limited to public marketing content and does not replace the practice's medical-record, consent, privacy, or compliance procedures.</div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <dialog class="admin-photo-dialog" id="square-link-dialog" aria-labelledby="square-link-title">
+        <form method="dialog">
+            <button class="admin-dialog-close" id="square-link-close" type="button" aria-label="Close Square link reminder">×</button>
+            <span class="admin-eyebrow">Square safety reminder</span>
+            <h1 id="square-link-title">Use only the public booking link</h1>
+            <p>Open Amanda's Square account directly, find the customer-facing online booking page, and copy that public web address into this dashboard.</p>
+            <div class="admin-square-example"><strong>Safe to paste</strong><code>https://book.squareup.com/appointments/…</code></div>
+            <div class="admin-gallery-rule">
+                <strong>Never enter private Square information here.</strong>
+                <span>Do not enter a Square password, email login, verification code, recovery code, access token, secret key, card number, or a private dashboard link.</span>
+            </div>
+            <div class="admin-form-actions"><button class="admin-primary" id="square-link-continue" type="button">I understand — continue</button></div>
+        </form>
+    </dialog>
+
+    <dialog class="admin-photo-dialog" id="photo-warning-dialog" aria-labelledby="photo-warning-title">
+        <form id="photo-warning-form">
+            <button class="admin-dialog-close" id="photo-warning-close" type="button" aria-label="Cancel photo upload">×</button>
+            <span class="admin-eyebrow">Photo privacy check</span>
+            <h1 id="photo-warning-title">Before this photo is posted</h1>
+            <p>Choose the description that fits this photo. Nothing will upload until you continue.</p>
+
+            <fieldset class="admin-photo-type-options">
+                <legend>What kind of photo is this?</legend>
+                <label class="admin-radio-card">
+                    <input type="radio" name="photo_type" value="general">
+                    <span><strong>General marketing photo</strong><small>Staff, office, products, décor, or another photo that does not identify a patient.</small></span>
+                </label>
+                <label class="admin-radio-card">
+                    <input type="radio" name="photo_type" value="patient">
+                    <span><strong>Patient or before-and-after photo</strong><small>Use the Gallery section so the result receives its privacy checks and automatic numbered title.</small></span>
+                </label>
+            </fieldset>
+
+            <div class="admin-patient-confirmation" id="patient-photo-confirmation" hidden>
+                <strong>Add this through the Gallery instead</strong>
+                <p>Patient and before-and-after photos cannot be used as general website photos. Open Gallery, choose Add result, and complete the required reminders there.</p>
+                <label class="admin-check" hidden>
+                    <input id="patient-photo-authorized" type="checkbox" disabled>
+                    <span>Patient photo approval is handled in the Gallery section.</span>
+                </label>
+            </div>
+
+            <div class="admin-safety-note"><strong>Never upload the release or patient details here.</strong> Keep the signed form, patient name, chart number, and medical information in Amanda’s secure medical-record system.</div>
+            <div class="admin-form-actions admin-dialog-actions">
+                <button class="admin-secondary" id="photo-warning-cancel" type="button">Cancel</button>
+                <button class="admin-primary" id="photo-warning-continue" type="submit" disabled>Continue with photo</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
+    <script src="supabase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

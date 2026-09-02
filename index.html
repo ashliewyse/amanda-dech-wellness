@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amanda Dech | Elite Family Nurse Practitioners</title>
+    <meta name="description" content="Personalized medical, wellness, and aesthetic care with Amanda Dech, FNP-C.">
+    <meta name="theme-color" content="#6B4E71">
+    <title>Amanda Dech, FNP-C | Medical, Wellness & Aesthetic Care</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="upgrade.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -14,78 +17,99 @@
         .animate-scroll { display: flex; width: max-content; animation: scroll 40s linear infinite; }
     </style>
 </head>
-<body class="bg-white font-sans text-gray-800 antialiased min-h-screen flex flex-col overflow-y-auto pb-16">
+<body class="bg-white font-sans text-gray-800 antialiased min-h-screen flex flex-col overflow-y-auto">
+
+    <div class="ad-top-skip">
+        <a href="care-path.html">Returning patient? Skip directly to care paths <span aria-hidden="true">→</span></a>
+    </div>
 
     <!-- Header / Navbar (Single Header) -->
-    <nav class="px-2 py-3 sm:p-4 bg-white/95 backdrop-blur-md flex justify-between items-center sticky top-0 z-40 border-b border-gray-100">
-        <div class="flex items-center gap-1.5 sm:gap-3">
-            <div class="text-[#6B4E71]">
-                <svg width="24" height="24" class="sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.505 4.046 3 5.5L12 21l7-7Z" />
-                    <path d="M12 5c.5 5 2 5 2 9s-2 4-2 4" />
-                    <circle cx="14" cy="14" r="1.5" />
-                </svg>
-            </div>
+    <nav class="ad-header px-2 py-3 sm:p-4 bg-white/95 backdrop-blur-md flex justify-between items-center sticky top-0 z-40 border-b border-gray-100" aria-label="Main navigation">
+        <div class="ad-brand-wrap flex items-center gap-1.5 sm:gap-3">
+            <span class="ad-logo-mark" role="img" aria-label="Elite Family heart and stethoscope logo"></span>
             <div>
                 <h1 class="text-base sm:text-2xl font-serif font-bold tracking-tight uppercase text-[#6B4E71] leading-none"> Amanda Dech </h1>
-                <p class="text-[7px] sm:text-[10px] font-sans font-bold tracking-[0.1em] sm:tracking-[0.2em] text-gray-400 uppercase mt-0.5"> Elite Family Nurse Practitioners </p>
+                <p class="ad-brand-subtitle text-[7px] sm:text-[10px] font-sans font-bold tracking-[0.1em] sm:tracking-[0.2em] text-gray-400 uppercase mt-0.5"> Family Nurse Practitioner · FNP-C </p>
             </div>
         </div>
 
-        <!-- Meet the Staff Button -->
-        <div class="flex items-center">
-            <a href="meet-the-staff.html" class="border border-[#6B4E71] text-[#6B4E71] px-2 py-1 sm:px-5 sm:py-2 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-tight sm:tracking-widest hover:bg-[#6B4E71] hover:text-white transition-all whitespace-nowrap">
-                Meet the Staff
-            </a>
+        <div class="ad-header-links">
+            <a href="health.html">Medical Care</a>
+            <a href="spa.html">Aesthetics & Wellness</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="meet-the-staff.html">Meet the Staff</a>
+            <a href="visit.html">Visit</a>
         </div>
 
         <!-- Call Now Button -->
-        <div class="flex flex-col items-end">
-            <a href="tel:2197286562" class="bg-[#6B4E71] text-white px-2.5 py-1 sm:px-6 sm:py-2 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-tight sm:tracking-widest shadow-md hover:bg-opacity-90 transition-all whitespace-nowrap"> Call Now </a>
-            <span class="text-[7px] sm:text-[10px] text-gray-500 font-bold uppercase tracking-wider text-right mt-0.5"> 1531 S Calumet Rd </span>
+        <div class="ad-call-block flex flex-col items-end">
+            <a href="tel:2197286562" class="ad-call-button bg-[#6B4E71] text-white px-2.5 py-1 sm:px-6 sm:py-2 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-tight sm:tracking-widest shadow-md hover:bg-opacity-90 transition-all whitespace-nowrap"> Call Now </a>
+            <a class="ad-about-link" href="#about">About Us</a>
         </div>
     </nav>
 
-    <!-- Main Content Area -->
-    <main class="flex-1 flex flex-col md:flex-row">
-        
-        <!-- Spa Day Section -->
-        <section class="flex-1 min-h-[420px] md:min-h-0 flex flex-col justify-center items-center p-8 text-center group relative border-b md:border-b-0 overflow-hidden">
-            <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1200');"> </div>
-            <div class="absolute inset-0 bg-black/30 z-10"></div>
-            <div class="relative z-20">
-                <span class="text-[10px] font-bold tracking-[0.3em] text-white uppercase mb-2 block drop-shadow-md"> The Glow Path </span>
-                <h2 class="text-5xl md:text-8xl font-serif mb-4 tracking-tighter text-white drop-shadow-2xl"> Spa Day </h2>
-                <p class="text-white mb-6 max-w-xs text-xs md:text-base font-bold uppercase tracking-widest drop-shadow-lg"> Botox, Filler & Glow </p>
-                <a href="spa.html" class="glass-card inline-block px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] text-gray-900 shadow-xl hover:bg-[#6B4E71] hover:text-white transition-all"> Book Spa Day </a>
+    <section class="ad-landing scroll-mt-20" id="about">
+        <div class="ad-shell ad-landing-grid">
+            <div class="ad-landing-copy">
+                <span class="ad-kicker" data-site-text="homepage.kicker">Medical · Wellness · Aesthetics</span>
+                <h1 class="ad-section-title" data-site-text="homepage.headline">Care that feels personal, from the very first hello.</h1>
+                <p class="ad-lead" data-site-text="homepage.intro">Amanda brings medical care, wellness support, and aesthetic services together in one welcoming practice—so caring for yourself can feel comfortable, clear, and refreshingly human.</p>
+                <div class="ad-start-card" aria-labelledby="start-here-title">
+                    <div class="ad-start-copy">
+                        <span class="ad-start-label" data-site-text="homepage.start_label">Start Here</span>
+                        <p id="start-here-title" data-site-text="homepage.start_heading">What brings you in today?</p>
+                        <small data-site-text="homepage.start_note">Choose Medical Care or Spa &amp; Wellness on the next screen.</small>
+                    </div>
+                    <a class="ad-primary-button ad-continue-button" href="care-path.html">Choose Your Care Path <span aria-hidden="true">→</span></a>
+                </div>
+                <a class="ad-start-call" href="tel:2197286562">Prefer to speak with someone? Call the office.</a>
             </div>
-        </section>
-
-        <!-- Sick Day Section -->
-        <section class="flex-1 min-h-[420px] md:min-h-0 flex flex-col justify-center items-center p-8 text-center group relative md:border-l border-white/20 overflow-hidden">
-            <div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200');"> </div>
-            <div class="absolute inset-0 bg-white/40 z-10"></div>
-            <div class="relative z-20">
-                <span class="text-[10px] font-extrabold tracking-[0.3em] text-gray-900 uppercase mb-2 block drop-shadow-sm"> The Care Path </span>
-                <h2 class="text-5xl md:text-8xl font-serif mb-4 tracking-tighter text-gray-900 drop-shadow-sm"> Sick Day </h2>
-                <p class="text-gray-800 mb-6 max-w-xs text-xs md:text-base font-bold uppercase tracking-widest drop-shadow-sm"> Primary Care & Weight Loss </p>
-                <a href="health.html" class="bg-gray-900 text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] shadow-xl hover:bg-[#1A2B3C] transition-all inline-block"> Book Medical Care </a>
+            <div class="ad-provider-card" data-site-background="images.provider">
+                <span class="ad-photo-note">Amanda's real portrait will complete this space</span>
+                <small data-site-text="homepage.provider_title">Family Nurse Practitioner</small>
+                <h2 data-site-text="homepage.provider_name">Amanda Dech, FNP-C</h2>
+                <p data-site-text="homepage.provider_blurb">Clinical knowledge with a warm, practical approach to the way you want to feel.</p>
             </div>
-        </section>
-        
-    </main>
-
-    <!-- Fixed Floating Testimonial Footer -->
-    <footer class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-100 py-3 overflow-hidden shadow-md">
-        <div class="animate-scroll whitespace-nowrap gap-16 text-xs font-medium tracking-wide text-gray-500 uppercase">
-            <span>"Amanda is incredible! Fillers were made easy and natural." — Sarah M.</span>
-            <span>"Finally a practitioner who listens. Weight loss actually works!" — Jason R.</span>
-            <span>"Elite FNP is the only place I'll go for my family." — Maria L.</span>
-            <span>"Amanda is incredible! Fillers were made easy and natural." — Sarah M.</span>
-            <span>"Finally a practitioner who listens. Weight loss actually works!" — Jason R.</span>
-            <span>"Elite FNP is the only place I'll go for my family." — Maria L.</span>
         </div>
+        <div class="ad-trust-bar" aria-label="Practice highlights">
+            <div class="ad-trust-item"><strong>FNP-C</strong><span>Board-certified care</span></div>
+            <div class="ad-trust-item"><strong>Personal</strong><span>Time to be heard</span></div>
+            <div class="ad-trust-item"><strong>Clear</strong><span>Upfront self-pay pricing</span></div>
+            <div class="ad-trust-item"><strong>Local</strong><span>Care close to home</span></div>
+        </div>
+    </section>
+
+    <section class="ad-section" id="visit">
+        <div class="ad-shell ad-visit-card">
+            <div>
+                <span class="ad-kicker">Visit the practice</span>
+                <h2 class="ad-section-title">Personal care, close to home.</h2>
+                <p>Call the office for current availability or choose a care path to explore services and pricing.</p>
+                <address data-site-address>1531 S Calumet Rd</address>
+            </div>
+            <div class="ad-visit-actions">
+                <a class="ad-primary-button" href="health.html">Choose medical care</a>
+                <a class="ad-outline-button" href="spa.html">Choose spa & wellness</a>
+                <a class="ad-outline-button" data-site-directions href="https://www.google.com/maps/search/?api=1&amp;query=1531%20S%20Calumet%20Rd" target="_blank" rel="noreferrer">Open directions</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="ad-footer">
+        <div class="ad-footer-grid">
+            <div><a class="ad-footer-brand" href="index.html">Amanda Dech, FNP-C</a><p>Medical, wellness, and aesthetic care delivered with warmth and clarity.</p></div>
+            <div><h2>Explore</h2><a href="health.html">Medical care</a><a href="spa.html">Aesthetics & wellness</a><a href="gallery.html">Before &amp; after gallery</a><a href="meet-the-staff.html">Meet the staff</a></div>
+            <div><h2>Connect</h2><a href="tel:2197286562" data-site-phone>(219) 728-6562</a><span data-site-address>1531 S Calumet Rd</span><a href="visit.html">Visit &amp; directions</a></div>
+            <div><h2>Patient information</h2><a href="patient-resources.html">Patient information</a><a href="privacy.html">Website privacy &amp; accessibility</a><span>Do not use this website for emergencies.</span><span>For emergencies, call 911.</span></div>
+        </div>
+        <div class="ad-footer-admin"><a href="admin.html">Staff Login</a></div>
     </footer>
 
+    <nav class="ad-mobile-actions" aria-label="Quick actions">
+        <a href="tel:2197286562">Call</a><a class="primary" href="health.html">Book</a><a data-site-directions href="https://www.google.com/maps/search/?api=1&amp;query=1531%20S%20Calumet%20Rd" target="_blank" rel="noreferrer">Directions</a>
+    </nav>
+
+    <script src="supabase-config.js"></script>
+    <script src="site-data.js"></script>
 </body>
 </html>
