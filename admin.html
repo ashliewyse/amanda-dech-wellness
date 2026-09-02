@@ -66,7 +66,7 @@
                             <div><span class="admin-eyebrow">At a glance</span><h1>Website overview</h1><p>Choose what you want to update. Changes appear on the public website after you save.</p></div>
                         </div>
                         <div class="admin-stat-grid">
-                            <button class="admin-stat-card" type="button" data-panel-jump="photos-panel"><span class="admin-stat" id="photo-count">0 of 7</span><strong>Managed photos</strong><small>Replace welcome, care-path, office, and staff images</small></button>
+                            <button class="admin-stat-card" type="button" data-panel-jump="photos-panel"><span class="admin-stat" id="photo-count">0</span><strong>Managed photos</strong><small>Includes every team member's profile photo</small></button>
                             <button class="admin-stat-card" type="button" data-panel-jump="gallery-panel"><span class="admin-stat" id="gallery-count">0</span><strong>Gallery results</strong><small>Manage numbered before-and-after sets</small></button>
                             <button class="admin-stat-card" type="button" data-panel-jump="testimonials-panel"><span class="admin-stat" id="testimonial-count">0</span><strong>Published testimonials</strong><small>Add only permission-approved quotes</small></button>
                             <button class="admin-stat-card" type="button" data-panel-jump="contact-panel"><span class="admin-stat" id="booking-status">Not linked</span><strong>Square booking</strong><small>Add the booking link when it is ready</small></button>
@@ -100,23 +100,20 @@
                     </section>
 
                     <section class="admin-panel" id="staff-panel" hidden>
-                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Meet the staff</span><h1>Update the care team</h1><p>Edit the names, credentials, and short public biographies shown on the staff page.</p></div><button class="admin-primary" type="submit" form="staff-form">Save staff details</button></div>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Meet the staff</span><h1>Update the care team</h1><p>Edit each person's name, credentials, biography, and profile photo in one place.</p></div><div class="admin-heading-actions"><button class="admin-secondary" type="button" id="add-team-member">Add team member</button><button class="admin-primary" type="submit" form="staff-form">Save staff details</button></div></div>
                         <form id="staff-form" class="admin-editor-card">
-                            <h2>Amanda's profile</h2>
-                            <div class="admin-field-grid">
-                                <label>Name and credentials<input name="primary_name" maxlength="100" required></label>
-                                <label>Professional role<input name="primary_role" maxlength="100" required></label>
-                                <label class="admin-span-2">Short public biography<textarea name="primary_bio" rows="4" maxlength="500" required></textarea></label>
+                            <div class="admin-staff-profile">
+                                <div>
+                                    <h2>Amanda's profile</h2>
+                                    <div class="admin-field-grid">
+                                        <label>Name and credentials<input name="primary_name" maxlength="100" required></label>
+                                        <label>Professional role<input name="primary_role" maxlength="100" required></label>
+                                        <label class="admin-span-2">Short public biography<textarea name="primary_bio" rows="4" maxlength="500" required></textarea></label>
+                                    </div>
+                                </div>
+                                <article class="admin-photo-card admin-staff-photo-card" data-photo-card="staff_primary"><div class="admin-photo-preview" data-photo-preview="staff_primary"><span>Amanda staff photo</span></div><div><h2>Profile photo</h2><p>A clear vertical portrait works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="staff_primary"></label></div></article>
                             </div>
-                            <hr>
-                            <h2>Additional team member</h2>
-                            <p class="admin-form-note">Leave this person hidden until Amanda has confirmed the name, credentials, biography, and photo.</p>
-                            <div class="admin-field-grid">
-                                <label>Name and credentials<input name="secondary_name" maxlength="100"></label>
-                                <label>Professional role<input name="secondary_role" maxlength="100"></label>
-                                <label class="admin-span-2">Short public biography<textarea name="secondary_bio" rows="4" maxlength="500"></textarea></label>
-                            </div>
-                            <label class="admin-check"><input name="secondary_visible" type="checkbox"><span>Show this additional team member on the public staff page</span></label>
+                            <div id="team-member-list" class="admin-team-member-list" aria-live="polite"></div>
                             <div class="admin-safety-note"><strong>Public information only:</strong> Confirm professional titles and credentials with each staff member. Do not enter private employee records, license documents, or personal contact information here.</div>
                         </form>
                     </section>
@@ -129,8 +126,6 @@
                             <article class="admin-photo-card" data-photo-card="medical_path"><div class="admin-photo-preview" data-photo-preview="medical_path"><span>Sick Day image</span></div><div><h2>Sick Day path</h2><p>A wide, welcoming medical image works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="medical_path"></label></div></article>
                             <article class="admin-photo-card" data-photo-card="office"><div class="admin-photo-preview" data-photo-preview="office"><span>Office image</span></div><div><h2>Visit page photo</h2><p>A welcoming photo of the building, entrance, lobby, or treatment space works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="office"></label></div></article>
                             <article class="admin-photo-card" data-photo-card="staff_banner"><div class="admin-photo-preview" data-photo-preview="staff_banner"><span>Staff page banner</span></div><div><h2>Staff page banner</h2><p>A wide team or office image with room for heading text works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="staff_banner"></label></div></article>
-                            <article class="admin-photo-card" data-photo-card="staff_primary"><div class="admin-photo-preview" data-photo-preview="staff_primary"><span>Amanda staff photo</span></div><div><h2>Amanda staff portrait</h2><p>A clear vertical portrait works best on the staff card.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="staff_primary"></label></div></article>
-                            <article class="admin-photo-card" data-photo-card="staff_secondary"><div class="admin-photo-preview" data-photo-preview="staff_secondary"><span>Team member photo</span></div><div><h2>Additional team portrait</h2><p>Upload this before making the additional team member visible.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="staff_secondary"></label></div></article>
                         </div>
                         <div class="admin-safety-note"><strong>Photo reminder:</strong> Use staff, office, or general marketing photos here. Add permission-approved treatment-result photos through the separate Gallery section.</div>
                     </section>

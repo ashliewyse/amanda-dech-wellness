@@ -82,6 +82,7 @@ input:hover, textarea:hover, select:hover { border-color: #b8aab6; }
 .admin-heading-row { margin-bottom: 28px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
 .admin-heading-row h1 { font-size: clamp(38px, 5vw, 58px); line-height: 1; }
 .admin-heading-row p { max-width: 680px; margin: 12px 0 0; color: var(--admin-muted); font-size: 14px; line-height: 1.7; }
+.admin-heading-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
 .admin-stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
 .admin-stat-card { padding: 25px; display: flex; min-height: 190px; flex-direction: column; align-items: flex-start; border: 1px solid var(--admin-line); border-radius: 20px; background: white; color: var(--admin-ink); text-align: left; box-shadow: 0 10px 35px rgba(31, 25, 34, .05); cursor: pointer; }
 .admin-stat-card:hover { border-color: rgba(107, 78, 113, .38); transform: translateY(-2px); }
@@ -103,6 +104,16 @@ input:hover, textarea:hover, select:hover { border-color: #b8aab6; }
 .admin-editor-card hr { margin: 32px 0; border: 0; border-top: 1px solid var(--admin-line); }
 .admin-field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .admin-span-2 { grid-column: 1 / -1; }
+.admin-staff-profile { display: grid; grid-template-columns: minmax(0, 1fr) 240px; align-items: start; gap: 24px; }
+.admin-staff-photo-card { align-self: start; box-shadow: none; }
+.admin-staff-photo-card .admin-photo-preview { aspect-ratio: 4 / 5; }
+.admin-staff-photo-card > div:last-child { padding: 16px; }
+.admin-staff-photo-card h2 { font-size: 19px; }
+.admin-staff-photo-card p { min-height: 0; margin: 6px 0 14px; }
+.admin-team-member-list:empty::before { content: "No additional team members yet. Use Add team member when Amanda is ready."; margin-top: 32px; padding: 24px; display: block; border: 1px dashed #cdbfcd; border-radius: 17px; background: #fbf8fb; color: var(--admin-muted); font-size: 12px; line-height: 1.6; text-align: center; }
+.admin-team-member { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--admin-line); }
+.admin-team-member-header { margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.admin-team-member-header h2 { margin: 0; }
 
 .admin-photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .admin-photo-card { overflow: hidden; border: 1px solid var(--admin-line); border-radius: 20px; background: white; box-shadow: 0 10px 34px rgba(30, 24, 32, .05); }
@@ -209,7 +220,8 @@ input:hover, textarea:hover, select:hover { border-color: #b8aab6; }
     .admin-nav button { min-width: max-content; min-height: 38px; padding: 8px 13px; }
     .admin-sidebar-note { display: none; }
     .admin-toolbar { top: 109px; }
-    .admin-stat-grid, .admin-photo-grid { grid-template-columns: 1fr; }
+    .admin-stat-grid, .admin-photo-grid, .admin-staff-profile { grid-template-columns: 1fr; }
+    .admin-staff-photo-card { width: min(100%, 320px); }
     .admin-stat-card { min-height: 150px; }
     .admin-callout { grid-template-columns: 1fr; gap: 20px; }
     .admin-gallery-item { grid-template-columns: 210px minmax(0, 1fr); }
@@ -222,7 +234,8 @@ input:hover, textarea:hover, select:hover { border-color: #b8aab6; }
     .admin-toolbar-actions .admin-secondary { display: none; }
     .admin-content { padding-top: 34px; }
     .admin-heading-row { align-items: stretch; flex-direction: column; }
-    .admin-heading-row .admin-primary { width: 100%; }
+    .admin-heading-actions { align-items: stretch; flex-direction: column; }
+    .admin-heading-actions .admin-primary, .admin-heading-actions .admin-secondary { width: 100%; }
     .admin-heading-row h1 { font-size: 40px; }
     .admin-field-grid, .admin-do-dont { grid-template-columns: 1fr; }
     .admin-span-2 { grid-column: auto; }

@@ -40,6 +40,43 @@
         });
     }
 
+    function renderTeam(content) {
+        const list = document.querySelector("[data-team-list]");
+        if (!list) return;
+        list.querySelectorAll("[data-managed-team-member]").forEach((element) => element.remove());
+        const staff = content.staff || {};
+        let members = Array.isArray(staff.members) ? staff.members : [];
+        if (members.length === 0 && staff.secondary_visible) {
+            members = [{
+                name: staff.secondary_name,
+                role: staff.secondary_role,
+                bio: staff.secondary_bio,
+                visible: true,
+                photo_url: content.images && content.images.staff_secondary
+            }];
+        }
+        members.filter((member) => member && member.visible && member.name && member.role && member.bio && member.photo_url).forEach((member) => {
+            const card = document.createElement("article");
+            card.className = "ad-team-card";
+            card.dataset.managedTeamMember = "";
+            const photo = document.createElement("div");
+            photo.className = "ad-team-photo";
+            const image = document.createElement("img");
+            image.src = member.photo_url;
+            image.alt = `Portrait of ${member.name}`;
+            image.loading = "lazy";
+            photo.appendChild(image);
+            const name = document.createElement("h3");
+            name.textContent = member.name;
+            const role = document.createElement("span");
+            role.textContent = member.role;
+            const bio = document.createElement("p");
+            bio.textContent = member.bio;
+            card.append(photo, name, role, bio);
+            list.appendChild(card);
+        });
+    }
+
     function applyContact(content) {
         const contact = content.contact || {};
         if (contact.phone_href) {
@@ -98,6 +135,7 @@
                 applyText(content);
                 applyBackgrounds(content);
                 applyVisibility(content);
+                renderTeam(content);
                 applyContact(content);
             }
             renderTestimonials(testimonials);

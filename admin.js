@@ -30,10 +30,7 @@
             primary_name: "Amanda Dech, FNP-C",
             primary_role: "Family Nurse Practitioner",
             primary_bio: "Amanda combines attentive medical care, wellness support, and aesthetic services with a warm, practical approach.",
-            secondary_name: "",
-            secondary_role: "",
-            secondary_bio: "",
-            secondary_visible: false
+            members: []
         },
         contact: {
             phone_display: "(219) 728-6562",
@@ -58,8 +55,7 @@
             medical_path: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1400",
             office: "",
             staff_banner: "",
-            staff_primary: "",
-            staff_secondary: ""
+            staff_primary: ""
         }
     };
 
@@ -105,6 +101,45 @@
             }
         });
         return base;
+    }
+
+    function createTeamMemberId() {
+        return `member-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+    }
+
+    function normalizeTeamMembers() {
+        const staff = state.content.staff || clone(fallbackContent.staff);
+        let members = Array.isArray(staff.members) ? staff.members : [];
+        const hasLegacyMember = staff.secondary_name || staff.secondary_role || staff.secondary_bio || staff.secondary_visible;
+        if (members.length === 0 && hasLegacyMember) {
+            members = [{
+                id: "member-legacy",
+                name: staff.secondary_name || "",
+                role: staff.secondary_role || "",
+                bio: staff.secondary_bio || "",
+                visible: Boolean(staff.secondary_visible),
+                photo_url: state.content.images && state.content.images.staff_secondary || ""
+            }];
+        }
+        const usedIds = new Set();
+        staff.members = members.slice(0, 12).map((member) => {
+            let id = typeof member.id === "string" && /^member-[a-z0-9-]+$/.test(member.id) ? member.id : createTeamMemberId();
+            while (usedIds.has(id)) id = createTeamMemberId();
+            usedIds.add(id);
+            return {
+                id,
+                name: typeof member.name === "string" ? member.name.slice(0, 100) : "",
+                role: typeof member.role === "string" ? member.role.slice(0, 100) : "",
+                bio: typeof member.bio === "string" ? member.bio.slice(0, 500) : "",
+                visible: Boolean(member.visible),
+                photo_url: typeof member.photo_url === "string" ? member.photo_url : ""
+            };
+        });
+        delete staff.secondary_name;
+        delete staff.secondary_role;
+        delete staff.secondary_bio;
+        delete staff.secondary_visible;
+        state.content.staff = staff;
     }
 
     function showToast(message, isError) {
@@ -195,12 +230,14 @@
     async function loadContent() {
         if (state.demo) {
             state.content = clone(fallbackContent);
+            normalizeTeamMembers();
             return;
         }
         const rows = await request(`/rest/v1/site_content?id=eq.${encodeURIComponent(config.contentRowId)}&select=content`, {
             headers: headers(true)
         });
         state.content = mergeContent(clone(fallbackContent), rows[0] && rows[0].content);
+        normalizeTeamMembers();
     }
 
     async function loadTestimonials() {
@@ -242,9 +279,75 @@
         });
     }
 
+    function teamPhotoSlot(memberId) {
+        return `team-${memberId}`;
+    }
+
+    function teamMemberFromSlot(slot) {
+        if (!slot.startsWith("team-member-")) return null;
+        const memberId = slot.slice(5);
+        return state.content.staff.members.find((member) => member.id === memberId) || null;
+    }
+
+    function setPhotoUrlForSlot(slot, url) {
+        const member = teamMemberFromSlot(slot);
+        if (member) member.photo_url = url;
+        else state.content.images[slot] = url;
+    }
+
+    function readTeamMemberCards() {
+        return Array.from(document.querySelectorAll("[data-team-member-id]")).map((card) => {
+            const id = card.dataset.teamMemberId;
+            const current = state.content.staff.members.find((member) => member.id === id);
+            return {
+                id,
+                name: card.querySelector('[data-team-field="name"]').value.trim(),
+                role: card.querySelector('[data-team-field="role"]').value.trim(),
+                bio: card.querySelector('[data-team-field="bio"]').value.trim(),
+                visible: card.querySelector('[data-team-field="visible"]').checked,
+                photo_url: current && current.photo_url || ""
+            };
+        });
+    }
+
+    function captureStaffDraft() {
+        const form = document.getElementById("staff-form");
+        const values = formValues(form);
+        state.content.staff = {
+            ...state.content.staff,
+            primary_name: values.primary_name,
+            primary_role: values.primary_role,
+            primary_bio: values.primary_bio,
+            members: readTeamMemberCards()
+        };
+        return state.content.staff;
+    }
+
+    function renderTeamMembers() {
+        const list = document.getElementById("team-member-list");
+        list.replaceChildren();
+        state.content.staff.members.forEach((member, index) => {
+            const slot = teamPhotoSlot(member.id);
+            const item = document.createElement("article");
+            item.className = "admin-team-member";
+            item.dataset.teamMemberId = member.id;
+            item.innerHTML = `<div class="admin-staff-profile"><div><div class="admin-team-member-header"><h2>Team member ${index + 1}</h2><button class="admin-mini-button danger" type="button" data-remove-team-member>Remove</button></div><p class="admin-form-note">Keep this profile hidden until the name, credentials, biography, and photo are ready.</p><div class="admin-field-grid"><label>Name and credentials<input data-team-field="name" maxlength="100"></label><label>Professional role<input data-team-field="role" maxlength="100"></label><label class="admin-span-2">Short public biography<textarea data-team-field="bio" rows="4" maxlength="500"></textarea></label></div><label class="admin-check"><input data-team-field="visible" type="checkbox"><span>Show this person on the public staff page</span></label></div><article class="admin-photo-card admin-staff-photo-card" data-photo-card="${slot}"><div class="admin-photo-preview" data-photo-preview="${slot}"><span>Team member photo</span></div><div><h2>Profile photo</h2><p>Upload this before showing the profile.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="${slot}"></label></div></article></div>`;
+            item.querySelector('[data-team-field="name"]').value = member.name;
+            item.querySelector('[data-team-field="role"]').value = member.role;
+            item.querySelector('[data-team-field="bio"]').value = member.bio;
+            item.querySelector('[data-team-field="visible"]').checked = member.visible;
+            const preview = item.querySelector(`[data-photo-preview="${slot}"]`);
+            if (member.photo_url) {
+                preview.style.backgroundImage = `linear-gradient(rgba(20,16,21,.12), rgba(20,16,21,.28)), url("${String(member.photo_url).replace(/"/g, "%22")}")`;
+                preview.querySelector("span").textContent = "Current profile photo";
+            }
+            list.appendChild(item);
+        });
+    }
+
     function renderPhotos() {
         let photoCount = 0;
-        ["provider", "spa_path", "medical_path", "office", "staff_banner", "staff_primary", "staff_secondary"].forEach((slot) => {
+        ["provider", "spa_path", "medical_path", "office", "staff_banner", "staff_primary"].forEach((slot) => {
             const preview = document.querySelector(`[data-photo-preview="${slot}"]`);
             const url = state.content.images && state.content.images[slot];
             if (url) {
@@ -255,7 +358,8 @@
                 preview.style.backgroundImage = "";
             }
         });
-        document.getElementById("photo-count").textContent = `${photoCount} of 7`;
+        photoCount += state.content.staff.members.filter((member) => member.photo_url).length;
+        document.getElementById("photo-count").textContent = String(photoCount);
     }
 
     function renderLaunchReview() {
@@ -367,9 +471,10 @@
     }
 
     function renderDashboard() {
+        normalizeTeamMembers();
         populateForm(document.getElementById("homepage-form"), state.content.homepage);
         populateForm(document.getElementById("staff-form"), state.content.staff);
-        populateChecks(document.getElementById("staff-form"), state.content.staff);
+        renderTeamMembers();
         populateForm(document.getElementById("contact-form"), {
             ...(state.content.contact || {}),
             square_url: state.content.booking && state.content.booking.square_url || ""
@@ -428,11 +533,12 @@
             return;
         }
 
+        if (slot === "staff_primary" || slot.startsWith("team-member-")) captureStaffDraft();
         const previewUrl = URL.createObjectURL(file);
         document.querySelector(`[data-photo-preview="${slot}"]`).style.backgroundImage = `url("${previewUrl}")`;
 
         if (state.demo) {
-            state.content.images[slot] = previewUrl;
+            setPhotoUrlForSlot(slot, previewUrl);
             renderDashboard();
             showToast("Photo previewed. Sign in to save it to the website.");
             return;
@@ -448,7 +554,7 @@
                 headers: headers(true, { "Content-Type": file.type, "x-upsert": "false" }),
                 body: file
             });
-            state.content.images[slot] = `${config.supabaseUrl}/storage/v1/object/public/${config.marketingBucket}/${objectPath}`;
+            setPhotoUrlForSlot(slot, `${config.supabaseUrl}/storage/v1/object/public/${config.marketingBucket}/${objectPath}`);
             await persistContent("Photo updated on the website.");
         } catch (error) {
             showToast(error.message, true);
@@ -708,22 +814,41 @@
 
     document.getElementById("staff-form").addEventListener("submit", async (event) => {
         event.preventDefault();
-        const values = formValues(event.currentTarget);
-        const showSecondary = event.currentTarget.elements.namedItem("secondary_visible").checked;
-        if (showSecondary && (!values.secondary_name || !values.secondary_role || !values.secondary_bio || !state.content.images.staff_secondary)) {
-            showToast("Add the team member's name, role, biography, and portrait before showing this profile publicly.", true);
+        const staff = captureStaffDraft();
+        const incompleteMember = staff.members.find((member) => member.visible && (!member.name || !member.role || !member.bio || !member.photo_url));
+        if (incompleteMember) {
+            showToast("Add each visible team member's name, role, biography, and portrait before showing the profile publicly.", true);
             return;
         }
-        state.content.staff = {
-            primary_name: values.primary_name,
-            primary_role: values.primary_role,
-            primary_bio: values.primary_bio,
-            secondary_name: values.secondary_name,
-            secondary_role: values.secondary_role,
-            secondary_bio: values.secondary_bio,
-            secondary_visible: showSecondary
-        };
         try { await persistContent("Staff details saved."); } catch (error) { showToast(error.message, true); }
+    });
+
+    document.getElementById("add-team-member").addEventListener("click", () => {
+        captureStaffDraft();
+        if (state.content.staff.members.length >= 12) {
+            showToast("This dashboard supports up to 12 additional team members.", true);
+            return;
+        }
+        state.content.staff.members.push({ id: createTeamMemberId(), name: "", role: "", bio: "", visible: false, photo_url: "" });
+        renderTeamMembers();
+        const newest = document.querySelector("#team-member-list [data-team-member-id]:last-child");
+        if (newest) {
+            newest.scrollIntoView({ behavior: "smooth", block: "center" });
+            newest.querySelector('[data-team-field="name"]').focus({ preventScroll: true });
+        }
+        showToast("New team member added. Complete the profile, upload a photo, then save.");
+    });
+
+    document.getElementById("team-member-list").addEventListener("click", (event) => {
+        const removeButton = event.target.closest("[data-remove-team-member]");
+        if (!removeButton) return;
+        const card = removeButton.closest("[data-team-member-id]");
+        const name = card.querySelector('[data-team-field="name"]').value.trim() || "this team member";
+        if (!window.confirm(`Remove ${name}'s profile? The change will take effect when you save staff details.`)) return;
+        captureStaffDraft();
+        state.content.staff.members = state.content.staff.members.filter((member) => member.id !== card.dataset.teamMemberId);
+        renderTeamMembers();
+        showToast("Team member removed from this draft. Save staff details to confirm.");
     });
 
     document.getElementById("launch-form").addEventListener("submit", async (event) => {
@@ -759,7 +884,10 @@
         try { await persistContent("Contact and booking details saved."); } catch (error) { showToast(error.message, true); }
     });
 
-    document.querySelectorAll("[data-photo-input]").forEach((input) => input.addEventListener("change", () => requestPhotoApproval(input)));
+    document.addEventListener("change", (event) => {
+        const input = event.target.closest("[data-photo-input]");
+        if (input) requestPhotoApproval(input);
+    });
 
     photoWarningForm.addEventListener("change", updatePhotoWarning);
     patientPhotoAuthorized.addEventListener("input", updatePhotoWarning);
