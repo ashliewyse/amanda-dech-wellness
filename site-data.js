@@ -94,13 +94,24 @@
         if (contact.directions_url) {
             document.querySelectorAll("[data-site-directions]").forEach((link) => link.href = contact.directions_url);
         }
-        const squareUrl = content.booking && content.booking.square_url;
+
+        const booking = content.booking || {};
+        const squareUrl = booking.square_url;
         if (squareUrl) {
             document.querySelectorAll("[data-square-link]").forEach((link) => {
                 link.href = squareUrl;
                 link.hidden = false;
             });
             document.querySelectorAll("[data-square-pending]").forEach((element) => element.hidden = true);
+        }
+
+        const squarePaymentUrl = booking.square_payment_url;
+        if (squarePaymentUrl) {
+            document.querySelectorAll("[data-square-payment-link]").forEach((link) => {
+                link.href = squarePaymentUrl;
+                link.hidden = false;
+            });
+            document.querySelectorAll("[data-square-payment-pending]").forEach((element) => element.hidden = true);
         }
     }
 
