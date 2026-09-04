@@ -9,6 +9,20 @@
         Accept: "application/json"
     };
 
+    function isPublicSquareUrl(value) {
+        try {
+            const url = new URL(value);
+            const hostname = url.hostname.toLowerCase();
+            const allowedDomains = ["squareup.com", "square.link", "square.site"];
+            return url.protocol === "https:"
+                && !url.username
+                && !url.password
+                && allowedDomains.some((domain) => hostname === domain || hostname.endsWith(`.${domain}`));
+        } catch {
+            return false;
+        }
+    }
+
     function getValue(source, path) {
         return path.split(".").reduce((value, key) => value && value[key], source);
     }
@@ -97,7 +111,7 @@
 
         const booking = content.booking || {};
         const squareUrl = booking.square_url;
-        if (squareUrl) {
+        if (isPublicSquareUrl(squareUrl)) {
             document.querySelectorAll("[data-square-link]").forEach((link) => {
                 link.href = squareUrl;
                 link.hidden = false;
@@ -106,7 +120,7 @@
         }
 
         const squarePaymentUrl = booking.square_payment_url;
-        if (squarePaymentUrl) {
+        if (isPublicSquareUrl(squarePaymentUrl)) {
             document.querySelectorAll("[data-square-payment-link]").forEach((link) => {
                 link.href = squarePaymentUrl;
                 link.hidden = false;

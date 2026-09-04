@@ -39,7 +39,7 @@
             directions_url: "https://www.google.com/maps/search/?api=1&query=1531%20S%20Calumet%20Rd",
             hours_summary: "Appointments are scheduled directly with the office. Call to confirm current availability."
         },
-        booking: { square_url: "" },
+        booking: { square_url: "", square_payment_url: "" },
         launch_checks: {
             services_prices: false,
             office_policies: false,
@@ -82,13 +82,30 @@
     const patientPhotoAuthorized = document.getElementById("patient-photo-authorized");
     const photoWarningContinue = document.getElementById("photo-warning-continue");
     const squareUrlInput = document.querySelector('[name="square_url"]');
+    const squarePaymentUrlInput = document.querySelector('[name="square_payment_url"]');
+    const squareInputs = [squareUrlInput, squarePaymentUrlInput].filter(Boolean);
     const squareLinkDialog = document.getElementById("square-link-dialog");
     let squareHelpShown = false;
+    let squareRefocusInput = squareUrlInput;
     let pendingPhoto = null;
     let toastTimer;
 
     function clone(value) {
         return JSON.parse(JSON.stringify(value));
+    }
+
+    function isPublicSquareUrl(value) {
+        try {
+            const url = new URL(value);
+            const hostname = url.hostname.toLowerCase();
+            const allowedDomains = ["squareup.com", "square.link", "square.site"];
+            return url.protocol === "https:"
+                && !url.username
+                && !url.password
+                && allowedDomains.some((domain) => hostname === domain || hostname.endsWith(`.${domain}`));
+        } catch {
+            return false;
+        }
     }
 
     function mergeContent(base, override) {
@@ -477,13 +494,17 @@
         renderTeamMembers();
         populateForm(document.getElementById("contact-form"), {
             ...(state.content.contact || {}),
-            square_url: state.content.booking && state.content.booking.square_url || ""
+            square_url: state.content.booking && state.content.booking.square_url || "",
+            square_payment_url: state.content.booking && state.content.booking.square_payment_url || ""
         });
         renderPhotos();
         renderGallery();
         renderTestimonials();
         renderLaunchReview();
-        document.getElementById("booking-status").textContent = state.content.booking && state.content.booking.square_url ? "Connected" : "Not linked";
+        const booking = state.content.booking || {};
+        document.getElementById("booking-status").textContent = booking.square_url
+            ? booking.square_payment_url ? "Booking + pay" : "Booking ready"
+            : "Not linked";
         document.getElementById("mode-pill").textContent = state.demo ? "Preview only" : "Connected";
         document.getElementById("mode-pill").classList.toggle("is-demo", state.demo);
         document.getElementById("admin-identity").textContent = state.demo ? "Local dashboard preview" : state.user.email;
@@ -787,21 +808,22 @@
     document.querySelectorAll("[data-panel-target]").forEach((button) => button.addEventListener("click", () => switchPanel(button.dataset.panelTarget)));
     document.querySelectorAll("[data-panel-jump]").forEach((button) => button.addEventListener("click", () => switchPanel(button.dataset.panelJump)));
 
-    function openSquareHelp() {
+    function openSquareHelp(input) {
         squareHelpShown = true;
-        squareUrlInput.blur();
+        squareRefocusInput = input || squareUrlInput;
+        if (squareRefocusInput) squareRefocusInput.blur();
         squareLinkDialog.showModal();
     }
 
     function closeSquareHelp(refocus) {
         squareLinkDialog.close();
-        if (refocus) window.setTimeout(() => squareUrlInput.focus(), 0);
+        if (refocus && squareRefocusInput) window.setTimeout(() => squareRefocusInput.focus(), 0);
     }
 
-    squareUrlInput.addEventListener("focus", () => {
-        if (!squareHelpShown) openSquareHelp();
-    });
-    document.getElementById("square-link-help").addEventListener("click", openSquareHelp);
+    squareInputs.forEach((input) => input.addEventListener("focus", () => {
+        if (!squareHelpShown) openSquareHelp(input);
+    }));
+    document.getElementById("square-link-help").addEventListener("click", () => openSquareHelp(squareUrlInput));
     document.getElementById("square-link-close").addEventListener("click", () => closeSquareHelp(false));
     document.getElementById("square-link-continue").addEventListener("click", () => closeSquareHelp(true));
     squareLinkDialog.addEventListener("cancel", () => { squareHelpShown = true; });
@@ -864,14 +886,13 @@
     document.getElementById("contact-form").addEventListener("submit", async (event) => {
         event.preventDefault();
         const values = formValues(event.currentTarget);
-        if (values.square_url) {
-            try {
-                const bookingUrl = new URL(values.square_url);
-                if (bookingUrl.protocol !== "https:" || bookingUrl.username || bookingUrl.password) throw new Error();
-            } catch {
-                showToast("Paste a secure public Square booking-page link that begins with https://. Never enter login information or a private key.", true);
-                return;
-            }
+        if (values.square_url && !isPublicSquareUrl(values.square_url)) {
+            showToast("Paste an official public Square booking link. Never enter login information, a dashboard address, or a private key.", true);
+            return;
+        }
+        if (values.square_payment_url && !isPublicSquareUrl(values.square_payment_url)) {
+            showToast("Paste an official public Square payment link. Never enter login information, a dashboard address, or a private key.", true);
+            return;
         }
         state.content.contact = {
             phone_display: values.phone_display,
@@ -880,8 +901,12 @@
             directions_url: values.directions_url,
             hours_summary: values.hours_summary
         };
-        state.content.booking = { square_url: values.square_url };
-        try { await persistContent("Contact and booking details saved."); } catch (error) { showToast(error.message, true); }
+        state.content.booking = {
+            ...(state.content.booking || {}),
+            square_url: values.square_url || "",
+            square_payment_url: values.square_payment_url || ""
+        };
+        try { await persistContent("Contact, booking, and payment details saved."); } catch (error) { showToast(error.message, true); }
     });
 
     document.addEventListener("change", (event) => {

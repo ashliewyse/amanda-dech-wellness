@@ -69,7 +69,7 @@
                             <button class="admin-stat-card" type="button" data-panel-jump="photos-panel"><span class="admin-stat" id="photo-count">0</span><strong>Managed photos</strong><small>Includes every team member's profile photo</small></button>
                             <button class="admin-stat-card" type="button" data-panel-jump="gallery-panel"><span class="admin-stat" id="gallery-count">0</span><strong>Gallery results</strong><small>Manage numbered before-and-after sets</small></button>
                             <button class="admin-stat-card" type="button" data-panel-jump="testimonials-panel"><span class="admin-stat" id="testimonial-count">0</span><strong>Published testimonials</strong><small>Add only permission-approved quotes</small></button>
-                            <button class="admin-stat-card" type="button" data-panel-jump="contact-panel"><span class="admin-stat" id="booking-status">Not linked</span><strong>Square booking</strong><small>Add the booking link when it is ready</small></button>
+                            <button class="admin-stat-card" type="button" data-panel-jump="contact-panel"><span class="admin-stat" id="booking-status">Not linked</span><strong>Square links</strong><small>Manage booking and an optional payment link</small></button>
                             <button class="admin-stat-card" type="button" data-panel-jump="launch-panel"><span class="admin-stat" id="launch-status">0 of 6</span><strong>Launch review</strong><small>Confirm public details before going live</small></button>
                         </div>
                         <div class="admin-callout">
@@ -193,7 +193,7 @@
                     </section>
 
                     <section class="admin-panel" id="contact-panel" hidden>
-                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Contact &amp; booking</span><h1>Update how visitors reach Amanda</h1><p>Changes update calls, directions, and the future Square booking button.</p></div><button class="admin-primary" type="submit" form="contact-form">Save contact details</button></div>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Contact &amp; booking</span><h1>Update how visitors reach Amanda</h1><p>Changes update calls, directions, Square booking, and an optional public Square payment link.</p></div><button class="admin-primary" type="submit" form="contact-form">Save contact details</button></div>
                         <form id="contact-form" class="admin-editor-card">
                             <div class="admin-field-grid">
                                 <label>Phone number shown on the site<input name="phone_display" maxlength="30"></label>
@@ -202,8 +202,9 @@
                                 <label class="admin-span-2">Hours or availability note<textarea name="hours_summary" rows="3" maxlength="240" placeholder="Example: Appointments are scheduled directly with the office."></textarea></label>
                                 <label class="admin-span-2">Directions link<input name="directions_url" type="url"></label>
                                 <label class="admin-span-2">Public Square booking link<input name="square_url" type="url" inputmode="url" autocomplete="off" placeholder="Paste Amanda's customer-facing booking link"></label>
+                                <label class="admin-span-2">Public Square balance-payment link (optional)<input name="square_payment_url" type="url" inputmode="url" autocomplete="off" placeholder="Paste a customer-facing Square payment link"></label>
                             </div>
-                            <button class="admin-link-button" id="square-link-help" type="button">Which Square link should I use?</button>
+                            <button class="admin-link-button" id="square-link-help" type="button">Which Square links should I use?</button>
                             <div class="admin-safety-note"><strong>Before launch:</strong> Include the complete street address, city, state, and ZIP. Square appointments, payments, and patient information remain in Amanda's Square account—not in this website manager.</div>
                         </form>
                     </section>
@@ -232,9 +233,10 @@
         <form method="dialog">
             <button class="admin-dialog-close" id="square-link-close" type="button" aria-label="Close Square link reminder">×</button>
             <span class="admin-eyebrow">Square safety reminder</span>
-            <h1 id="square-link-title">Use only the public booking link</h1>
-            <p>Open Amanda's Square account directly, find the customer-facing online booking page, and copy that public web address into this dashboard.</p>
-            <div class="admin-square-example"><strong>Safe to paste</strong><code>https://book.squareup.com/appointments/…</code></div>
+            <h1 id="square-link-title">Use only public Square links</h1>
+            <p>Open Amanda's Square account directly and copy the customer-facing booking or balance-payment address. The separate payment link is optional because Square can also collect deposits or full payment during booking.</p>
+            <div class="admin-square-example"><strong>Booking example</strong><code>https://book.squareup.com/appointments/…</code></div>
+            <div class="admin-square-example"><strong>Payment example</strong><code>https://square.link/u/…</code></div>
             <div class="admin-gallery-rule">
                 <strong>Never enter private Square information here.</strong>
                 <span>Do not enter a Square password, email login, verification code, recovery code, access token, secret key, card number, or a private dashboard link.</span>
