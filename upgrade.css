@@ -540,7 +540,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Thin dark lettering edges preserve the chosen white-on-purple treatment. */
 .ad-welcome-card strong, .ad-welcome-card > span {
-    -webkit-text-stroke: .35px #171019;
+    -webkit-text-stroke: .8px #100b12;
     paint-order: stroke fill;
-    text-shadow: -1px 0 #171019, 1px 0 #171019, 0 -1px #171019, 0 1px #171019, 0 2px 3px rgba(0, 0, 0, .65);
+    text-shadow: -1px -1px #100b12, 0 -1px #100b12, 1px -1px #100b12, -1px 0 #100b12, 1px 0 #100b12, -1px 1px #100b12, 0 1px #100b12, 1px 1px #100b12, 0 2px 2px #100b12;
 }
+
+.ad-welcome-card strong { font-weight: 800; -webkit-text-stroke-width: 1px; }
+.ad-welcome-card > span { font-weight: 800; }
