@@ -520,3 +520,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .ad-welcome-invite strong { font-size: 20px; }
     .ad-welcome-invite a { width: 100%; max-width: 320px; }
 }
+
+/* Keep the phone header to one row; the call action lives in the disclosure. */
+@media (max-width: 900px) {
+    .ad-responsive-header[class] { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+    .ad-responsive-header > :first-child { min-width: 0; }
+    .ad-responsive-header > :not(:first-child):not(.ad-mobile-menu) { display: none; }
+    .ad-care-page .ad-care-header { position: relative; }
+    .ad-mobile-menu { border: 0; padding: 0; margin: 0; }
+    .ad-mobile-menu > summary { justify-content: center; white-space: nowrap; }
+    .ad-mobile-menu-links { position: absolute; top: 100%; left: 0; right: 0; z-index: 70; padding: 12px 14px; margin: 0; background: #fff; border-bottom: 1px solid var(--ad-line); box-shadow: 0 12px 24px rgba(26, 43, 60, .15); }
+    .ad-mobile-menu-links .ad-mobile-call { grid-column: 1 / -1; justify-content: center; background: var(--ad-plum); border-color: var(--ad-plum); color: white; }
+    .ad-mobile-menu-links .ad-mobile-call:hover { background: var(--ad-plum-dark); color: white; }
+}
+
+@media (max-width: 600px) {
+    .ad-welcome-invite { min-height: 64px; padding: 8px 14px; flex-direction: row; justify-content: space-between; gap: 10px; text-align: left; }
+    .ad-welcome-invite strong { font-size: 16px; line-height: 1.25; }
+    .ad-welcome-invite p { display: none; }
+    .ad-welcome-invite a { width: auto; max-width: none; flex-shrink: 0; gap: 6px; padding: 8px 12px; font-size: 11px; }
+}
