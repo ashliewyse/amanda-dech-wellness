@@ -27,14 +27,18 @@
 Files: photo-crop-math.js, photo-crop.js, tests/photo-crop.test.cjs; admin.html/admin.css.
 Interfaces: AmandaCropMath.getCropRect({width,height,aspect,zoom,panX,panY}); fitOutput(rect,maxDimension). AmandaPhotoCropper.open(file,{aspect,label,maxBytes}) -> Promise<File|null>.
 
-- [ ] Add failing tests with literal source rectangles, boundary clamps and non-upscaled output sizes; run node --test.
-- [ ] Implement geometry, shared dialog, pointer/keyboard controls and Canvas export; run node --test.
+- [x] Add failing tests with literal source rectangles, boundary clamps and non-upscaled output sizes; run node --test.
+- [x] Implement geometry, shared dialog, pointer/keyboard controls and Canvas export; run node --test.
 
 ### Task 2: Upload integration and verification
 
 Files: admin.js, admin.html; reuse the cropper interface from Task 1.
 
-- [ ] Route approved marketing selections through cropping; upload only a returned File.
-- [ ] Store separate before/after cropped gallery files, preserve old drafts on cancel, clear on Save/Cancel result.
-- [ ] Run the Node suite and syntax checks; exercise desktop/mobile local demo with synthetic images. Confirm no Supabase writes.
-- [ ] Request one independent code review, fix material findings, rerun the suite and prepare a preview/PR.
+- [x] Route approved marketing selections through cropping; upload only a returned File.
+- [x] Store separate before/after cropped gallery files, preserve old drafts on cancel, clear on Save/Cancel result.
+- [x] Run the Node suite and syntax checks; exercise desktop/mobile local demo with synthetic images. Confirm no Supabase writes.
+- [x] Request one independent code review, fix material findings, rerun the suite and prepare a preview/PR.
+
+## Verification
+
+Nine Node tests pass. Syntax and whitespace checks pass. Local browser checks covered marketing photo approval to crop/save, 1-4x zoom, pointer drag, arrow controls, reset, preserving an earlier gallery crop on cancel and decode failure, saving both prepared gallery files, and a 390px-wide layout. Synthetic images and preview mode were used. Review found a gallery PNG-to-JPEG conversion; it was corrected by uploading the prepared crop unchanged with matching MIME type and extension. Three regression checks were observed failing before the fix, then all nine tests passed.

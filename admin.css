@@ -181,7 +181,7 @@ input:hover, textarea:hover, select:hover { border-color: #b8aab6; }
 .admin-crop-dialog form { padding: clamp(22px, 4vw, 32px); }
 .admin-crop-dialog h1 { padding-right: 28px; font-size: clamp(30px, 5vw, 40px); }
 .admin-crop-dialog > form > p { margin: 10px 0 16px; }
-.admin-crop-stage { width: min(100%, 520px, calc(46vh * var(--crop-aspect, 1.333333))); aspect-ratio: var(--crop-aspect, 1.333333); margin: 0 auto 20px; position: relative; overflow: hidden; border-radius: 12px; background: repeating-conic-gradient(#ddd 0% 25%, #f5f5f5 0% 50%) 0 0 / 20px 20px; }
+.admin-crop-stage { width: min(100%, 520px, calc(34vh * var(--crop-aspect, 1.333333))); aspect-ratio: var(--crop-aspect, 1.333333); margin: 0 auto 20px; position: relative; overflow: hidden; border-radius: 12px; background: repeating-conic-gradient(#ddd 0% 25%, #f5f5f5 0% 50%) 0 0 / 20px 20px; }
 .admin-crop-stage canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
 .admin-crop-stage canvas:active { cursor: grabbing; }
 .admin-crop-stage canvas:focus-visible { outline: 3px solid var(--admin-plum); outline-offset: -4px; }

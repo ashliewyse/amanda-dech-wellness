@@ -612,64 +612,17 @@
         photoWarningDialog.showModal();
     }
 
-    async function sanitizeGalleryImage(file) {
-        if (!file || !/^image\/(jpeg|png|webp)$/.test(file.type)) {
-            throw new Error("Choose a JPG, PNG, or WebP photo for both Before and After.");
-        }
-        if (file.size > 20 * 1024 * 1024) {
-            throw new Error("One of the original photos is larger than 20 MB. Please choose a smaller photo.");
-        }
-
-        let source;
-        let width;
-        let height;
-        let cleanup = function () {};
-        if (window.createImageBitmap) {
-            source = await createImageBitmap(file, { imageOrientation: "from-image" });
-            width = source.width;
-            height = source.height;
-            cleanup = () => source.close();
-        } else {
-            const sourceUrl = URL.createObjectURL(file);
-            source = await new Promise((resolve, reject) => {
-                const image = new Image();
-                image.onload = () => resolve(image);
-                image.onerror = () => reject(new Error("That photo could not be opened."));
-                image.src = sourceUrl;
-            });
-            width = source.naturalWidth;
-            height = source.naturalHeight;
-            cleanup = () => URL.revokeObjectURL(sourceUrl);
-        }
-
-        const maxDimension = 2200;
-        const scale = Math.min(1, maxDimension / Math.max(width, height));
-        const canvas = document.createElement("canvas");
-        canvas.width = Math.max(1, Math.round(width * scale));
-        canvas.height = Math.max(1, Math.round(height * scale));
-        const context = canvas.getContext("2d", { alpha: false });
-        context.fillStyle = "#ffffff";
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(source, 0, 0, canvas.width, canvas.height);
-        cleanup();
-
-        const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", .86));
-        if (!blob) throw new Error("That photo could not be prepared for the gallery.");
-        if (blob.size > 5 * 1024 * 1024) throw new Error("A prepared photo is still larger than 5 MB. Please choose a smaller image.");
-        return blob;
-    }
-
     function encodedStoragePath(path) {
         return path.split("/").map(encodeURIComponent).join("/");
     }
 
-    async function uploadGalleryObject(path, blob) {
-        await request(`/storage/v1/object/${encodeURIComponent(config.marketingBucket)}/${encodedStoragePath(path)}`, {
+    async function uploadGalleryObject(upload) {
+        await request(`/storage/v1/object/${encodeURIComponent(config.marketingBucket)}/${encodedStoragePath(upload.path)}`, {
             method: "POST",
-            headers: headers(true, { "Content-Type": "image/jpeg", "x-upsert": "false" }),
-            body: blob
+            headers: headers(true, { "Content-Type": upload.contentType, "x-upsert": "false" }),
+            body: upload.body
         });
-        return `${config.supabaseUrl}/storage/v1/object/public/${config.marketingBucket}/${path}`;
+        return `${config.supabaseUrl}/storage/v1/object/public/${config.marketingBucket}/${upload.path}`;
     }
 
     async function deleteGalleryObject(path) {
@@ -1034,21 +987,19 @@
                 return;
             }
 
-            showToast("Preparing photos and removing hidden location and camera details…");
-            const [beforeBlob, afterBlob] = await Promise.all([
-                sanitizeGalleryImage(beforeFile),
-                sanitizeGalleryImage(afterFile)
-            ]);
+            showToast("Uploading cropped photos…");
             const token = window.crypto && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2, 12)}`;
-            const beforePath = `gallery/${token}/before.jpg`;
-            const afterPath = `gallery/${token}/after.jpg`;
+            const beforeUpload = window.AmandaPhotoFiles.galleryUpload(beforeFile, token, "before");
+            const beforePath = beforeUpload.path;
+            const afterUpload = window.AmandaPhotoFiles.galleryUpload(afterFile, token, "after");
+            const afterPath = afterUpload.path;
             const uploadedPaths = [];
             let beforeUrl;
             let afterUrl;
             try {
-                beforeUrl = await uploadGalleryObject(beforePath, beforeBlob);
+                beforeUrl = await uploadGalleryObject(beforeUpload);
                 uploadedPaths.push(beforePath);
-                afterUrl = await uploadGalleryObject(afterPath, afterBlob);
+                afterUrl = await uploadGalleryObject(afterUpload);
                 uploadedPaths.push(afterPath);
                 const rows = await request("/rest/v1/gallery_items", {
                     method: "POST",
