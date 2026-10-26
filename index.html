@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personalized medical, wellness, and aesthetic care with Amanda Dech, FNP-C.">
+    <meta name="description" content="Choose medical care or aesthetics and wellness with Amanda Dech, FNP-C.">
     <meta name="theme-color" content="#6B4E71">
-    <title>Amanda Dech, FNP-C | Medical, Wellness & Aesthetic Care</title>
+    <title>Choose Your Care Path | Amanda Dech, FNP-C</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="upgrade.css">
     <style>
@@ -13,102 +13,87 @@
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
         .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .animate-scroll { display: flex; width: max-content; animation: scroll 40s linear infinite; }
     </style>
 </head>
-<body class="bg-white font-sans text-gray-800 antialiased min-h-screen flex flex-col overflow-y-auto">
-
-    <div class="ad-top-skip">
-        <a href="care-path.html">Returning patient? Skip directly to care paths <span aria-hidden="true">→</span></a>
-    </div>
-
-    <!-- Header / Navbar (Single Header) -->
-    <nav class="ad-header px-2 py-3 sm:p-4 bg-white/95 backdrop-blur-md flex justify-between items-center sticky top-0 z-40 border-b border-gray-100" aria-label="Main navigation">
-        <div class="ad-brand-wrap flex items-center gap-1.5 sm:gap-3">
+<body class="ad-care-page bg-white font-sans text-gray-800 antialiased">
+    <nav class="ad-responsive-header ad-header ad-care-header bg-white/95 backdrop-blur-md flex justify-between items-center z-40 border-b border-gray-100" aria-label="Care path navigation">
+        <a class="ad-brand-wrap flex items-center gap-1.5 sm:gap-3 no-underline" href="welcome.html" aria-label="Read about Amanda Dech">
             <span class="ad-logo-mark" role="img" aria-label="Elite Family heart and stethoscope logo"></span>
-            <div>
-                <h1 class="text-base sm:text-2xl font-serif font-bold tracking-tight uppercase text-[#6B4E71] leading-none"> Amanda Dech </h1>
-                <p class="ad-brand-subtitle text-[7px] sm:text-[10px] font-sans font-bold tracking-[0.1em] sm:tracking-[0.2em] text-gray-400 uppercase mt-0.5"> Family Nurse Practitioner · FNP-C </p>
-            </div>
-        </div>
-
+            <span>
+                <strong class="block text-base sm:text-2xl font-serif tracking-tight uppercase text-[#6B4E71] leading-none">Amanda Dech</strong>
+                <span class="ad-brand-subtitle block text-[7px] sm:text-[10px] font-bold tracking-[0.1em] sm:tracking-[0.2em] text-gray-400 uppercase mt-0.5">Choose Your Care Path</span>
+            </span>
+        </a>
         <div class="ad-header-links">
             <a href="health.html">Medical Care</a>
-            <a href="spa.html">Aesthetics & Wellness</a>
+            <a href="spa.html">Aesthetics &amp; Wellness</a>
             <a href="gallery.html">Gallery</a>
             <a href="meet-the-staff.html">Meet the Staff</a>
             <a href="visit.html">Visit</a>
         </div>
-
-        <!-- Call Now Button -->
-        <div class="ad-call-block flex flex-col items-end">
-            <a href="tel:2197286562" class="ad-call-button bg-[#6B4E71] text-white px-2.5 py-1 sm:px-6 sm:py-2 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-tight sm:tracking-widest shadow-md hover:bg-opacity-90 transition-all whitespace-nowrap"> Call Now </a>
-            <a class="ad-about-link" href="#about">About Us</a>
+        <div class="ad-care-header-actions">
+            <a class="ad-care-back" href="welcome.html"><span aria-hidden="true">←</span> Welcome</a>
+            <a href="tel:2197286562" class="ad-call-button bg-[#6B4E71] text-white px-4 sm:px-6 py-2 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-widest shadow-md hover:bg-opacity-90 transition-all whitespace-nowrap">Call Now</a>
         </div>
+        <details class="ad-mobile-menu">
+            <summary><span aria-hidden="true">☰</span> Menu</summary>
+            <div class="ad-mobile-menu-links" aria-label="Website pages">
+                <a href="welcome.html">Welcome</a>
+                <a href="index.html" aria-current="page">Choose Your Care Path</a>
+                <a href="health.html">Medical Care</a>
+                <a href="spa.html">Aesthetics &amp; Wellness</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="meet-the-staff.html">Meet the Staff</a>
+                <a href="visit.html">Visit &amp; Directions</a>
+                <a href="patient-resources.html">Patient Information</a>
+            </div>
+        </details>
     </nav>
 
-    <section class="ad-landing scroll-mt-20" id="about">
-        <div class="ad-shell ad-landing-grid">
-            <div class="ad-landing-copy">
-                <span class="ad-kicker" data-site-text="homepage.kicker">Medical · Wellness · Aesthetics</span>
-                <h1 class="ad-section-title" data-site-text="homepage.headline">Care that feels personal, from the very first hello.</h1>
-                <p class="ad-lead" data-site-text="homepage.intro">Amanda brings medical care, wellness support, and aesthetic services together in one welcoming practice—so caring for yourself can feel comfortable, clear, and refreshingly human.</p>
-                <div class="ad-start-card" aria-labelledby="start-here-title">
-                    <div class="ad-start-copy">
-                        <span class="ad-start-label" data-site-text="homepage.start_label">Start Here</span>
-                        <p id="start-here-title" data-site-text="homepage.start_heading">What brings you in today?</p>
-                        <small data-site-text="homepage.start_note">Choose Medical Care or Spa &amp; Wellness on the next screen.</small>
-                    </div>
-                    <a class="ad-primary-button ad-continue-button" href="care-path.html">Choose Your Care Path <span aria-hidden="true">→</span></a>
-                </div>
-                <a class="ad-start-call" href="tel:2197286562">Prefer to speak with someone? Call the office.</a>
-            </div>
-            <div class="ad-provider-card" data-site-background="images.provider">
-                <span class="ad-photo-note">Amanda's real portrait will complete this space</span>
-                <small data-site-text="homepage.provider_title">Family Nurse Practitioner</small>
-                <h2 data-site-text="homepage.provider_name">Amanda Dech, FNP-C</h2>
-                <p data-site-text="homepage.provider_blurb">Clinical knowledge with a warm, practical approach to the way you want to feel.</p>
-            </div>
-        </div>
-        <div class="ad-trust-bar" aria-label="Practice highlights">
-            <div class="ad-trust-item"><strong>FNP-C</strong><span>Board-certified care</span></div>
-            <div class="ad-trust-item"><strong>Personal</strong><span>Time to be heard</span></div>
-            <div class="ad-trust-item"><strong>Clear</strong><span>Upfront self-pay pricing</span></div>
-            <div class="ad-trust-item"><strong>Local</strong><span>Care close to home</span></div>
-        </div>
-    </section>
+    <aside class="ad-welcome-invite" aria-label="Get to know Amanda">
+        <div><strong>Get to know Amanda</strong><p>Meet your provider and learn about the practice.</p></div>
+        <a href="welcome.html">Visit the welcome page <span aria-hidden="true">→</span></a>
+    </aside>
 
-    <section class="ad-section" id="visit">
-        <div class="ad-shell ad-visit-card">
-            <div>
-                <span class="ad-kicker">Visit the practice</span>
-                <h2 class="ad-section-title">Personal care, close to home.</h2>
-                <p>Call the office for current availability or choose a care path to explore services and pricing.</p>
-                <address data-site-address>1531 S Calumet Rd</address>
+    <main class="ad-duo ad-care-duo flex flex-col md:flex-row" aria-label="Choose between two care paths">
+        <section class="ad-path ad-path-glow flex-1 flex flex-col justify-center items-center p-8 text-center group relative border-b md:border-b-0 overflow-hidden">
+            <div class="ad-path-photo absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" data-site-background="images.spa_path" style="background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1400');"></div>
+            <div class="ad-path-content relative z-20">
+                <span class="text-[10px] font-bold tracking-[0.3em] text-white uppercase mb-2 block drop-shadow-md" data-site-text="care_paths.spa_label">The Glow Path</span>
+                <h1 class="text-5xl md:text-8xl font-serif mb-4 tracking-tighter text-white drop-shadow-2xl" data-site-text="care_paths.spa_title">Spa Day</h1>
+                <p class="text-white mb-6 max-w-xs text-xs md:text-base font-bold uppercase tracking-widest drop-shadow-lg" data-site-text="care_paths.spa_subtitle">Aesthetics, Wellness &amp; Glow</p>
+                <a href="spa.html" class="ad-path-button glass-card inline-block px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] text-gray-900 shadow-xl hover:bg-[#6B4E71] hover:text-white transition-all">Explore Spa Day</a>
+                <span class="ad-path-note text-white drop-shadow-md" data-site-text="care_paths.spa_note">Botox · Fillers · IV therapy</span>
             </div>
-            <div class="ad-visit-actions">
-                <a class="ad-primary-button" href="health.html">Choose medical care</a>
-                <a class="ad-outline-button" href="spa.html">Choose spa & wellness</a>
-                <a class="ad-outline-button" data-site-directions href="https://www.google.com/maps/search/?api=1&amp;query=1531%20S%20Calumet%20Rd" target="_blank" rel="noreferrer">Open directions</a>
+        </section>
+
+        <section class="ad-path ad-path-care flex-1 flex flex-col justify-center items-center p-8 text-center group relative md:border-l border-white/20 overflow-hidden">
+            <div class="ad-path-photo absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" data-site-background="images.medical_path" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1400');"></div>
+            <div class="ad-path-content relative z-20">
+                <span class="text-[10px] font-extrabold tracking-[0.3em] text-gray-900 uppercase mb-2 block drop-shadow-sm" data-site-text="care_paths.medical_label">The Care Path</span>
+                <h1 class="text-5xl md:text-8xl font-serif mb-4 tracking-tighter text-gray-900 drop-shadow-sm" data-site-text="care_paths.medical_title">Sick Day</h1>
+                <p class="text-gray-800 mb-6 max-w-xs text-xs md:text-base font-bold uppercase tracking-widest drop-shadow-sm" data-site-text="care_paths.medical_subtitle">Primary Care, Wellness &amp; Medical Support</p>
+                <a href="health.html" class="ad-path-button bg-gray-900 text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] shadow-xl hover:bg-[#1A2B3C] transition-all inline-block">Explore Medical Care</a>
+                <span class="ad-path-note text-gray-900" data-site-text="care_paths.medical_note">Primary care · Labs · Follow-ups</span>
+            </div>
+        </section>
+
+        <div class="ad-center-seal" aria-hidden="true">
+            <span>One trusted provider</span>
+            <strong>Two paths to feeling well</strong>
+        </div>
+
+        <div class="ad-ticker" aria-label="Patient testimonials from Amanda's previous website">
+            <div class="ad-ticker-track">
+                <span>“Amanda is incredible! Fillers were made easy and natural.” — Sarah M.</span>
+                <span>“Finally a practitioner who listens. Weight loss actually works!” — Jason R.</span>
+                <span>“Elite FNP is the only place I'll go for my family.” — Maria L.</span>
+                <span aria-hidden="true">“Amanda is incredible! Fillers were made easy and natural.” — Sarah M.</span>
+                <span aria-hidden="true">“Finally a practitioner who listens. Weight loss actually works!” — Jason R.</span>
+                <span aria-hidden="true">“Elite FNP is the only place I'll go for my family.” — Maria L.</span>
             </div>
         </div>
-    </section>
-
-    <footer class="ad-footer">
-        <div class="ad-footer-grid">
-            <div><a class="ad-footer-brand" href="index.html">Amanda Dech, FNP-C</a><p>Medical, wellness, and aesthetic care delivered with warmth and clarity.</p></div>
-            <div><h2>Explore</h2><a href="health.html">Medical care</a><a href="spa.html">Aesthetics & wellness</a><a href="gallery.html">Before &amp; after gallery</a><a href="meet-the-staff.html">Meet the staff</a></div>
-            <div><h2>Connect</h2><a href="tel:2197286562" data-site-phone>(219) 728-6562</a><span data-site-address>1531 S Calumet Rd</span><a href="visit.html">Visit &amp; directions</a></div>
-            <div><h2>Patient information</h2><a href="patient-resources.html">Patient information</a><a href="privacy.html">Website privacy &amp; accessibility</a><span>Do not use this website for emergencies.</span><span>For emergencies, call 911.</span></div>
-        </div>
-        <div class="ad-footer-admin"><a href="admin.html">Staff Login</a></div>
-    </footer>
-
-    <nav class="ad-mobile-actions" aria-label="Quick actions">
-        <a href="tel:2197286562">Call</a><a class="primary" href="health.html">Book</a><a data-site-directions href="https://www.google.com/maps/search/?api=1&amp;query=1531%20S%20Calumet%20Rd" target="_blank" rel="noreferrer">Directions</a>
-    </nav>
-
+    </main>
     <script src="supabase-config.js"></script>
     <script src="site-data.js"></script>
 </body>
