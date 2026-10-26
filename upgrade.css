@@ -520,7 +520,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .ad-mobile-menu { border: 0; padding: 0; margin: 0; }
     .ad-mobile-menu > summary { justify-content: center; white-space: nowrap; }
     .ad-mobile-menu-links { position: absolute; top: 100%; left: 0; right: 0; z-index: 70; padding: 12px 14px; margin: 0; background: #fff; border-bottom: 1px solid var(--ad-line); box-shadow: 0 12px 24px rgba(26, 43, 60, .15); }
-    .ad-mobile-menu-links .ad-mobile-call { grid-column: 1 / -1; justify-content: center; background: var(--ad-plum); border-color: var(--ad-plum); color: white; }
+    .ad-mobile-menu-links .ad-mobile-call { grid-column: 1 / -1; justify-self: end; justify-content: center; width: auto; min-width: 132px; min-height: 44px; padding: 10px 22px; border-radius: 999px; background: var(--ad-plum); border-color: var(--ad-plum); color: white; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; box-shadow: 0 3px 8px rgba(26, 43, 60, .18); }
     .ad-mobile-menu-links .ad-mobile-call:hover { background: var(--ad-plum-dark); color: white; }
 }
 
