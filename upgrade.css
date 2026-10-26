@@ -500,11 +500,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .ad-care-page .ad-care-duo { height: auto; flex: 1 0 auto; min-height: 440px; }
 }
 
-.ad-welcome-invite { min-height: 82px; display: flex; align-items: center; justify-content: center; gap: 24px; padding: 12px 24px; background: #f4edf5; border-bottom: 1px solid #dfcde2; color: var(--ad-plum-dark); }
-.ad-welcome-invite strong { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 21px; }
-.ad-welcome-invite p { margin: 2px 0 0; font-size: 12px; }
-.ad-welcome-invite a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; padding: 10px 18px; border-radius: 999px; background: var(--ad-plum); color: white; font-size: 12px; font-weight: 700; text-decoration: none; }
-.ad-care-page .ad-care-duo { height: calc(100svh - 160px); }
+.ad-care-page .ad-care-duo { height: calc(100svh - 122px); }
 @media (max-width: 1100px) and (min-width: 901px) {
     .ad-care-header { gap: 12px; padding-inline: 16px !important; }
     .ad-care-header .ad-header-links { gap: 12px; }
@@ -513,13 +509,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 @media (max-width: 900px) {
     .ad-care-page .ad-care-duo { flex-direction: column; height: auto; }
-    .ad-welcome-invite { flex: 0 0 auto; gap: 12px; padding: 12px 16px; }
 }
-@media (max-width: 600px) {
-    .ad-welcome-invite { text-align: center; flex-direction: column; gap: 8px; }
-    .ad-welcome-invite strong { font-size: 20px; }
-    .ad-welcome-invite a { width: 100%; max-width: 320px; }
-}
+
 
 /* Keep the phone header to one row; the call action lives in the disclosure. */
 @media (max-width: 900px) {
@@ -534,9 +525,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .ad-mobile-menu-links .ad-mobile-call:hover { background: var(--ad-plum-dark); color: white; }
 }
 
-@media (max-width: 600px) {
-    .ad-welcome-invite { min-height: 64px; padding: 8px 14px; flex-direction: row; justify-content: space-between; gap: 10px; text-align: left; }
-    .ad-welcome-invite strong { font-size: 16px; line-height: 1.25; }
-    .ad-welcome-invite p { display: none; }
-    .ad-welcome-invite a { width: auto; max-width: none; flex-shrink: 0; gap: 6px; padding: 8px 12px; font-size: 11px; }
-}
+
+
+/* One slim link keeps the introduction visible without a separate hero-sized card. */
+.ad-welcome-invite { flex: 0 0 44px; height: 44px; min-height: 44px; padding: 0; background: #f4edf5; border-bottom: 1px solid #dfcde2; }
+.ad-welcome-invite a { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 100%; min-height: 44px; color: var(--ad-plum-dark); font: 700 13px/1.3 Inter, sans-serif; text-decoration: none; }
+.ad-welcome-invite a:hover { background: #eaddf0; text-decoration: underline; text-underline-offset: 3px; }
