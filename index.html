@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#6B4E71">
     <title>Choose Your Care Path | Amanda Dech, FNP-C</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="upgrade.css">
+    <link rel="stylesheet" href="upgrade.css?v=mobile-nav-20261026-5">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -50,12 +50,7 @@
         </details>
     </nav>
 
-    <aside class="ad-welcome-invite" aria-label="Get to know Amanda">
-        <div><strong>Get to know Amanda</strong><p>Meet your provider and learn about the practice.</p></div>
-        <a href="welcome.html">Visit the welcome page <span aria-hidden="true">→</span></a>
-    </aside>
-
-    <main class="ad-duo ad-care-duo flex flex-col md:flex-row" aria-label="Choose between two care paths">
+<main class="ad-duo ad-care-duo flex flex-col md:flex-row" aria-label="Choose between two care paths">
         <section class="ad-path ad-path-glow flex-1 flex flex-col justify-center items-center p-8 text-center group relative border-b md:border-b-0 overflow-hidden">
             <div class="ad-path-photo absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-105 bg-cover bg-center" data-site-background="images.spa_path" style="background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1400');"></div>
             <div class="ad-path-content relative z-20">
@@ -78,10 +73,10 @@
             </div>
         </section>
 
-        <div class="ad-center-seal" aria-hidden="true">
-            <span>One trusted provider</span>
-            <strong>Two paths to feeling well</strong>
-        </div>
+        <a class="ad-center-seal ad-welcome-card" href="welcome.html">
+            <strong>Get to know Amanda</strong>
+            <span>Visit the welcome page <span aria-hidden="true">→</span></span>
+        </a>
 
         <div class="ad-ticker" aria-label="Patient testimonials from Amanda's previous website">
             <div class="ad-ticker-track">

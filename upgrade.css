@@ -500,11 +500,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .ad-care-page .ad-care-duo { height: auto; flex: 1 0 auto; min-height: 440px; }
 }
 
-.ad-welcome-invite { min-height: 82px; display: flex; align-items: center; justify-content: center; gap: 24px; padding: 12px 24px; background: #f4edf5; border-bottom: 1px solid #dfcde2; color: var(--ad-plum-dark); }
-.ad-welcome-invite strong { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 21px; }
-.ad-welcome-invite p { margin: 2px 0 0; font-size: 12px; }
-.ad-welcome-invite a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; padding: 10px 18px; border-radius: 999px; background: var(--ad-plum); color: white; font-size: 12px; font-weight: 700; text-decoration: none; }
-.ad-care-page .ad-care-duo { height: calc(100svh - 160px); }
 @media (max-width: 1100px) and (min-width: 901px) {
     .ad-care-header { gap: 12px; padding-inline: 16px !important; }
     .ad-care-header .ad-header-links { gap: 12px; }
@@ -513,13 +508,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 @media (max-width: 900px) {
     .ad-care-page .ad-care-duo { flex-direction: column; height: auto; }
-    .ad-welcome-invite { flex: 0 0 auto; gap: 12px; padding: 12px 16px; }
 }
-@media (max-width: 600px) {
-    .ad-welcome-invite { text-align: center; flex-direction: column; gap: 8px; }
-    .ad-welcome-invite strong { font-size: 20px; }
-    .ad-welcome-invite a { width: 100%; max-width: 320px; }
-}
+
 
 /* Keep the phone header to one row; the call action lives in the disclosure. */
 @media (max-width: 900px) {
@@ -530,13 +520,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .ad-mobile-menu { border: 0; padding: 0; margin: 0; }
     .ad-mobile-menu > summary { justify-content: center; white-space: nowrap; }
     .ad-mobile-menu-links { position: absolute; top: 100%; left: 0; right: 0; z-index: 70; padding: 12px 14px; margin: 0; background: #fff; border-bottom: 1px solid var(--ad-line); box-shadow: 0 12px 24px rgba(26, 43, 60, .15); }
-    .ad-mobile-menu-links .ad-mobile-call { grid-column: 1 / -1; justify-content: center; background: var(--ad-plum); border-color: var(--ad-plum); color: white; }
+    .ad-mobile-menu-links .ad-mobile-call { grid-column: 1 / -1; justify-self: end; justify-content: center; width: auto; min-width: 132px; min-height: 44px; padding: 10px 22px; border-radius: 999px; background: var(--ad-plum); border-color: var(--ad-plum); color: white; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; box-shadow: 0 3px 8px rgba(26, 43, 60, .18); }
     .ad-mobile-menu-links .ad-mobile-call:hover { background: var(--ad-plum-dark); color: white; }
 }
 
-@media (max-width: 600px) {
-    .ad-welcome-invite { min-height: 64px; padding: 8px 14px; flex-direction: row; justify-content: space-between; gap: 10px; text-align: left; }
-    .ad-welcome-invite strong { font-size: 16px; line-height: 1.25; }
-    .ad-welcome-invite p { display: none; }
-    .ad-welcome-invite a { width: auto; max-width: none; flex-shrink: 0; gap: 6px; padding: 8px 12px; font-size: 11px; }
+
+
+
+/* Reuse the original center seal as the introduction link, without a separate banner. */
+.ad-welcome-card { text-decoration: none; background: var(--ad-plum); border: 2px solid #f3deef; box-shadow: 0 8px 24px rgba(44, 24, 49, .3); }
+.ad-welcome-card strong { margin-top: 0; color: white; }
+.ad-welcome-card > span { color: white; margin-top: 6px; font-size: 10px; letter-spacing: 0; text-transform: none; }
+.ad-welcome-card > span > span { color: inherit; font: inherit; }
+.ad-welcome-card:hover { border-color: white; background: var(--ad-plum-dark); }
+@media (max-width: 900px) {
+    .ad-center-seal.ad-welcome-card { display: flex; top: calc(50% - 21px); bottom: auto; width: 168px; min-height: 64px; padding: 8px 12px; transform: translate(-50%, -50%); }
+    .ad-welcome-card strong { font-size: 15px; }
 }
