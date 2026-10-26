@@ -528,11 +528,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 
 /* Reuse the original center seal as the introduction link, without a separate banner. */
-.ad-welcome-card { width: 196px; text-decoration: none; background: #fff4db; border: 2px solid #b18a46; box-shadow: 0 8px 24px rgba(44, 24, 49, .3); }
-.ad-welcome-card strong { margin-top: 0; color: #35233b; font-size: 18px; }
-.ad-welcome-card > span { color: #35233b; margin-top: 6px; font-size: 12px; letter-spacing: 0; text-transform: none; }
+.ad-welcome-card { width: 196px; text-decoration: none; background: #6b4e71; border: 2px solid #f3deef; box-shadow: 0 8px 24px rgba(44, 24, 49, .3); }
+.ad-welcome-card strong { margin-top: 0; color: white; font-size: 18px; text-shadow: 0 2px 3px rgba(22, 9, 27, .9), 0 0 1px #231228; }
+.ad-welcome-card > span { color: white; text-shadow: 0 1px 2px #231228, 0 2px 4px rgba(22, 9, 27, .85); margin-top: 6px; font-size: 12px; letter-spacing: 0; text-transform: none; }
 .ad-welcome-card > span > span { color: inherit; font: inherit; }
-.ad-welcome-card:hover { border-color: #6b4e71; background: #ffe8b5; }
+.ad-welcome-card:hover { border-color: white; background: #4d3652; }
 @media (max-width: 900px) {
     .ad-center-seal.ad-welcome-card { display: flex; top: calc(50% - 21px); bottom: auto; width: 190px; min-height: 64px; padding: 8px 12px; transform: translate(-50%, -50%); }
     .ad-welcome-card strong { font-size: 17px; }
