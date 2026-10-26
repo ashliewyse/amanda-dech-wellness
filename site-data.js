@@ -149,25 +149,40 @@
         return response.json();
     }
 
+    function applyContent(content) {
+        applyText(content);
+        applyBackgrounds(content);
+        applyVisibility(content);
+        renderTeam(content);
+        applyContact(content);
+    }
+
+    async function applyLocalPreview() {
+        if (!window.AmandaPreviewStore) return null;
+        try {
+            const preview = await window.AmandaPreviewStore.load();
+            if (preview) applyContent(preview);
+            return preview;
+        } catch {
+            return null;
+        }
+    }
+
     async function loadManagedContent() {
+        const preview = await applyLocalPreview();
         try {
             const [rows, testimonials] = await Promise.all([
                 fetchJson(`/rest/v1/site_content?id=eq.${encodeURIComponent(config.contentRowId)}&select=content`),
                 fetchJson("/rest/v1/testimonials?published=eq.true&permission_confirmed=eq.true&select=quote,display_name&order=sort_order.asc,created_at.asc")
             ]);
             const content = rows[0] && rows[0].content;
-            if (content) {
-                applyText(content);
-                applyBackgrounds(content);
-                applyVisibility(content);
-                renderTeam(content);
-                applyContact(content);
-            }
+            if (content && !preview && !await applyLocalPreview()) applyContent(content);
             renderTestimonials(testimonials);
         } catch (error) {
             console.info("Using the website's built-in content while the editor service is unavailable.");
         }
     }
 
+    if (window.AmandaPreviewStore) window.AmandaPreviewStore.subscribe(applyLocalPreview);
     loadManagedContent();
 })();

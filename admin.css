@@ -273,3 +273,7 @@ input:hover, textarea:hover, select:hover { border-color: #b8aab6; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+.admin-preview-notice { display: flex; align-items: flex-start; flex-direction: column; gap: 8px; margin: 20px clamp(18px, 4vw, 70px) 0; padding: 18px 22px; border: 1px solid #dfbf7f; border-radius: 14px; background: #fff4db; color: #513c24; font-size: 14px; line-height: 1.5; }
+.admin-preview-notice[hidden] { display: none; }
+.admin-preview-notice a { color: #4d3652; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }

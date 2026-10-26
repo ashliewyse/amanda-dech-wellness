@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#6B4E71">
     <title>Website Manager | Amanda Dech</title>
     <link rel="stylesheet" href="upgrade.css">
-    <link rel="stylesheet" href="admin.css?v=photo-crop-20261025">
+    <link rel="stylesheet" href="admin.css?v=photo-sync-20261026">
 </head>
 <body class="ad-admin-body">
     <main id="admin-app">
@@ -40,7 +40,7 @@
                 </a>
                 <nav class="admin-nav" aria-label="Website manager sections">
                     <button class="is-active" type="button" data-panel-target="overview-panel">Overview</button>
-                    <button type="button" data-panel-target="homepage-panel">Homepage</button>
+                    <button type="button" data-panel-target="homepage-panel">Welcome page</button>
                     <button type="button" data-panel-target="staff-panel">Staff</button>
                     <button type="button" data-panel-target="photos-panel">Photos</button>
                     <button type="button" data-panel-target="gallery-panel">Gallery</button>
@@ -59,6 +59,12 @@
                         <button class="admin-text-button" id="signout-button" type="button">Sign out</button>
                     </div>
                 </header>
+
+                <aside class="admin-preview-notice" id="preview-notice" hidden role="status">
+                    <strong>Preview only — these changes are not published.</strong>
+                    <span>Photos and edits here are saved in this browser and appear on the localhost website. To publish them to the live website, open the live dashboard and sign in.</span>
+                    <a href="https://ashliewyse.github.io/amanda-dech-wellness/admin.html" target="_blank" rel="noreferrer">Open live dashboard →</a>
+                </aside>
 
                 <div class="admin-content">
                     <section class="admin-panel is-active" id="overview-panel">
@@ -79,15 +85,12 @@
                     </section>
 
                     <section class="admin-panel" id="homepage-panel" hidden>
-                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Homepage</span><h1>Edit the welcome message</h1><p>These words appear on the first page visitors see.</p></div><button class="admin-primary" type="submit" form="homepage-form">Save homepage</button></div>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Welcome page</span><h1>Edit Amanda’s introduction</h1><p>These words appear on the welcome page linked from the care paths.</p></div><button class="admin-primary" type="submit" form="homepage-form">Save welcome page</button></div>
                         <form id="homepage-form" class="admin-editor-card">
                             <div class="admin-field-grid">
                                 <label class="admin-span-2">Small heading<input name="kicker" maxlength="80"></label>
                                 <label class="admin-span-2">Main welcome headline<textarea name="headline" rows="2" maxlength="140"></textarea></label>
                                 <label class="admin-span-2">Welcome paragraph<textarea name="intro" rows="4" maxlength="600"></textarea></label>
-                                <label>Start-here label<input name="start_label" maxlength="40"></label>
-                                <label>Start-here question<input name="start_heading" maxlength="100"></label>
-                                <label class="admin-span-2">Explanation under the question<input name="start_note" maxlength="180"></label>
                             </div>
                             <hr>
                             <h2>Amanda's introduction</h2>
@@ -122,8 +125,8 @@
                         <div class="admin-heading-row"><div><span class="admin-eyebrow">Photos</span><h1>Replace website photos</h1><p>Choose a clear JPG, PNG, or WebP image under 5 MB. The current filler stays visible until you save a replacement.</p></div></div>
                         <div class="admin-photo-grid">
                             <article class="admin-photo-card" data-photo-card="provider"><div class="admin-photo-preview" data-photo-preview="provider"><span>Amanda's portrait</span></div><div><h2>Amanda welcome photo</h2><p>A vertical or square portrait works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="provider"></label></div></article>
-                            <article class="admin-photo-card" data-photo-card="spa_path"><div class="admin-photo-preview" data-photo-preview="spa_path"><span>Spa Day image</span></div><div><h2>Spa Day path</h2><p>A wide image with room for white text works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="spa_path"></label></div></article>
-                            <article class="admin-photo-card" data-photo-card="medical_path"><div class="admin-photo-preview" data-photo-preview="medical_path"><span>Sick Day image</span></div><div><h2>Sick Day path</h2><p>A wide, welcoming medical image works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="medical_path"></label></div></article>
+                            <article class="admin-photo-card" data-photo-card="spa_path"><div class="admin-photo-preview" data-photo-preview="spa_path"><span>Spa Day image</span></div><div><h2>Spa Day photo</h2><p>Updates both the Spa Day care path and the Spa services banner.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="spa_path"></label></div></article>
+                            <article class="admin-photo-card" data-photo-card="medical_path"><div class="admin-photo-preview" data-photo-preview="medical_path"><span>Sick Day image</span></div><div><h2>Sick Day photo</h2><p>Updates both the Sick Day care path and the Medical Care banner.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="medical_path"></label></div></article>
                             <article class="admin-photo-card" data-photo-card="office"><div class="admin-photo-preview" data-photo-preview="office"><span>Office image</span></div><div><h2>Visit page photo</h2><p>A welcoming photo of the building, entrance, lobby, or treatment space works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="office"></label></div></article>
                             <article class="admin-photo-card" data-photo-card="staff_banner"><div class="admin-photo-preview" data-photo-preview="staff_banner"><span>Staff page banner</span></div><div><h2>Staff page banner</h2><p>A wide team or office image with room for heading text works best.</p><label class="admin-upload">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-input="staff_banner"></label></div></article>
                         </div>
@@ -305,9 +308,10 @@
     </dialog>
 
     <script src="supabase-config.js"></script>
+    <script src="preview-store.js?v=photo-sync-20261026"></script>
     <script src="photo-crop-math.js"></script>
     <script src="photo-crop.js"></script>
     <script src="photo-upload.js"></script>
-    <script src="admin.js?v=photo-crop-20261025"></script>
+    <script src="admin.js?v=photo-sync-20261026"></script>
 </body>
 </html>

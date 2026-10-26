@@ -246,7 +246,8 @@
 
     async function loadContent() {
         if (state.demo) {
-            state.content = clone(fallbackContent);
+            const savedPreview = window.AmandaPreviewStore && await window.AmandaPreviewStore.load().catch(() => null);
+            state.content = mergeContent(clone(fallbackContent), savedPreview);
             normalizeTeamMembers();
             return;
         }
@@ -506,6 +507,7 @@
             ? booking.square_payment_url ? "Booking + pay" : "Booking ready"
             : "Not linked";
         document.getElementById("mode-pill").textContent = state.demo ? "Preview only" : "Connected";
+        document.getElementById("preview-notice").hidden = !state.demo;
         document.getElementById("mode-pill").classList.toggle("is-demo", state.demo);
         document.getElementById("admin-identity").textContent = state.demo ? "Local dashboard preview" : state.user.email;
         document.getElementById("signout-button").textContent = state.demo ? "Exit preview" : "Sign out";
@@ -530,8 +532,9 @@
 
     async function persistContent(successMessage) {
         if (state.demo) {
+            await window.AmandaPreviewStore.save(state.content);
             renderDashboard();
-            showToast(`${successMessage} Preview only—nothing was published.`);
+            showToast(`${successMessage} Saved to this local preview only—not the live website.`);
             return;
         }
         await request(`/rest/v1/site_content?id=eq.${encodeURIComponent(config.contentRowId)}`, {
@@ -559,9 +562,15 @@
         document.querySelector(`[data-photo-preview="${slot}"]`).style.backgroundImage = `url("${previewUrl}")`;
 
         if (state.demo) {
-            setPhotoUrlForSlot(slot, previewUrl);
-            renderDashboard();
-            showToast("Photo previewed. Sign in to save it to the website.");
+            try {
+                const durablePreview = await window.AmandaPreviewStore.photoDataUrl(file);
+                setPhotoUrlForSlot(slot, durablePreview);
+                await persistContent("Photo updated.");
+            } catch (error) {
+                showToast(`Could not save the local preview: ${error.message}`, true);
+            } finally {
+                URL.revokeObjectURL(previewUrl);
+            }
             return;
         }
 
@@ -784,7 +793,7 @@
     document.getElementById("homepage-form").addEventListener("submit", async (event) => {
         event.preventDefault();
         state.content.homepage = { ...state.content.homepage, ...formValues(event.currentTarget) };
-        try { await persistContent("Homepage wording saved."); } catch (error) { showToast(error.message, true); }
+        try { await persistContent("Welcome page wording saved."); } catch (error) { showToast(error.message, true); }
     });
 
     document.getElementById("staff-form").addEventListener("submit", async (event) => {

@@ -537,3 +537,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .ad-center-seal.ad-welcome-card { display: flex; top: calc(50% - 21px); bottom: auto; width: 168px; min-height: 64px; padding: 8px 12px; transform: translate(-50%, -50%); }
     .ad-welcome-card strong { font-size: 15px; }
 }
+
+/* Neutral welcome card complements the existing white Spa and black Medical buttons. */
+.ad-welcome-card { width: 196px; background: #fffdf8; border: 1px solid #27232b; box-shadow: 0 8px 24px rgba(22, 18, 26, .2); }
+.ad-welcome-card strong { color: #211b27; font-size: 18px; font-weight: 800; text-shadow: none; -webkit-text-stroke: 0; }
+.ad-welcome-card > span { color: #3e3845; font-size: 12px; font-weight: 700; text-shadow: none; -webkit-text-stroke: 0; }
+.ad-welcome-card > span > span { color: inherit; }
+.ad-welcome-card:hover { border-color: #211b27; background: #f3efe8; }
+@media (max-width: 900px) {
+    .ad-center-seal.ad-welcome-card { width: 190px; }
+    .ad-welcome-card strong { font-size: 17px; }
+}
+
+.ad-about-summary { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--ad-line); }
+.ad-about-summary h2 { margin: 0 0 10px; font-family: "Playfair Display", Georgia, serif; font-size: 25px; line-height: 1.25; color: var(--ad-ink); }
+.ad-about-summary p { margin: 0 0 15px; color: #637078; font-size: 15px; line-height: 1.7; }
+.ad-about-summary a, .ad-about-service-grid a { color: var(--ad-plum-dark); font-size: 13px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.ad-about-service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 32px; }
+.ad-about-service-grid article { padding: 28px; border: 1px solid var(--ad-line); border-radius: 18px; background: white; }
+.ad-about-service-grid h3 { margin: 0 0 12px; font-family: "Playfair Display", Georgia, serif; color: var(--ad-ink); font-size: 25px; }
+.ad-about-service-grid p { margin: 0 0 18px; color: #637078; font-size: 15px; line-height: 1.7; }
+@media (max-width: 900px) { .ad-about-service-grid { grid-template-columns: 1fr; } }

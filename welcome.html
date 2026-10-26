@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#6B4E71">
     <title>Amanda Dech, FNP-C | Medical, Wellness & Aesthetic Care</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="upgrade.css?v=mobile-nav-20261026-5">
+    <link rel="stylesheet" href="upgrade.css?v=photo-sync-20261026">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&family=Inter:wght@300;400;600&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -19,11 +19,7 @@
 </head>
 <body class="bg-white font-sans text-gray-800 antialiased min-h-screen flex flex-col overflow-y-auto">
 
-    <div class="ad-top-skip">
-        <a href="care-path.html">Returning patient? Skip directly to care paths <span aria-hidden="true">→</span></a>
-    </div>
-
-    <!-- Header / Navbar (Single Header) -->
+<!-- Header / Navbar (Single Header) -->
     <nav class="ad-responsive-header ad-header px-2 py-3 sm:p-4 bg-white/95 backdrop-blur-md flex justify-between items-center sticky top-0 z-40 border-b border-gray-100" aria-label="Main navigation">
         <div class="ad-brand-wrap flex items-center gap-1.5 sm:gap-3">
             <span class="ad-logo-mark" role="img" aria-label="Elite Family heart and stethoscope logo"></span>
@@ -68,15 +64,11 @@
                 <span class="ad-kicker" data-site-text="homepage.kicker">Medical · Wellness · Aesthetics</span>
                 <h1 class="ad-section-title" data-site-text="homepage.headline">Care that feels personal, from the very first hello.</h1>
                 <p class="ad-lead" data-site-text="homepage.intro">Amanda brings medical care, wellness support, and aesthetic services together in one welcoming practice—so caring for yourself can feel comfortable, clear, and refreshingly human.</p>
-                <div class="ad-start-card" aria-labelledby="start-here-title">
-                    <div class="ad-start-copy">
-                        <span class="ad-start-label" data-site-text="homepage.start_label">Start Here</span>
-                        <p id="start-here-title" data-site-text="homepage.start_heading">What brings you in today?</p>
-                        <small data-site-text="homepage.start_note">Choose Medical Care or Spa &amp; Wellness on the next screen.</small>
-                    </div>
-                    <a class="ad-primary-button ad-continue-button" href="care-path.html">Choose Your Care Path <span aria-hidden="true">→</span></a>
+                <div class="ad-about-summary">
+                    <h2>Meet <span data-site-text="staff.primary_name">Amanda Dech, FNP-C</span></h2>
+                    <p data-site-text="staff.primary_bio">Amanda combines attentive medical care, wellness support, and aesthetic services with a warm, practical approach.</p>
+                    <a href="meet-the-staff.html">More about Amanda and the care team <span aria-hidden="true">→</span></a>
                 </div>
-                <a class="ad-start-call" href="tel:2197286562">Prefer to speak with someone? Call the office.</a>
             </div>
             <div class="ad-provider-card" data-site-background="images.provider">
                 <span class="ad-photo-note">Amanda's real portrait will complete this space</span>
@@ -90,6 +82,19 @@
             <div class="ad-trust-item"><strong>Personal</strong><span>Time to be heard</span></div>
             <div class="ad-trust-item"><strong>Clear</strong><span>Upfront self-pay pricing</span></div>
             <div class="ad-trust-item"><strong>Local</strong><span>Care close to home</span></div>
+        </div>
+    </section>
+
+    <section class="ad-section ad-about-services" aria-labelledby="amanda-services-title">
+        <div class="ad-shell">
+            <span class="ad-kicker">What Amanda does</span>
+            <h2 class="ad-section-title" id="amanda-services-title">Medical care, wellness, and aesthetics.</h2>
+            <p class="ad-lead">Different needs, with one familiar provider. Explore the services that fit what brings you to the practice.</p>
+            <div class="ad-about-service-grid">
+                <article><h3>Medical care</h3><p>Primary care, office visits, telehealth, physicals, and follow-up care for everyday health needs.</p><a href="health.html">Explore medical care <span aria-hidden="true">→</span></a></article>
+                <article><h3>Wellness support</h3><p>Consultations and services including weight management, hormone therapy, and IV infusions.</p><a href="spa.html#wellness">Explore wellness services <span aria-hidden="true">→</span></a></article>
+                <article><h3>Aesthetic care</h3><p>Aesthetic consultations, cosmetic injectables, facials, and teeth whitening, with service details to help you understand your options.</p><a href="spa.html">Explore aesthetic services <span aria-hidden="true">→</span></a></article>
+            </div>
         </div>
     </section>
 
@@ -124,6 +129,7 @@
     </nav>
 
     <script src="supabase-config.js"></script>
-    <script src="site-data.js"></script>
+    <script src="preview-store.js?v=photo-sync-20261026"></script>
+    <script src="site-data.js?v=photo-sync-20261026"></script>
 </body>
 </html>
