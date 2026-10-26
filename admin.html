@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#6B4E71">
     <title>Website Manager | Amanda Dech</title>
     <link rel="stylesheet" href="upgrade.css">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin.css?v=photo-crop-20261025">
 </head>
 <body class="ad-admin-body">
     <main id="admin-app">
@@ -282,7 +282,31 @@
     </dialog>
 
     <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
+    <dialog class="admin-photo-dialog admin-crop-dialog" id="photo-crop-dialog" aria-labelledby="photo-crop-title" aria-describedby="photo-crop-status">
+        <form id="photo-crop-form">
+            <button class="admin-dialog-close" id="photo-crop-close" type="button" aria-label="Cancel cropping">×</button>
+            <span class="admin-eyebrow" id="photo-crop-label">Website photo</span>
+            <h1 id="photo-crop-title">Crop and position</h1>
+            <p id="photo-crop-status" role="status">Opening your photo…</p>
+            <div class="admin-crop-stage" id="photo-crop-stage">
+                <canvas id="photo-crop-canvas" width="640" height="480" tabindex="0" aria-label="Photo crop preview. Drag or use arrow keys to reposition." role="img"></canvas>
+                <div class="admin-crop-grid" aria-hidden="true"></div>
+            </div>
+            <div class="admin-crop-controls">
+                <label for="photo-crop-shape">Crop shape<select id="photo-crop-shape"><option value="portrait">Portrait (4:5)</option><option value="square">Square (1:1)</option><option value="landscape">Landscape (4:3)</option><option value="wide">Wide (16:9)</option><option value="original">Original shape</option></select></label>
+                <label for="photo-crop-zoom">Zoom <output id="photo-crop-zoom-value" for="photo-crop-zoom">1.00×</output><input id="photo-crop-zoom" type="range" min="1" max="4" step=".01" value="1"></label>
+            </div>
+            <div class="admin-crop-tools">
+                <div class="admin-crop-move" role="group" aria-label="Reposition photo"><button type="button" data-crop-move="-24,0" aria-label="Move photo left">←</button><button type="button" data-crop-move="0,-24" aria-label="Move photo up">↑</button><button type="button" data-crop-move="0,24" aria-label="Move photo down">↓</button><button type="button" data-crop-move="24,0" aria-label="Move photo right">→</button></div>
+                <button class="admin-text-button" id="photo-crop-reset" type="button">Reset</button>
+            </div>
+            <div class="admin-form-actions admin-dialog-actions"><button class="admin-secondary" id="photo-crop-cancel" type="button">Cancel</button><button class="admin-primary" id="photo-crop-apply" type="submit" disabled>Use photo</button></div>
+        </form>
+    </dialog>
+
     <script src="supabase-config.js"></script>
-    <script src="admin.js"></script>
+    <script src="photo-crop-math.js"></script>
+    <script src="photo-crop.js"></script>
+    <script src="admin.js?v=photo-crop-20261025"></script>
 </body>
 </html>

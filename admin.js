@@ -929,8 +929,16 @@
         photoWarningForm.reset();
         patientPhotoConfirmation.hidden = true;
         photoWarningContinue.disabled = true;
-        await uploadPhoto(approvedPhoto.slot, approvedPhoto.file);
-        approvedPhoto.input.value = "";
+        const portrait = approvedPhoto.slot === "provider" || approvedPhoto.slot === "office" || approvedPhoto.slot === "staff_primary" || approvedPhoto.slot.startsWith("team-member-");
+        const card = approvedPhoto.input.closest("[data-photo-card]");
+        try {
+            const cropped = await window.AmandaPhotoCropper.open(approvedPhoto.file, {
+                aspect: portrait ? 4 / 5 : 16 / 9,
+                label: card && card.querySelector("h2") ? card.querySelector("h2").textContent : "Website photo"
+            });
+            if (cropped) await uploadPhoto(approvedPhoto.slot, cropped);
+        } catch (error) { showToast(error.message, true); }
+        finally { approvedPhoto.input.value = ""; }
     });
 
     const galleryForm = document.getElementById("gallery-form");
@@ -938,6 +946,7 @@
         before_photo: document.getElementById("gallery-before-preview"),
         after_photo: document.getElementById("gallery-after-preview")
     };
+    const galleryFiles = { before_photo: null, after_photo: null };
 
     function clearGalleryForm() {
         Object.values(galleryPreviewTargets).forEach((preview) => {
@@ -947,15 +956,32 @@
             preview.querySelector("small").textContent = preview.id.includes("before") ? "Choose the original photo" : "Choose the result photo";
         });
         galleryForm.reset();
+        galleryFiles.before_photo = null;
+        galleryFiles.after_photo = null;
+        galleryForm.querySelectorAll('input[type="file"]').forEach(input => { input.required = true; });
         galleryForm.hidden = true;
     }
 
-    function previewGalleryFile(input) {
+    async function previewGalleryFile(input) {
         const preview = galleryPreviewTargets[input.name];
         const file = input.files && input.files[0];
         if (!preview || !file) return;
+        input.value = "";
+        let cropped;
+        try {
+            cropped = await window.AmandaPhotoCropper.open(file, {
+                aspect: 4 / 5,
+                fixedAspect: true,
+                label: input.name === "before_photo" ? "Before photo" : "After photo",
+                maxBytes: 20 * 1024 * 1024
+            });
+        } catch (error) { showToast(error.message, true); }
+        input.required = !galleryFiles[input.name];
+        if (!cropped) return;
         if (preview.dataset.objectUrl) URL.revokeObjectURL(preview.dataset.objectUrl);
-        const objectUrl = URL.createObjectURL(file);
+        galleryFiles[input.name] = cropped;
+        input.required = false;
+        const objectUrl = URL.createObjectURL(cropped);
         preview.dataset.objectUrl = objectUrl;
         preview.style.backgroundImage = `linear-gradient(rgba(25,19,28,.08), rgba(25,19,28,.16)), url("${objectUrl}")`;
         preview.querySelector("small").textContent = "Ready to review";
@@ -970,8 +996,8 @@
     galleryForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const formData = new FormData(galleryForm);
-        const beforeFile = galleryForm.elements.namedItem("before_photo").files[0];
-        const afterFile = galleryForm.elements.namedItem("after_photo").files[0];
+        const beforeFile = galleryFiles.before_photo;
+        const afterFile = galleryFiles.after_photo;
         const authorizationConfirmed = formData.get("authorization_confirmed") === "on";
         const privacyChecked = formData.get("privacy_checked") === "on";
         if (!beforeFile || !afterFile || !authorizationConfirmed || !privacyChecked) {
