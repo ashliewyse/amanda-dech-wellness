@@ -177,6 +177,29 @@ input:hover, textarea:hover, select:hover { border-color: #b8aab6; }
 .admin-patient-confirmation > p { margin: 7px 0 0; color: #755a58; font-size: 11px; line-height: 1.6; }
 .admin-patient-confirmation .admin-check { margin-top: 13px; color: #694d4b; }
 .admin-dialog-actions { justify-content: flex-end; }
+.admin-crop-dialog { width: min(760px, calc(100% - 24px)); }
+.admin-crop-dialog form { padding: clamp(22px, 4vw, 32px); }
+.admin-crop-dialog h1 { padding-right: 28px; font-size: clamp(30px, 5vw, 40px); }
+.admin-crop-dialog > form > p { margin: 10px 0 16px; }
+.admin-crop-stage { width: min(100%, 520px, calc(34vh * var(--crop-aspect, 1.333333))); aspect-ratio: var(--crop-aspect, 1.333333); margin: 0 auto 20px; position: relative; overflow: hidden; border-radius: 12px; background: repeating-conic-gradient(#ddd 0% 25%, #f5f5f5 0% 50%) 0 0 / 20px 20px; }
+.admin-crop-stage canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.admin-crop-stage canvas:active { cursor: grabbing; }
+.admin-crop-stage canvas:focus-visible { outline: 3px solid var(--admin-plum); outline-offset: -4px; }
+.admin-crop-grid { position: absolute; inset: 0; border: 1px solid #ffffffb3; border-radius: inherit; pointer-events: none; }
+.admin-crop-grid::before, .admin-crop-grid::after { content: ""; position: absolute; border: 1px solid #ffffff55; }
+.admin-crop-grid::before { top: 0; bottom: 0; left: 33.333%; width: 33.333%; border-block: 0; }
+.admin-crop-grid::after { left: 0; right: 0; top: 33.333%; height: 33.333%; border-inline: 0; }
+.admin-crop-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
+.admin-crop-controls label { color: var(--admin-ink); font-size: 12px; font-weight: 700; }
+.admin-crop-controls select { display: block; width: 100%; min-height: 44px; margin-top: 8px; padding: 8px 12px; border: 1px solid var(--admin-line); border-radius: 10px; background: white; color: var(--admin-ink); font: inherit; }
+.admin-crop-controls input[type="range"] { display: block; width: 100%; min-height: 44px; margin: 8px 0 0; padding: 0; accent-color: var(--admin-plum); cursor: pointer; }
+.admin-crop-controls output { float: right; font-variant-numeric: tabular-nums; color: var(--admin-plum); }
+.admin-crop-tools { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+.admin-crop-move { display: flex; gap: 7px; }
+.admin-crop-move button { width: 44px; height: 44px; border: 1px solid var(--admin-line); border-radius: 50%; color: var(--admin-plum); background: white; font-size: 20px; cursor: pointer; }
+.admin-crop-dialog .admin-dialog-actions { margin-top: 18px; }
+.admin-gallery-file-preview, .admin-gallery-item-images div { aspect-ratio: 4 / 5; }
+@media (max-width: 460px) { .admin-crop-controls { grid-template-columns: 1fr; gap: 8px; } }
 
 .admin-testimonial-form { margin-bottom: 22px; }
 .admin-check { margin-top: 18px; display: flex; align-items: flex-start; gap: 10px; color: #596970; font-size: 12px; font-weight: 600; letter-spacing: 0; line-height: 1.5; }
