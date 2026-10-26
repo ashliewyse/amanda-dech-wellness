@@ -469,3 +469,54 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 480px) {
     .ad-care-page .ad-care-back { display: none; }
 }
+
+/* Native disclosure keeps all pages reachable on phones, including without JavaScript. */
+.ad-mobile-menu { display: none; }
+@media (max-width: 900px) {
+    .ad-responsive-header { flex-wrap: wrap; gap: 10px 14px; }
+    .ad-responsive-header .ad-header-links,
+    .ad-responsive-header .ad-legacy-header-links > a:not([href^="tel:"]),
+    .ad-responsive-header .ad-legacy-header-links > span { display: none; }
+    .ad-mobile-menu { display: block; flex: 0 0 100%; min-width: 0; border-top: 1px solid var(--ad-line); padding-top: 6px; }
+    .ad-mobile-menu > summary { display: flex; align-items: center; justify-content: flex-end; gap: 8px; min-height: 44px; padding: 8px 12px; color: var(--ad-plum-dark); font: 700 14px/1.4 Inter, sans-serif; list-style: none; cursor: pointer; border-radius: 8px; touch-action: manipulation; }
+    .ad-mobile-menu > summary::-webkit-details-marker { display: none; }
+    .ad-mobile-menu > summary:focus-visible { outline: 3px solid #c98dba; outline-offset: 2px; }
+    .ad-mobile-menu[open] > summary { background: #f4edf5; }
+    .ad-mobile-menu-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 8px 0; max-height: 55dvh; overflow-y: auto; }
+    .ad-mobile-menu-links a { display: flex; align-items: center; min-height: 48px; padding: 10px 12px; border: 1px solid var(--ad-line); border-radius: 8px; background: white; color: var(--ad-ink); font: 600 13px/1.4 Inter, sans-serif; text-decoration: none; overflow-wrap: anywhere; }
+    .ad-mobile-menu-links a:hover, .ad-mobile-menu-links a[aria-current="page"] { background: #f4edf5; color: var(--ad-plum-dark); border-color: #c7afca; }
+}
+@media (max-width: 380px) {
+    .ad-responsive-header { column-gap: 8px; padding-inline: 10px !important; }
+    .ad-responsive-header .ad-brand-wrap { min-width: 0; gap: 5px; }
+    .ad-responsive-header h1, .ad-responsive-header strong { font-size: 16px; }
+    .ad-responsive-header .ad-logo-mark { width: 40px; flex-basis: 40px; }
+    .ad-responsive-header .ad-legacy-header-links { gap: 0; }
+}
+
+@media (max-width: 900px) {
+    .ad-care-page { display: flex; flex-direction: column; overflow-y: auto; }
+    .ad-care-page .ad-care-header { height: auto; flex: 0 0 auto; }
+    .ad-care-page .ad-care-duo { height: auto; flex: 1 0 auto; min-height: 440px; }
+}
+
+.ad-welcome-invite { min-height: 82px; display: flex; align-items: center; justify-content: center; gap: 24px; padding: 12px 24px; background: #f4edf5; border-bottom: 1px solid #dfcde2; color: var(--ad-plum-dark); }
+.ad-welcome-invite strong { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 21px; }
+.ad-welcome-invite p { margin: 2px 0 0; font-size: 12px; }
+.ad-welcome-invite a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; padding: 10px 18px; border-radius: 999px; background: var(--ad-plum); color: white; font-size: 12px; font-weight: 700; text-decoration: none; }
+.ad-care-page .ad-care-duo { height: calc(100svh - 160px); }
+@media (max-width: 1100px) and (min-width: 901px) {
+    .ad-care-header { gap: 12px; padding-inline: 16px !important; }
+    .ad-care-header .ad-header-links { gap: 12px; }
+    .ad-care-header .ad-header-links a { font-size: 11px; }
+    .ad-care-header-actions { gap: 10px; }
+}
+@media (max-width: 900px) {
+    .ad-care-page .ad-care-duo { flex-direction: column; height: auto; }
+    .ad-welcome-invite { flex: 0 0 auto; gap: 12px; padding: 12px 16px; }
+}
+@media (max-width: 600px) {
+    .ad-welcome-invite { text-align: center; flex-direction: column; gap: 8px; }
+    .ad-welcome-invite strong { font-size: 20px; }
+    .ad-welcome-invite a { width: 100%; max-width: 320px; }
+}
