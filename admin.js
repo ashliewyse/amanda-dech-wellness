@@ -527,7 +527,61 @@
             panel.classList.toggle("is-active", active);
         });
         document.querySelectorAll("[data-panel-target]").forEach((button) => button.classList.toggle("is-active", button.dataset.panelTarget === panelId));
+        if (panelId === "history-panel") void loadContentHistory();
         window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    async function loadContentHistory() {
+        const list = document.getElementById("content-history-list");
+        if (state.demo) {
+            list.textContent = "Save history is available after signing in to the live dashboard.";
+            return;
+        }
+        list.textContent = "Loading saved versions…";
+        try {
+            const versions = await request(`/rest/v1/site_content_history?content_id=eq.${encodeURIComponent(config.contentRowId)}&select=id,saved_at&order=id.desc&limit=25`, { headers: headers(true) });
+            list.replaceChildren();
+            if (!versions.length) {
+                list.textContent = "No earlier saved versions yet. The next website edit will create one automatically.";
+                return;
+            }
+            versions.forEach((version) => {
+                const row = document.createElement("div");
+                row.style.cssText = "display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #ddd;";
+                const label = document.createElement("span");
+                label.textContent = new Date(version.saved_at).toLocaleString();
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "admin-secondary";
+                button.textContent = "Restore";
+                button.addEventListener("click", () => restoreContentVersion(version.id));
+                row.append(label, button);
+                list.append(row);
+            });
+        } catch (error) {
+            list.textContent = "Could not load saved versions: " + error.message;
+        }
+    }
+
+    async function restoreContentVersion(id) {
+        if (state.demo) return;
+        if (!window.confirm("Restore this website version? Your current content will be saved in history first. Unsaved edits will be lost.")) return;
+        try {
+            const versions = await request(`/rest/v1/site_content_history?id=eq.${encodeURIComponent(id)}&content_id=eq.${encodeURIComponent(config.contentRowId)}&select=content`, { headers: headers(true) });
+            if (versions.length !== 1) throw new Error("This saved version is no longer available.");
+            const restored = versions[0].content;
+            await request(`/rest/v1/site_content?id=eq.${encodeURIComponent(config.contentRowId)}`, {
+                method: "PATCH",
+                headers: headers(true, { "Content-Type": "application/json", Prefer: "return=representation" }),
+                body: JSON.stringify({ content: restored, updated_at: new Date().toISOString(), updated_by: state.user.id })
+            });
+            await loadContent();
+            renderDashboard();
+            await loadContentHistory();
+            showToast("Previous website version restored.");
+        } catch (error) {
+            showToast("Restore failed: " + error.message, true);
+        }
     }
 
     async function persistContent(successMessage) {
@@ -734,6 +788,16 @@
         renderTestimonials();
         showToast(state.demo ? "Testimonial removed from the preview." : "Testimonial deleted.");
     }
+
+    document.getElementById("refresh-history").addEventListener("click", loadContentHistory);
+    document.getElementById("undo-last-change").addEventListener("click", async () => {
+        if (state.demo) return;
+        try {
+            const versions = await request(`/rest/v1/site_content_history?content_id=eq.${encodeURIComponent(config.contentRowId)}&select=id&order=id.desc&limit=1`, { headers: headers(true) });
+            if (!versions.length) return showToast("No previous saved version exists yet.", true);
+            await restoreContentVersion(versions[0].id);
+        } catch (error) { showToast(error.message, true); }
+    });
 
     loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
