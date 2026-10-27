@@ -46,6 +46,7 @@
                     <button type="button" data-panel-target="gallery-panel">Gallery</button>
                     <button type="button" data-panel-target="testimonials-panel">Testimonials</button>
                     <button type="button" data-panel-target="contact-panel">Contact &amp; booking</button>
+                    <button type="button" data-panel-target="history-panel">Save history</button>
                     <button type="button" data-panel-target="launch-panel">Launch review</button>
                 </nav>
                 <div class="admin-sidebar-note"><strong>Keep it public.</strong><span>This manager is only for words and images that belong on the public website.</span></div>
@@ -212,6 +213,15 @@
                         </form>
                     </section>
 
+                    <section class="admin-panel" id="history-panel" hidden>
+                        <div class="admin-heading-row"><div><span class="admin-eyebrow">Website recovery</span><h1>Undo website changes</h1><p>Every saved website content change keeps the previous version. Restoring one also saves the current version, so you can undo a restore.</p></div><button class="admin-secondary" id="refresh-history" type="button">Refresh history</button></div>
+                        <div class="admin-editor-card">
+                            <button class="admin-primary" id="undo-last-change" type="button">Undo last saved change</button>
+                            <p class="admin-safety-note">Only website content is restored. This does not change logins, employee accounts, testimonials, gallery records, or patient information. Uploaded image files are not deleted.</p>
+                            <h2>Previous saved versions</h2>
+                            <div id="content-history-list" aria-live="polite">Open this section to load saved versions.</div>
+                        </div>
+                    </section>
                     <section class="admin-panel" id="launch-panel" hidden>
                         <div class="admin-heading-row"><div><span class="admin-eyebrow">Before going live</span><h1>Final launch review</h1><p>Amanda should personally compare these items with her current practice information before the website is published.</p></div><button class="admin-primary" type="submit" form="launch-form">Save review</button></div>
                         <form id="launch-form" class="admin-editor-card admin-launch-form">
